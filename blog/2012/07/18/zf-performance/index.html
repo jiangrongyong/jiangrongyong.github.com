@@ -7,47 +7,46 @@
 	<meta name="author" content="rongyong jiang">
 
 	
-	<meta name="description" content="Zf性能测试 背景 在最近一次压力测试中，发现zend framework框架的性能很差，请求一上来cpu就瞬间100%，而且qps很很不理想 实测 两台服务器负载均衡情况下，使用ab的测试情况，测试程序使用zend framework打印hello world，cpu瞬间60% ab -c &hellip;">
+	<meta name="description" content="背景 在最近一次压力测试中，发现zend framework框架的性能很差，请求一上来cpu就瞬间100%，而且qps很很不理想 实测 两台服务器负载均衡情况下，使用ab的测试情况，测试程序使用zend framework打印hello world，cpu瞬间60% ab -c 10 -n &hellip;">
 	
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<link href="/atom.xml" rel="alternate" title="Hugh Blog" type="application/atom+xml">
-	
-	<link rel="canonical" href="http://jiangrongyong.github.com/blog/2012/07/18/zf-performance/">
+	<link rel="canonical" href="">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
-	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+	
 </head>
 
-
 <body>
-	<div class="container">
-		<div class="left-col">
-			<div class="intrude-less">
-			<header id="header" class="inner"><div class="profilepic">	
-	<script src="/javascripts/md5.js"></script>
-	<script type="text/javascript">
-		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("jiangrongyong@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;'");
-	</script>
-</div>
-<h1><a href="/">Hugh Blog</a></h1>
-<p class="subtitle">a hacker.</p>
-<nav id="main-nav"><ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+	<header id="header" class="inner"><h1><a href="/">Hugh Blog</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
 </ul>
 </nav>
-<nav id="sub-nav">
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:jiangrongyong.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
 	<div class="social">
 		
 		
@@ -57,6 +56,7 @@
 		
 		<a class="github" href="https://github.com/jiangrongyong" title="GitHub">GitHub</a>
 		
+    
 		
 		
 		
@@ -65,25 +65,19 @@
 		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
 		
 	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:jiangrongyong.github.com">
+	</form>
 </nav>
-<hgroup>
-  <h1><a href="/">Hugh Blog</a></h1>
-  
-    <h2>a hacker.</h2>
-  
-</hgroup>
 
-</header>				
-			</div>
-		</div>	
-		<div class="mid-col">
-			
-				
-			
-			<div class="mid-col-container">
-				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="title" itemprop="name">Zf性能测试</h1>
-	<div class="entry-content" itemprop="articleBody"><h1>背景</h1>
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Zf性能测试</h2>
+	<div class="entry-content"><h1>背景</h1>
 
 <p>在最近一次压力测试中，发现zend framework框架的性能很差，请求一上来cpu就瞬间100%，而且qps很很不理想</p>
 
@@ -177,7 +171,28 @@ Percentage of the requests served within a certain time (ms)
 </code></pre>
 </div>
 
-</article>
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T00:00:00+00:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/07/18/zf-performance/#disqus_thread">Comments</a></div>
+	
+</div></article>
 
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
@@ -195,14 +210,12 @@ Percentage of the requests served within a certain time (ms)
 
 
 </div>
-			</div>
-			<footer id="footer" class="inner"><p>
-  Copyright &copy; 2013 - rongyong jiang -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+	<footer id="footer" class="inner">Copyright &copy; 2013
 
-Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
-			<script src="/javascripts/slash.js"></script>
+    rongyong jiang
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
 <script src="/javascripts/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
@@ -228,8 +241,5 @@ Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Sha
 
 
 
-
-		</div>
-	</div>
 </body>
 </html>
