@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>关于PHP数组合并 - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="关于PHP数组合并 Dec 11th, 2012 The union operator did not behave as I thought it would on first glance. It
+implements a union (of sorts) based on the keys &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jiangrongyong.github.com/blog/2012/12/11/php-arraymerge">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jiangrongyong.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">关于PHP数组合并</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-11T00:00:00+00:00" pubdate data-updated="true">Dec 11<span>th</span>, 2012</time></p>
+  </header>
+  
+  <blockquote><p>The union operator did not behave as I thought it would on first glance. It
+implements a union (of sorts) based on the keys of the array, not on the values.</p></blockquote>
+
+<p><em>PHP中合并操作符&#8221;+&#8221;跟我的第一印象认为的不太一样，它是基于key集合实现的数组合并，并不是value</em></p>
+
+<p>For instance:</p>
+
+<pre><code>&lt;?php
+    $a = array('one','two');
+    $b=array('three','four','five');
+
+    //not a union of arrays' values
+    echo '$a + $b : ';
+    print_r ($a + $b);
+
+    //a union of arrays' values
+    echo "array_unique(array_merge($a,$b)):";
+    // cribbed from http://oreilly.com/catalog/progphp/chapter/ch05.html
+    print_r (array_unique(array_merge($a,$b)));
+?&gt;
+</code></pre>
+
+<p>output</p>
+
+<pre><code>$a + $b : Array
+(
+    [0] =&gt; one
+    [1] =&gt; two
+    [2] =&gt; five
+)
+
+array_unique(array_merge(Array,Array)):Array
+(
+    [0] =&gt; one
+    [1] =&gt; two
+    [2] =&gt; three
+    [3] =&gt; four
+    [4] =&gt; five
+)
+</code></pre>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-11T00:00:00+00:00" pubdate data-updated="true">Dec 11<span>th</span>, 2012</time>
+        
+
+
+      </p>
+      
+        <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jiangrongyong.github.com/blog/2012/12/11/php-arraymerge/" data-via="" data-counturl="http://jiangrongyong.github.com/blog/2012/12/11/php-arraymerge/" >Tweet</a>
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/28/gearman/">gearman</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ip-proxy/">Ip转发</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/02/nginx-ssl/">配置nginx https</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/31/youtube-dl/">OS X下载youtube视频</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/27/respberry-pi/">Respberry Pi</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

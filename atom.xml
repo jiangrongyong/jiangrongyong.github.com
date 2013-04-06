@@ -2,15 +2,438 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2013-04-06T17:19:29+00:00</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
+  <link href="http://jiangrongyong.github.com/"/>
+  <updated>2013-04-06T18:04:32+00:00</updated>
+  <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[gearman]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/02/28/gearman/"/>
+    <updated>2013-02-28T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/02/28/gearman</id>
+    <content type="html"><![CDATA[<p>任务分发 Gearman</p>
+
+<p><a href="http://www.cppblog.com/guojingjia2006/archive/2013/01/07/197076.html">http://www.cppblog.com/guojingjia2006/archive/2013/01/07/197076.html</a></p>
+
+<p><a href="http://blog.csdn.net/aidenliu/article/details/7406390">http://blog.csdn.net/aidenliu/article/details/7406390</a></p>
+
+<p><a href="http://timyang.net/linux/gearman-monitor/">http://timyang.net/linux/gearman-monitor/</a></p>
+
+<p><a href="http://blog.s135.com/dips/2/1/">http://blog.s135.com/dips/2/1/</a></p>
+
+<p><a href="http://gearman.org/">http://gearman.org/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ip转发]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/02/18/ip-proxy/"/>
+    <updated>2013-02-18T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/02/18/ip-proxy</id>
+    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/shyodx/article/details/7977432">http://blog.csdn.net/shyodx/article/details/7977432</a></p>
+
+<p><a href="http://hintsforums.macworld.com/showthread.php?t=132108">http://hintsforums.macworld.com/showthread.php?t=132108</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[配置nginx https]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/02/02/nginx-ssl/"/>
+    <updated>2013-02-02T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/02/02/nginx-ssl</id>
+    <content type="html"><![CDATA[<p><code>http://blog.creke.net/762.html</code></p>
+
+<p>实测可行！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OS X下载youtube视频]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/01/31/youtube-dl/"/>
+    <updated>2013-01-31T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/01/31/youtube-dl</id>
+    <content type="html"><![CDATA[<p>首先上youtube必须先打开vpn</p>
+
+<p>然后到视频页面，如<code>http://www.youtube.com/watch?v=kUT1Z3F2nLE</code></p>
+
+<p>先安装brew，<code>ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"</code></p>
+
+<p>再安装youtube-dl，<code>brew install youtube-dl</code></p>
+
+<p>然后下载视频，<code>youtube-dl http://www.youtube.com/watch?v=kUT1Z3F2nLE</code></p>
+
+<p>下载完成后，可以发现视频文件名为<code>kUT1Z3F2nLE.flv</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Respberry Pi]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/27/respberry-pi/"/>
+    <updated>2012-12-27T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/27/respberry-pi</id>
+    <content type="html"><![CDATA[<ul>
+<li><a href="http://www.shumeipai.net/forum.php">树莓派论坛</a></li>
+<li><a href="http://geekpi.cn/blog/2012/10/1758">打望两江</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[转型与超越]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/27/kingsoft-2012/"/>
+    <updated>2012-12-27T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/27/kingsoft-2012</id>
+    <content type="html"><![CDATA[<p>各位同事，</p>
+
+<p>匆匆又一年。还有不到一星期的时间，荏苒的时光便将翻过2012年这一页。展现在我们眼前的起跑线，是全新的2013。</p>
+
+<p>每到年终，有必要对过往12个月里的得与失做出简要的回顾与总结。作为CEO，首先我想代表整个金山公司管理层，感谢全体员工在2012年里付出的努力。你们是公司的砥柱与骄傲，我诚挚地期望，你们也能同样感到骄傲，因为你们在为金山奉献才智与心力的同时，见证并参与了公司的转型和进化。</p>
+
+<p>2012这一年对金山从PC软件走向移动互联网，走向云端、从“传统”走向新起点来说至为重要。我们取得了令投资者、产业同仁及亿万用户为之瞩目的成绩。1个月前，我们发布了第三季度业绩公报，营收同比增幅超五成——而且这是在过往两个季度持续增长基础上的再度进步。</p>
+
+<p>更让我感到欣喜的是，我们的互动娱乐、办公软件、互联网安全、云服务四大业务表现出了齐头并进的好势头：
+金山游戏团队频频发力。已有品牌积淀的产品焕发了新春，《剑网三》的PCU和收入在2012翻了一番。西山居、鲸彩，亚丁和七尘斋共有四款新游戏上线，特别是风格迥异的《麻辣江湖》，显现出了极大的市场潜力。更令人兴奋的是我们已有一款网页游戏和三款手机游戏上线，迈出了我们向页游和手游业务转型的第一步。</p>
+
+<p>金山互联网安全产品的用户数量已达1.5亿，同时流量和月收入也创造了历史记录，增速达到互联网公司的应有水平，猎豹浏览器和毒霸手机版的发布都在从不缺新闻的中国互联网行业掀起了巨大的波澜。
+被视为金山品牌的代表性符号之一——WPS在过去一年里成功实现了飞跃。无论是创造的营收，还是超千万的PC版活跃用户数量、逾3000万的Android版下载次数，均达到了历史最高水平。</p>
+
+<p>此外，词霸手机版用户增速也同样令人满意。同时，作为金山探索云端的先锋部队，金山云团队日以继夜的辛勤工作得到了回报。快盘服务已吸纳了2000万注册用户，稳居行业首位。</p>
+
+<p>这样的成绩无疑表明，我们制定的子公司化与MBO战略、我们坚执的“重创业、再上路”主张是正确的。在此我也想强调，尽管金山正在以主动的转型应对产业和市场的变化，但我们也有不变的品质，那就是25年来持续积淀、日益深厚的文化：梦想、正直、责任。</p>
+
+<p>值得一提的是，金山的增长是在整个中国经济被寒潮侵袭，股市萧条的背景下实现的，我们做到了真正意义上的逆势而上，这是最艰难但也最让人自豪的成就。</p>
+
+<p>2012对于中国经济和IT互联网产业的发展来说都是极具挑战性的一年，很多公司遇到了困难——多年来，信息技术相关行业一直存在着某种规则：就像滑雪，再有经验的选手，一旦丧失了方向感和敏捷性，那便极有可能在转弯处摔倒，甚至于堕入悬崖。二十年前的苹果就曾经历过这样的迷失。而在2012年，一些未能及时转型、进化的个人电脑制造商和软件开发商们被巨大的压力压制得举步维艰。业务的停滞不前、下滑的市场份额和营收让不少厂商感到焦虑，甚至使先前引领行业和用户需求的行业巨头们也不得不思考对策、加速求变。与这些同行相比，金山的转型既及时又迅速——尽管我们自身也肩负着许多挑战：有的来自于竞争对手的无底线竞争，有的来自于网络游戏产业的放缓，有的来自于企业转型进程中的阵痛。</p>
+
+<p>正是在这样严峻的整体形势下，我们初步实现了由软件向互联网，由桌面向移动的转型。这绝不简单，需要从核心团队到每一位同事都以新的思维、新的模式管理和开发我们的产品和业务。</p>
+
+<p>正因为这样，在写这封邮件时，我感到由衷的喜悦和自豪。决定加入金山与各位同事并肩战斗之前，我曾在脑海里设想过一些困难的场景，但当我真正深入金山，我发现首先公司的研发实力、研发团队超出了我的预期，其次是员工的韧性和勇敢拥抱变化、再创业的基因超出了我的预期。这一切都使得金山的转型——包括管理、业务模式、产品开发流程的调整到位比想象中更顺利和迅疾，也让我有更多的时间来思考公司未来。</p>
+
+<p>那么，未来会怎样？尽管取得了很大的成绩，但也要承认，金山与中国顶尖、世界一流的应用软件和互联网开发商相比还有着比较大的差距，而且在新的一年里，我们身处的竞争环境会更残酷——看到了与以往不同的新金山，预计竞争对手会对我们给予更多的重视和“关照”。即便如此，我和整个金山管理团队仍然期待着，勤奋的金山人不只能推动公司继续以互联网速度快速前进，还能在各个业务领域逐步建立起优势、进而脱颖胜出。为实现更宏伟的目标，我们将在市场开拓、技术创新、产品品质、服务水平方面投入更大的资源，以确保行业领先者的地位。我们也希望各子公司能充分挖掘和释放协同效应，形成更大的合力，就像WPS与快盘、西山居与金山网络那样，同时在公司层面，金山也会不断加强与小米等兄弟品牌的协作。</p>
+
+<p>我相信2013年的金山将延续业务的增势，同时在一些快速成长的市场领域实现用户数量与市场份额的提升；我相信公司的发展、业务规模的扩大也能为每一位金山员工创造更丰富的发展机遇和更舒适的成长空间；我相信公司在即将过去的龙年所取得的业绩也能体现在我们的年终奖金里……
+最后，提前祝大家新年快乐！</p>
+
+<p>张宏江</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[TermKit, 图形化的Linux终端]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/26/termkit/"/>
+    <updated>2012-12-26T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/26/termkit</id>
+    <content type="html"><![CDATA[<p><a href="http://www.leonzhang.com/2011/05/24/termkit/">TermKit, 图形化的Linux终端</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[nohup]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/26/nohup/"/>
+    <updated>2012-12-26T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/26/nohup</id>
+    <content type="html"><![CDATA[<pre><code>nohup jitter coffee static/js &gt; jitter.log 2&gt;&amp;1 &amp;
+</code></pre>
+
+<p>nohup是个很有用的命令 , 可以让程序在当前窗口关了之后也继续运行</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[磁盘目录占用空间计算排序工具 - ncdu]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/26/ncdu/"/>
+    <updated>2012-12-26T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/26/ncdu</id>
+    <content type="html"><![CDATA[<h3>安装</h3>
+
+<pre><code>sudo port install ncdu
+</code></pre>
+
+<h3>使用方法</h3>
+
+<p>执行ncdu会提示选择目录，输入目标目录，回车，即可列出当前目录下的文件及目录的大小，默认按照大小进行排序</p>
+
+<p>可以使用“?”调出帮助菜单</p>
+
+<p>使用数字键，1、2、3进行切换，1为快捷键，2为显示格式说明，3为ncdu版权信息。</p>
+
+<p>Example</p>
+
+<p>查看当前目录磁盘使用情况</p>
+
+<pre><code>ncdu .
+</code></pre>
+
+<p>显示效果</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>--- /Users/jiangrongyong/Program/game-data-import -------------------------------
+</span><span class='line'>   24.3MiB [##########] /.git                                                                                                                                                      
+</span><span class='line'>   23.4MiB [######### ] /target
+</span><span class='line'>  116.0KiB [          ] /src
+</span><span class='line'>   12.0KiB [          ]  pom.xml
+</span><span class='line'>   12.0KiB [          ] /.settings
+</span><span class='line'>    4.0KiB [          ]  .classpath
+</span><span class='line'>    4.0KiB [          ]  .project
+</span><span class='line'>    4.0KiB [          ]  README
+</span><span class='line'>    4.0KiB [          ]  start.sh
+</span><span class='line'>    4.0KiB [          ]  .gitignore</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>常用快捷键</h4>
+
+<p>n ：按文件名进行排序</p>
+
+<p>s ：按文件大小进行排序</p>
+
+<p>r ：重新统计当前文件夹大小</p>
+
+<p>g ：用#或百分比显示各文件/目录的大小所占的百分比</p>
+
+<p>i ：显示当前文件/目录信息</p>
+
+<p>d ：删除</p>
+
+<pre><code>ncdu /
+</code></pre>
+
+<p>可以看整个硬盘的空间使用</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[log.io 实时日志监控工具]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/26/log-io/"/>
+    <updated>2012-12-26T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/26/log-io</id>
+    <content type="html"><![CDATA[<p><a href="http://vpsee.42qu.com/po/blog/10758321">安装 log.io 实时日志监控工具</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[业界新闻媒体收集]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/26/it-news/"/>
+    <updated>2012-12-26T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/26/it-news</id>
+    <content type="html"><![CDATA[<ul>
+<li><a href="http://tech2ipo.com/">创见</a></li>
+<li><a href="http://www.pingwest.com/">pingwest</a></li>
+<li><a href="http://www.chuangyejia.com/">创业家</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress blog]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/25/octopress/"/>
+    <updated>2012-12-25T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/25/octopress</id>
+    <content type="html"><![CDATA[<blockquote><p>Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of. Simply clone or fork Octopress, install dependencies and the theme, and you’re set.</p></blockquote>
+
+<p>相关资料</p>
+
+<ul>
+<li><p><a href="http://stackoverflow.com/questions/12119138/failed-to-build-gem-native-extension-when-install-redcloth-4-2-9-install-linux">Failed to build gem native extension when install RedCloth-4.2.9 install Linux</a></p>
+
+<pre><code>  $ sudo ln -s /usr/bin/gcc /usr/bin/gcc-4.2
+  $ bundle install
+</code></pre></li>
+<li><p><a href="http://octopress.org/docs/setup/rvm/">Installing Ruby With RVM</a></p></li>
+<li><p><a href="https://github.com/imathis/octopress/issues/232">Octopress中文问题</a></p>
+
+<pre><code>  修改文件/home/ben/.rvm/gems/ruby-1.9.2-p290/gems/jekyll-0.11.0/lib/jekyll/convertible.rb
+
+  self.content = File.read(File.join(base, name))
+  # 改成
+  self.content = File.read(File.join(base, name), :encoding =&gt; "utf-8")
+</code></pre></li>
+<li><p><a href="http://songxiaofeng1981.github.com/blog/2012/10/16/octopress-recipe/">Octopress 乱码解决方法,以及云同步方法</a></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[本少爷下厨(3)]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/23/3rd-lunch/"/>
+    <updated>2012-12-23T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/23/3rd-lunch</id>
+    <content type="html"><![CDATA[<p>节瓜荷包蛋滚汤</p>
+
+<p><img src="http://free-will.me/media/images/3rd-lunch.jpg" alt="lunch" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SwitchHost一款好用的跨平台切换hosts工具]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/21/SwitchHost/"/>
+    <updated>2012-12-21T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/21/SwitchHost</id>
+    <content type="html"><![CDATA[<p>https://github.com/oldj/SwitchHosts</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[sudo 不用输入密码]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/18/sudo-without-password/"/>
+    <updated>2012-12-18T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/18/sudo-without-password</id>
+    <content type="html"><![CDATA[<pre><code>sudo vim /etc/sudoers
+me2 ALL = NOPASSWD: ALL #me2用户sudo时不用输入密码
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SVN常用操作]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/16/svn/"/>
+    <updated>2012-12-16T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/16/svn</id>
+    <content type="html"><![CDATA[<h3>一次性把所有未入库文件add</h3>
+
+<pre><code>svn status|grep "?"|awk '{print $2}'|xargs svn add
+</code></pre>
+
+<h3>对变化文件做处理</h3>
+
+<pre><code>svn status|awk '{print $2}'|while read line;
+do
+    // do something...
+    cp $line $DEPLOY_DIR/$line
+done
+</code></pre>
+
+<h3>通过PHP执行svn命令，如果文件名包含中文，会导致<code>svn up</code>失败，解决方法是在执行脚本前先设置字符集编码</h3>
+
+<pre><code>export LC_ALL=zh_CN.UTF-8;export LANG=en_US.UTF-8;
+</code></pre>
+
+<h3>svn忽略列表</h3>
+
+<pre><code>svn ps svn:ignore --file .svnignore .
+</code></pre>
+
+<h3>清空.svn文件夹</h3>
+
+<pre><code>find . -type d -name ".svn"|xargs rm -rf
+</code></pre>
+
+<h3>列出svn变化文件</h3>
+
+<blockquote><p><a href="http://blog.lysender.com/2010/11/svn-list-modified-files-between-revisions/">http://blog.lysender.com/2010/11/svn-list-modified-files-between-revisions/</a></p></blockquote>
+
+<pre><code>svn diff --summarize -r717:726
+svn log -r717:726 -q -v | grep "   M" | sort -u
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ssh 不用输入密码]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/16/ssh-without-password/"/>
+    <updated>2012-12-16T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/16/ssh-without-password</id>
+    <content type="html"><![CDATA[<ul>
+<li><p>Step 1.生成ssh公钥和密钥</p>
+
+<pre><code>  ssh-keygen -t rsa
+</code></pre></li>
+<li><p>Step 2.上传公钥文件到远程服务器,生成authorized_keys文件</p>
+
+<pre><code>  scp ~/.ssh/id_rsa.pub root@10.20.229.145/root/.ssh/authorized_keys
+</code></pre></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP curl发送cookie]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/16/php-curl-cookie/"/>
+    <updated>2012-12-16T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/16/php-curl-cookie</id>
+    <content type="html"><![CDATA[<p>如果需要实现程序自动登录功能，涉及到curl时发送cookie</p>
+
+<p>关键方法</p>
+
+<ul>
+<li><code>curl_setopt($curl, CURLOPT_HEADER, TRUE);</code>设置返回response header</li>
+<li><code>curl_setopt($curl, CURLOPT_COOKIE, $cookie);</code>设置发送的cookie内容</li>
+</ul>
+
+
+<h3>Demo</h3>
+
+<p>该方法发送请求时，获取response header中的Set-Cookie参数，获得PHPSESSID的值</p>
+
+<pre><code>private function go_login_page() {
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $this-&gt;login_page_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($curl, CURLOPT_HEADER, TRUE);
+    $content = curl_exec($curl);
+    preg_match('/^Set-Cookie: PHPSESSID=(.*?);/m', $content, $this-&gt;phpsessid);
+    curl_close($curl);
+}
+</code></pre>
+
+<p>请求登录接口，并把上一个请求中返回的cookie信息带到该请求中</p>
+
+<pre><code>private function go_login() {
+    $curl = curl_init();
+    $cookie = "PHPSESSID=" . $this-&gt;phpsessid;
+    $post_data = 'username=xx&amp;password=xx';
+
+    curl_setopt($curl, CURLOPT_COOKIE, $cookie);
+    curl_setopt($curl, CURLOPT_URL, $this-&gt;go_login);
+    curl_setopt($curl, CURLOPT_POST, TRUE);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($curl, CURLOPT_HEADER, FALSE);
+    $content = curl_exec($curl);
+    curl_close($curl);
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[云端IDE:cloud9]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/16/cloud9-ide/"/>
+    <updated>2012-12-16T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/16/cloud9-ide</id>
+    <content type="html"><![CDATA[<p><a href="https://c9.io/">Cloud9</a>是一个在线IDE，通过它在可以云端coding，甚至debug，支持直接导入Github和Bitbucket工程，而且代码开源，托管在Github，<a href="https://github.com/ajaxorg/cloud9/">项目地址</a>，很方便在内网部署，还可以在网页IDE中执行git命令。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[本少爷下厨(2)]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2012/12/15/2nd-lunch/"/>
+    <updated>2012-12-15T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2012/12/15/2nd-lunch</id>
+    <content type="html"><![CDATA[<p>劲抄白菜</p>
+
+<p><img src="http://free-will.me/media/images/2nd-lunch.jpg" alt="lunch" /></p>
+]]></content>
+  </entry>
   
 </feed>
