@@ -1,0 +1,9 @@
+---
+layout: page
+title: 云端IDE:cloud9
+tags: Cloud9
+
+---
+
+[Cloud9](https://c9.io/)是一个在线IDE，通过它在可以云端coding，甚至debug，支持直接导入Github和Bitbucket工程，而且代码开源，托管在Github，[项目地址](https://github.com/ajaxorg/cloud9/)，很方便在内网部署，还可以在网页IDE中执行git命令。
+

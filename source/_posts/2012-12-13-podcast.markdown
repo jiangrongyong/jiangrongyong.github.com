@@ -1,0 +1,11 @@
+---
+layout: page
+title: 推荐Podcast
+tags: Podcast
+
+---
+### Apple
+
+* [Tiny4Voice](https://itunes.apple.com/cn/podcast/tiny4voice/id400000696?mt=2)，[@tinyfool](http://weibo.com/tinyfool)大叔的Podcast，话题主要围绕程序员、天朝、创业和Apple。
+* [ibuick , italk](https://itunes.apple.com/cn/podcast/ibuick-italk/id543511354?mt=2)，[@ibuick](http://weibo.com/ibuick)的Podcast，主要介绍大别在编程、学习和思考的一些经验总结。
+* [友的聊播客](https://itunes.apple.com/cn/podcast/you-de-liao-bo-ke/id493254305?mt=2)，最近在听，更新很快，科技+闲聊，主要是苹果

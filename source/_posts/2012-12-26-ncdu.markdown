@@ -1,0 +1,59 @@
+---
+layout: post
+title: 磁盘目录占用空间计算排序工具 - ncdu
+tags: Linux
+
+---
+
+### 安装
+
+	sudo port install ncdu
+
+### 使用方法
+
+执行ncdu会提示选择目录，输入目标目录，回车，即可列出当前目录下的文件及目录的大小，默认按照大小进行排序
+
+可以使用“?”调出帮助菜单
+
+使用数字键，1、2、3进行切换，1为快捷键，2为显示格式说明，3为ncdu版权信息。
+
+Example
+
+查看当前目录磁盘使用情况
+
+	ncdu .
+
+
+显示效果	
+
+```
+--- /Users/jiangrongyong/Program/game-data-import -------------------------------
+   24.3MiB [##########] /.git                                                                                                                                                      
+   23.4MiB [######### ] /target
+  116.0KiB [          ] /src
+   12.0KiB [          ]  pom.xml
+   12.0KiB [          ] /.settings
+    4.0KiB [          ]  .classpath
+    4.0KiB [          ]  .project
+    4.0KiB [          ]  README
+    4.0KiB [          ]  start.sh
+    4.0KiB [          ]  .gitignore
+```
+
+#### 常用快捷键
+
+n ：按文件名进行排序
+
+s ：按文件大小进行排序
+
+r ：重新统计当前文件夹大小
+
+g ：用#或百分比显示各文件/目录的大小所占的百分比
+
+i ：显示当前文件/目录信息
+
+d ：删除
+
+	ncdu /
+
+可以看整个硬盘的空间使用

@@ -1,0 +1,38 @@
+---
+layout: page
+title: SVN常用操作
+tags: SVN
+
+---
+
+### 一次性把所有未入库文件add
+
+	svn status|grep "?"|awk '{print $2}'|xargs svn add
+
+
+### 对变化文件做处理
+
+	svn status|awk '{print $2}'|while read line;
+	do
+	    // do something...
+	    cp $line $DEPLOY_DIR/$line
+	done
+		
+### 通过PHP执行svn命令，如果文件名包含中文，会导致`svn up`失败，解决方法是在执行脚本前先设置字符集编码
+
+	export LC_ALL=zh_CN.UTF-8;export LANG=en_US.UTF-8;
+
+### svn忽略列表
+
+	svn ps svn:ignore --file .svnignore .
+
+### 清空.svn文件夹
+
+	find . -type d -name ".svn"|xargs rm -rf
+	
+### 列出svn变化文件
+> [http://blog.lysender.com/2010/11/svn-list-modified-files-between-revisions/](http://blog.lysender.com/2010/11/svn-list-modified-files-between-revisions/)
+
+	svn diff --summarize -r717:726
+	svn log -r717:726 -q -v | grep "   M" | sort -u
+	

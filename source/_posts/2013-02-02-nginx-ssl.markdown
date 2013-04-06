@@ -1,0 +1,10 @@
+---
+layout: post
+title: 配置nginx https
+tags: Nginx
+
+---
+
+`http://blog.creke.net/762.html`
+
+实测可行！

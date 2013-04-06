@@ -1,0 +1,10 @@
+---
+layout: post
+title: 业界新闻媒体收集
+tags: 
+
+---
+
+* [创见](http://tech2ipo.com/)
+* [pingwest](http://www.pingwest.com/)
+* [创业家](http://www.chuangyejia.com/)

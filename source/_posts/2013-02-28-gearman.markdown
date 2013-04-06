@@ -1,0 +1,18 @@
+---
+layout: post
+title: gearman
+tags: 
+
+---
+
+任务分发 Gearman
+
+[http://www.cppblog.com/guojingjia2006/archive/2013/01/07/197076.html](http://www.cppblog.com/guojingjia2006/archive/2013/01/07/197076.html)
+
+[http://blog.csdn.net/aidenliu/article/details/7406390](http://blog.csdn.net/aidenliu/article/details/7406390)
+
+[http://timyang.net/linux/gearman-monitor/](http://timyang.net/linux/gearman-monitor/)
+
+[http://blog.s135.com/dips/2/1/](http://blog.s135.com/dips/2/1/)
+
+[http://gearman.org/](http://gearman.org/)

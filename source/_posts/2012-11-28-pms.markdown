@@ -1,0 +1,20 @@
+---
+layout: post
+title: 项目管理平台
+tags: PMS
+
+---
+
+最近帮组内搭建一个项目管理平台，找了下资料
+
+### [Basecamp](http://basecamp.com/)
+国外开发，小清新风格，很多人推荐，20刀每月，45天试用，国内访问速度较慢
+
+### [Tower](https://tower.im/)
+彩程开发的，今天刚上线，类似Basecamp，收费比Basecamp便宜，45天免费试用
+
+### [Zentao](http://www.zentao.net/)
+国内开发，有开源和收费版本
+
+### [Redmine](http://www.redmine.org/)
+开源，ruby开发

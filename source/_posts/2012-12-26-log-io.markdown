@@ -1,0 +1,8 @@
+---
+layout: post
+title: log.io 实时日志监控工具
+tags: Log
+
+---
+
+[安装 log.io 实时日志监控工具](http://vpsee.42qu.com/po/blog/10758321)

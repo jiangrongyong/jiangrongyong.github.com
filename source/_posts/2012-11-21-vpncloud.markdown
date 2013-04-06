@@ -1,0 +1,19 @@
+---
+layout: post
+title: vpncloud.me
+tags: VPN
+
+---
+## 今天淘到一个高调的VPN提供商，界面做还做得很小清新，在rubychina人气很高。
+
+	http://www.vpncloud.me/
+
+![Smaller icon](http://free-will.me/media/images/vpncloud-home.png "Title here")
+
+## 尝新心态购买了一年标准版，120包年，支持3台设备，80G流量
+
+![Smaller icon](http://free-will.me/media/images/vpncloud-price.png "vpncloud-price")
+
+## 看youtube十分流畅，赞一个，目前使用的是香港结点，日本结点被攻击了目前还在维护中，稳定性有待进一步考察
+
+## 现在touch也可以翻墙了，万岁

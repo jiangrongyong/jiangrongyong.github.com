@@ -1,0 +1,8 @@
+---
+layout: post
+title: TermKit, 图形化的Linux终端
+tags: Linux
+
+---
+
+[TermKit, 图形化的Linux终端](http://www.leonzhang.com/2011/05/24/termkit/)

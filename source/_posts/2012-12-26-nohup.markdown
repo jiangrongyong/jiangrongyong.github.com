@@ -1,0 +1,10 @@
+---
+layout: post
+title: nohup
+tags: Linux
+
+---
+
+	nohup jitter coffee static/js > jitter.log 2>&1 &
+	
+nohup是个很有用的命令 , 可以让程序在当前窗口关了之后也继续运行
