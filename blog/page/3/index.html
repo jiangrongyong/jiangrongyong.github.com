@@ -7,9 +7,7 @@
 	<meta name="author" content="rongyong jiang">
 
 	
-	<meta name="description" content="Apple Tiny4Voice，@tinyfool大叔的Podcast，话题主要围绕程序员、天朝、创业和Apple。
-ibuick , italk，@ibuick的Podcast，主要介绍大别在编程、学习和思考的一些经验总结。
-友的聊播客，最近在听，更新很快，科技+闲聊，主要是苹果 Dec &hellip;">
+	<meta name="description" content=" 劲抄白菜 Dec 15th, 2012 Comments ">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -78,6 +76,46 @@ ibuick , italk，@ibuick的Podcast，主要介绍大别在编程、学习和思�
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/15/2nd-lunch/">
+		
+			本少爷下厨(2)</a>
+	</h2>
+	<div class="entry-content">
+		<p>劲抄白菜</p>
+
+<p><img src="http://free-will.me/media/images/2nd-lunch.jpg" alt="lunch" /></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-15T00:00:00+00:00" pubdate data-updated="true">Dec 15<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/15/2nd-lunch//blog/page/3/index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
 
 
     <article class="post">
@@ -5235,6 +5273,8 @@ When you don&#8217;t need the samples anymore just delete the <code>_posts/core-
 
 <ul class="posts">
   
+    <li><span>11 Apr 2013</span> &raquo; <a href="/blog/2013/04/11/mysql-forgot-password/">Mysql忘记密码</a></li>
+  
     <li><span>28 Feb 2013</span> &raquo; <a href="/blog/2013/02/28/gearman/">gearman</a></li>
   
     <li><span>18 Feb 2013</span> &raquo; <a href="/blog/2013/02/18/ip-proxy/">Ip转发</a></li>
@@ -5656,63 +5696,6 @@ make install
 </div>
 	
 		<div class="comments"><a href="/blog/2012/12/04/yangshuo//blog/page/3/index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/29/nginx-config/">
-		
-			Nginx配置</a>
-	</h2>
-	<div class="entry-content">
-		<h4>配置多子站点时，例如游戏各种子官网，可以使用通配符或正则表达式的方式配置</h4>
-
-<pre><code>server {
-    listen       80;
-    server_name  *.wan.xoyo.com;
-    root   /Users/jiangrongyong/Program/online_code/official_website/guanwang;
-    index  index.html index.htm index.php;
-    location ~ \.php$ {
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include        fastcgi_params;
-    }
-}
-</code></pre>
-
-<p>需要注意的是，PHP在获取<code>$_SERVER["SERVER_NAME"]</code>时，会获取到*.wan.xoyo.com，如果需要获取真实的域名，修改fastcgi_params，把SERVER_NAME的值改成host</p>
-
-<pre><code>fastcgi_param  SERVER_NAME        $host;
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-29T00:00:00+00:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/11/29/nginx-config//blog/page/3/index.html#disqus_thread">Comments</a></div>
 	
 </div></article>
 
