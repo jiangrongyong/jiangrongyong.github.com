@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-04-11T04:32:12+00:00</updated>
+  <updated>2013-04-17T06:00:08+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[rongyong jiang]]></name>
@@ -12,6 +12,123 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Centos下搭建ftp]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/04/17/centos-vsftpd/"/>
+    <updated>2013-04-17T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/04/17/centos-vsftpd</id>
+    <content type="html"><![CDATA[<p>vsftpd作为FTP服务器，在Linux系统中是非常常用的。下面我们介绍如何在centos系统上安装vsftp。</p>
+
+<h3>什么是vsftpd</h3>
+
+<p>vsftpd是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
+
+<p>vsftpd 的名字代表”very secure FTP daemon”, 安全是它的开发者 Chris Evans 考虑的首要问题之一。在这个 FTP 服务器设计开发的最开始的时候，高安全性就是一个目标。</p>
+
+<h3>安装vsftpd</h3>
+
+<ol>
+<li><p>以管理员（root）身份执行以下命令</p>
+
+<pre><code> yum install vsftpd
+</code></pre></li>
+<li><p>设置开机启动vsftpd ftp服务</p>
+
+<pre><code> chkconfig vsftpd on
+</code></pre></li>
+<li><p>启动vsftpd服务</p>
+
+<pre><code> service vsftpd start
+</code></pre></li>
+</ol>
+
+
+<h3>管理vsftpd相关命令</h3>
+
+<ol>
+<li><p>停止vsftpd</p>
+
+<pre><code> service vsftpd stop
+</code></pre></li>
+<li><p>重启vsftpd</p>
+
+<pre><code> service vsftpd restart
+</code></pre></li>
+<li><p>配置防火墙</p>
+
+<p> 打开/etc/sysconfig/iptables文件</p>
+
+<pre><code> vi /etc/sysconfig/iptables
+</code></pre>
+
+<p> 在REJECT行之前添加如下代码</p>
+
+<pre><code> -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+</code></pre>
+
+<p> 保存和关闭文件，重启防火墙</p>
+
+<pre><code> service iptables start
+</code></pre>
+
+<p> 配置vsftpd服务器</p>
+
+<p> 默认的配置文件是/etc/vsftpd/vsftpd.conf，你可以用文本编辑器打开。</p>
+
+<pre><code> vi /etc/vsftpd/vsftpd.conf
+</code></pre></li>
+</ol>
+
+
+<h3>添加ftp用户</h3>
+
+<p>下面是添加ftpuser用户，设置根目录为/home/wwwroot/ftpuser,禁止此用户登录SSH的权限，并限制其访问其它目录。</p>
+
+<ol>
+<li><p>修改/etc/vsftpd/vsftpd.conf</p>
+
+<p> 将底下三行</p>
+
+<pre><code> #chroot_list_enable=YES
+ # (default follows)
+ #chroot_list_file=/etc/vsftpd.chroot_list
+</code></pre>
+
+<p> 改为</p>
+
+<pre><code> chroot_list_enable=YES
+ # (default follows)
+ chroot_list_file=/etc/vsftpd/chroot_list
+</code></pre></li>
+<li><p>增加用户ftpuser，指向目录/home/wwwroot/ftpuser,禁止登录SSH权限。</p>
+
+<pre><code> useradd -d /home/wwwroot/ftpuser -g ftp -s /sbin/nologin ftpuser
+</code></pre></li>
+<li><p>设置用户口令</p>
+
+<pre><code> passwd ftpuser
+</code></pre></li>
+<li><p>编辑文件chroot_list:</p>
+
+<pre><code> vi /etc/vsftpd/chroot_list
+</code></pre>
+
+<p> 内容为ftp用户名,每个用户占一行,如：</p>
+
+<pre><code> peter
+ john
+</code></pre></li>
+<li><p>重新启动vsftpd</p>
+
+<pre><code> service vsftpd restart
+</code></pre></li>
+</ol>
+
+
+<p><a href="http://www.centos.bz/2011/03/centos-install-vsftpd-ftp-server/">转载自</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mysql忘记密码]]></title>
@@ -497,15 +614,6 @@ svn log -r717:726 -q -v | grep "   M" | sort -u
     curl_close($curl);
 }
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[云端IDE:cloud9]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2012/12/16/cloud9-ide/"/>
-    <updated>2012-12-16T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2012/12/16/cloud9-ide</id>
-    <content type="html"><![CDATA[<p><a href="https://c9.io/">Cloud9</a>是一个在线IDE，通过它在可以云端coding，甚至debug，支持直接导入Github和Bitbucket工程，而且代码开源，托管在Github，<a href="https://github.com/ajaxorg/cloud9/">项目地址</a>，很方便在内网部署，还可以在网页IDE中执行git命令。</p>
 ]]></content>
   </entry>
   
