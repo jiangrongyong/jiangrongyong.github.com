@@ -7,7 +7,7 @@
 	<meta name="author" content="rongyong jiang">
 
 	
-	<meta name="description" content="安装 sudo port install ncdu 使用方法 执行ncdu会提示选择目录，输入目标目录，回车，即可列出当前目录下的文件及目录的大小，默认按照大小进行排序 可以使用“?”调出帮助菜单 使用数字键，1、2、3进行切换，1为快捷键，2为显示格式说明，3为ncdu版权信息。 &hellip;">
+	<meta name="description" content=" nohup jitter coffee static/js &gt; jitter.log 2&gt;&amp;1 &amp; nohup是个很有用的命令 , 可以让程序在当前窗口关了之后也继续运行 Dec 26th, 2012 Comments ">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -76,6 +76,47 @@
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/26/nohup/">
+		
+			Nohup</a>
+	</h2>
+	<div class="entry-content">
+		<pre><code>nohup jitter coffee static/js &gt; jitter.log 2&gt;&amp;1 &amp;
+</code></pre>
+
+<p>nohup是个很有用的命令 , 可以让程序在当前窗口关了之后也继续运行</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-26T00:00:00+00:00" pubdate data-updated="true">Dec 26<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/26/nohup//blog/page/2/index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
 
 
     <article class="post">
@@ -554,85 +595,6 @@ svn log -r717:726 -q -v | grep "   M" | sort -u
 </div>
 	
 		<div class="comments"><a href="/blog/2012/12/16/ssh-without-password//blog/page/2/index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/16/php-curl-cookie/">
-		
-			PHP Curl发送cookie</a>
-	</h2>
-	<div class="entry-content">
-		<p>如果需要实现程序自动登录功能，涉及到curl时发送cookie</p>
-
-<p>关键方法</p>
-
-<ul>
-<li><code>curl_setopt($curl, CURLOPT_HEADER, TRUE);</code>设置返回response header</li>
-<li><code>curl_setopt($curl, CURLOPT_COOKIE, $cookie);</code>设置发送的cookie内容</li>
-</ul>
-
-
-<h3>Demo</h3>
-
-<p>该方法发送请求时，获取response header中的Set-Cookie参数，获得PHPSESSID的值</p>
-
-<pre><code>private function go_login_page() {
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $this-&gt;login_page_url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($curl, CURLOPT_HEADER, TRUE);
-    $content = curl_exec($curl);
-    preg_match('/^Set-Cookie: PHPSESSID=(.*?);/m', $content, $this-&gt;phpsessid);
-    curl_close($curl);
-}
-</code></pre>
-
-<p>请求登录接口，并把上一个请求中返回的cookie信息带到该请求中</p>
-
-<pre><code>private function go_login() {
-    $curl = curl_init();
-    $cookie = "PHPSESSID=" . $this-&gt;phpsessid;
-    $post_data = 'username=xx&amp;password=xx';
-
-    curl_setopt($curl, CURLOPT_COOKIE, $cookie);
-    curl_setopt($curl, CURLOPT_URL, $this-&gt;go_login);
-    curl_setopt($curl, CURLOPT_POST, TRUE);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($curl, CURLOPT_HEADER, FALSE);
-    $content = curl_exec($curl);
-    curl_close($curl);
-}
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-16T00:00:00+00:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/12/16/php-curl-cookie//blog/page/2/index.html#disqus_thread">Comments</a></div>
 	
 </div></article>
 
