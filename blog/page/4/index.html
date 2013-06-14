@@ -7,7 +7,8 @@
 	<meta name="author" content="rongyong jiang">
 
 	
-	<meta name="description" content="安装gcc yum install gcc 安装git yum install git 163 centos镜像 http://mirrors.163.com/.help/centos.html mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum. &hellip;">
+	<meta name="description" content=" github有提供一个服务，在项目有更新时，会自动回调指定的URL。 Post-Receive Hooks
+有没有好的方案从 Github 自动检测更新自动 pull 和部署应用? 有空看看bitbucket有没有提供hook服务 Dec 9th, 2012 Comments ">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -76,6 +77,171 @@
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/09/github-hook/">
+		
+			Github Hook</a>
+	</h2>
+	<div class="entry-content">
+		<p>github有提供一个服务，在项目有更新时，会自动回调指定的URL。</p>
+
+<ul>
+<li><a href="https://help.github.com/articles/post-receive-hooks">Post-Receive Hooks</a></li>
+<li><a href="http://cnodejs.org/topic/507e2488f75c3a87621d1265">有没有好的方案从 Github 自动检测更新自动 pull 和部署应用?</a></li>
+</ul>
+
+
+<p>有空看看bitbucket有没有提供hook服务</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-09T00:00:00+00:00" pubdate data-updated="true">Dec 9<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/09/github-hook//blog/page/4/index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/07/mac-zhengban/">
+		
+			Mac正版列表</a>
+	</h2>
+	<div class="entry-content">
+		<ul>
+<li>iStat 4</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-07T00:00:00+00:00" pubdate data-updated="true">Dec 7<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/07/mac-zhengban//blog/page/4/index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/05/node-mailer/">
+		
+			Node-mailer简单的发邮件程序</a>
+	</h2>
+	<div class="entry-content">
+		<p>明天公司有小米2的内部抢购，翻出n久前写的邮件程序，但愿明天能抢到。</p>
+
+<p>上代码，迟点丢到github</p>
+
+<p>mailer.js</p>
+
+<pre><code>var email = require('mailer');
+
+email.send({
+      host : "smtp.gmail.com",
+      port : "25",
+      domain : "smtp.gmail.com",
+      to : "jiangrongyong@gmail.com",
+      from : "jiangrongyong@gmail.com",
+      subject : "小米手机2竞购",
+      body: "小米32G*2",
+      authentication : "login",
+      username : "jiangrongyong",
+      password : "***"
+}, function(err, result){
+      if(err){ console.log(err); }
+      console.log(new Date() + 'sended.');
+});
+</code></pre>
+
+<p>start.sh</p>
+
+<pre><code>#!/bin/bash
+
+export PATH=/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:$PATH
+
+mails[0]='mailer.js'
+repeat=3
+
+for((i=1;i&lt;=$repeat;i++));do
+    for item in ${mails[@]}; do
+        node /data/app/node-mailer-test/$item &amp;
+    done
+    sleep 1
+done
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-05T00:00:00+00:00" pubdate data-updated="true">Dec 5<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/05/node-mailer//blog/page/4/index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
 
 
     <article class="post">
@@ -513,143 +679,6 @@ make install
 </div>
 	
 		<div class="comments"><a href="/blog/2012/11/26/remove-google-redirects//blog/page/4/index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/26/buy-sparrow-on-mac/">
-		
-			购买了mac版的sparrow</a>
-	</h2>
-	<div class="entry-content">
-		<p>今天终于入手了mac下的sparrow</p>
-
-<p>现在把公司两个邮箱都设置为sparrow收取，体验十分好。之前的做法是通过转发和gmail中帐号导入的方式，好处是都把所有邮件都统一到一个邮箱中去，但是实时性不高，经常出现同事发完邮件后马上叫我收邮件的尴尬，迫于无奈还是得登录网页版去收邮件。</p>
-
-<p>继续吐槽iOS版什么时候出push功能</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-26T00:00:00+00:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/11/26/buy-sparrow-on-mac//blog/page/4/index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/26/bring-to-jekyll-bootstrap/">
-		
-			博客改用Jekyll Bootstrap</a>
-	</h2>
-	<div class="entry-content">
-		<p>注意事项</p>
-
-<ul>
-<li>_site目录为Jekyll解析后生成，可以添加到<code>.gitignore</code>中</li>
-<li></li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-26T00:00:00+00:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/11/26/bring-to-jekyll-bootstrap//blog/page/4/index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/21/vpncloud/">
-		
-			vpncloud.me</a>
-	</h2>
-	<div class="entry-content">
-		<h2>今天淘到一个高调的VPN提供商，界面做还做得很小清新，在rubychina人气很高。</h2>
-
-<pre><code>http://www.vpncloud.me/
-</code></pre>
-
-<p><img src="http://free-will.me/media/images/vpncloud-home.png" title="Title here" alt="Smaller icon" /></p>
-
-<h2>尝新心态购买了一年标准版，120包年，支持3台设备，80G流量</h2>
-
-<p><img src="http://free-will.me/media/images/vpncloud-price.png" title="vpncloud-price" alt="Smaller icon" /></p>
-
-<h2>看youtube十分流畅，赞一个，目前使用的是香港结点，日本结点被攻击了目前还在维护中，稳定性有待进一步考察</h2>
-
-<h2>现在touch也可以翻墙了，万岁</h2>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-21T00:00:00+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/11/21/vpncloud//blog/page/4/index.html#disqus_thread">Comments</a></div>
 	
 </div></article>
 

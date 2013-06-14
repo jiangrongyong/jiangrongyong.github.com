@@ -7,7 +7,7 @@
 	<meta name="author" content="rongyong jiang">
 
 	
-	<meta name="description" content="我们知道在 bash 里，可以通过 “上下” 键来浏览最近执行过的命令历史纪录（history），我们也知道如果历史纪录太多的话可以通过 ctrl+r 来查找命令或者通过 history 命令来浏览历史命令。我们不知道的是（也许只有本人不知道～），还有一种神奇的办法可以更准确、 &hellip;">
+	<meta name="description" content="由于公司VPN使用的是L2TP协议，并且是无共享密钥的，OS X需要作一些配置才能支持，否则会提示“IPSec 共享密钥”丢失。请验证您的设置并尝试重新连接。 sudo vim /etc/ppp/options plugin L2TP.ppp l2tpnoipsec 最后把高级设置里面” &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -76,6 +76,235 @@
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/06/14/osx-vpn-l2tp/">
+		
+			Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN</a>
+	</h2>
+	<div class="entry-content">
+		<p>由于公司VPN使用的是L2TP协议，并且是无共享密钥的，OS X需要作一些配置才能支持，否则会提示<code>“IPSec 共享密钥”丢失。请验证您的设置并尝试重新连接。</code></p>
+
+<ol>
+<li><p><code>sudo vim /etc/ppp/options</code></p>
+
+<pre><code> plugin L2TP.ppp
+ l2tpnoipsec
+</code></pre></li>
+<li><p>最后把高级设置里面”通过VPN连接发送所有流量“钩上</p></li>
+</ol>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2013/06/14/osx-vpn-l2tp//index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/06/14/dd/">
+		
+			OSX下使用dd命令把镜像文件烧进SD卡</a>
+	</h2>
+	<div class="entry-content">
+		<ol>
+<li><code>df -h</code></li>
+<li><code>unmount /dev/disk1s1</code></li>
+<li><code>diskutil list</code></li>
+<li><code>dd bs=4m if=raspbmc-final.img of=/dev/rdisk1</code></li>
+</ol>
+
+
+<p>以上4步就ok了</p>
+
+<p>参考来源</p>
+
+<ul>
+<li>http://zhangshenjia.com/exprience/mac-raspbian/</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2013/06/14/dd//index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/05/04/xmpp/">
+		
+			XMPP与Openfire</a>
+	</h2>
+	<div class="entry-content">
+		<p>准备做一个实时应用的服务端，由于以前都是基于http协议开发的，没有这方面的经验</p>
+
+<p>查了下V2EX和知乎，发现目前国内大部分成熟应用用的协议都是XMPP，如米聊、微信和国外的kik</p>
+
+<p>以下是知乎上对XMPP的评价</p>
+
+<blockquote><p>使用XMPP协议（Openfire + Spark + Smack）
+简介：基于XML协议的通讯协议，前身是Jabber，目前已由IETF国际标准化组织完成了标准化工作。
+优点：协议成熟、强大、可扩展性强、目前主要应用于许多聊天系统中，且已有开源的Java版的开发实例androidpn。
+缺点：协议较复杂、冗余（基于XML）、费流量、费电，部署硬件成本高。</p></blockquote>
+
+<h3>1. 部署开发环境</h3>
+
+<h4>1.1 参考文章</h4>
+
+<ul>
+<li><a href="http://www.igniterealtime.org/projects/openfire/">Home page</a></li>
+<li><a href="http://www.igniterealtime.org/downloads/index.jsp">Download page</a></li>
+<li><a href="http://www.jabbercn.org/Openfire:%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">中文wiki</a></li>
+<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/source-build.html">Building the Source</a></li>
+<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/javadoc/index.html">Javadoc</a></li>
+<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/plugin-dev-guide.html">Openfire Plugin Developer Guide</a></li>
+<li><a href="http://community.igniterealtime.org/docs/DOC-1020">官方部署开发环境文档 - Openfire SVN + Eclipse 3.3 + Subversive Installation Guide</a></li>
+<li><a href="http://blog.csdn.net/ares1201/article/details/7737872">Openfire开发配置,Openfire源代码配置,OpenFire二次开发配置</a></li>
+<li><a href="http://lmain.blog.51cto.com/779468/157942">Openfire源码布署与打包</a></li>
+<li><a href="http://www.blogjava.net/yi88han/archive/2009/02/10/gissing.html">openfire开发文档</a></li>
+<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/database-guide.html">Database Schema Guide</a></li>
+<li><a href="http://zhuyx808.iteye.com/blog/414796">OpenFire客户端编程示例</a></li>
+<li></li>
+<li><a href="http://android-zhang.iteye.com/blog/1836312">Android基于XMPP Smack Openfire开发IM【一】登录openfire服务器</a></li>
+<li><a href="http://android-zhang.iteye.com/blog/1836603">Android基于XMPP Smack Openfire开发IM 【二】获取好友列表</a></li>
+<li><a href="http://android-zhang.iteye.com/blog/1836776">Android基于XMPP Smack Openfire开发IM【三】客户端接收服务器发送的消息</a></li>
+<li><a href="http://android-zhang.iteye.com/blog/1837189">Android基于XMPP Smack Openfire开发IM【四】初步实现两个客户端通信</a></li>
+<li></li>
+<li><a href="http://blog.csdn.net/windone0109/article/details/4675944">即时通讯软件openfire+spark+smack</a></li>
+<li><a href="http://hetylei.iteye.com/blog/290519">xmpp with openfire之四 扩展的AuthProvider</a></li>
+<li><a href="http://www.docin.com/p-210007713.html">XMPP协议及其服务器端的Openfire插件开发</a></li>
+<li></li>
+<li><a href="http://hetylei.iteye.com/blog/289854">xmpp with openfire之一 xmpp and openfire</a></li>
+<li><a href="http://hetylei.iteye.com/blog/290031">xmpp with openfire之二 openfire安装</a></li>
+<li><a href="http://hetylei.iteye.com/blog/290140">xmpp with openfire之三 openfire扩展小试 整合现有系统用户</a></li>
+<li><a href="http://hetylei.iteye.com/blog/290519">xmpp with openfire之四 扩展的AuthProvider</a></li>
+<li><a href="http://hetylei.iteye.com/blog/291265">xmpp with openfire之五 插件－利用Broadcast实现群</a></li>
+<li></li>
+<li><a href="http://blog.csdn.net/hexudong08/article/details/7429402">openfire 开发插件</a></li>
+<li><a href="http://blog.csdn.net/hexudong08/article/details/7450206">openfire插件开发续一(xmpp4r)</a></li>
+<li><a href="http://blog.csdn.net/hexudong08/article/details/7454283">openfire插件开发续二</a></li>
+<li><a href="http://blog.csdn.net/hexudong08/article/details/7460246">openfire插件开发三，java端开发</a></li>
+<li></li>
+<li><a href="http://www.cnblogs.com/ErinCodeMM/archive/2011/12/25/2301220.html">【openfire插件开发】IQHandler处理IQ请求包（模板方法模式）</a></li>
+<li><a href="http://forum.rooyeetone.com/simple/?t199.html">openfire开发文档</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_a4cf4b4301010rdb.html">openfire插件开发最简单的demo</a></li>
+<li><a href="http://wenku.baidu.com/view/ccc01e6f7e21af45b307a88b.html">Openfire插件开发流程</a></li>
+<li><a href="http://blog.csdn.net/sapphire_aling/article/details/6677979">openfire+smack新用户注册、更改用户状态</a></li>
+<li><a href="http://blog.csdn.net/lnb333666/article/details/7598683">Android基于XMPP Smack openfire 开发的聊天室（四） 【创建房间、表单；报文】</a></li>
+<li><a href="http://www.hutud.com/index.php/archives/328">spark openfire conference修改使群组编程持久的。 类似qq群（1）</a></li>
+<li><a href="http://www.cnblogs.com/huazai8204/archive/2011/12/31/2309022.html">改造MUC实现Openfire群</a></li>
+</ul>
+
+
+<h4>1.2 Mac下启动与关闭Openfire（通过dmg包安装）</h4>
+
+<p>关闭</p>
+
+<pre><code>sudo launchctl unload /Library/LaunchDaemons/org.jivesoftware.openfire.plist
+</code></pre>
+
+<p>启动</p>
+
+<pre><code>sudo launchctl load /Library/LaunchDaemons/org.jivesoftware.openfire.plist
+</code></pre>
+
+<p><a href="http://community.igniterealtime.org/thread/38670">原文</a></p>
+
+<h4>1.3 编译源码</h4>
+
+<h5>1.3.1 ant编译</h5>
+
+<pre><code>cd /Users/jiangrongyong/Program/openfire_src/build
+
+ant openfire
+</code></pre>
+
+<h5>1.3.2 启动openfire</h5>
+
+<pre><code>#先启动mysql
+/usr/local/mysql/bin/mysqld
+
+#openfire启动脚本
+/Users/jiangrongyong/Program/openfire_src/target/openfire/bin/openfire.sh start
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-04T00:00:00+00:00" pubdate data-updated="true">May 4<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2013/05/04/xmpp//index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
 
 
     <article class="post">
@@ -561,155 +790,6 @@ Starting MySQL: [ OK ]
 </div>
 	
 		<div class="comments"><a href="/blog/2013/01/31/youtube-dl//index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/27/respberry-pi/">
-		
-			Respberry Pi</a>
-	</h2>
-	<div class="entry-content">
-		<ul>
-<li><a href="http://www.shumeipai.net/forum.php">树莓派论坛</a></li>
-<li><a href="http://geekpi.cn/blog/2012/10/1758">打望两江</a></li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-27T00:00:00+00:00" pubdate data-updated="true">Dec 27<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/12/27/respberry-pi//index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/27/kingsoft-2012/">
-		
-			转型与超越</a>
-	</h2>
-	<div class="entry-content">
-		<p>各位同事，</p>
-
-<p>匆匆又一年。还有不到一星期的时间，荏苒的时光便将翻过2012年这一页。展现在我们眼前的起跑线，是全新的2013。</p>
-
-<p>每到年终，有必要对过往12个月里的得与失做出简要的回顾与总结。作为CEO，首先我想代表整个金山公司管理层，感谢全体员工在2012年里付出的努力。你们是公司的砥柱与骄傲，我诚挚地期望，你们也能同样感到骄傲，因为你们在为金山奉献才智与心力的同时，见证并参与了公司的转型和进化。</p>
-
-<p>2012这一年对金山从PC软件走向移动互联网，走向云端、从“传统”走向新起点来说至为重要。我们取得了令投资者、产业同仁及亿万用户为之瞩目的成绩。1个月前，我们发布了第三季度业绩公报，营收同比增幅超五成——而且这是在过往两个季度持续增长基础上的再度进步。</p>
-
-<p>更让我感到欣喜的是，我们的互动娱乐、办公软件、互联网安全、云服务四大业务表现出了齐头并进的好势头：
-金山游戏团队频频发力。已有品牌积淀的产品焕发了新春，《剑网三》的PCU和收入在2012翻了一番。西山居、鲸彩，亚丁和七尘斋共有四款新游戏上线，特别是风格迥异的《麻辣江湖》，显现出了极大的市场潜力。更令人兴奋的是我们已有一款网页游戏和三款手机游戏上线，迈出了我们向页游和手游业务转型的第一步。</p>
-
-<p>金山互联网安全产品的用户数量已达1.5亿，同时流量和月收入也创造了历史记录，增速达到互联网公司的应有水平，猎豹浏览器和毒霸手机版的发布都在从不缺新闻的中国互联网行业掀起了巨大的波澜。
-被视为金山品牌的代表性符号之一——WPS在过去一年里成功实现了飞跃。无论是创造的营收，还是超千万的PC版活跃用户数量、逾3000万的Android版下载次数，均达到了历史最高水平。</p>
-
-<p>此外，词霸手机版用户增速也同样令人满意。同时，作为金山探索云端的先锋部队，金山云团队日以继夜的辛勤工作得到了回报。快盘服务已吸纳了2000万注册用户，稳居行业首位。</p>
-
-<p>这样的成绩无疑表明，我们制定的子公司化与MBO战略、我们坚执的“重创业、再上路”主张是正确的。在此我也想强调，尽管金山正在以主动的转型应对产业和市场的变化，但我们也有不变的品质，那就是25年来持续积淀、日益深厚的文化：梦想、正直、责任。</p>
-
-<p>值得一提的是，金山的增长是在整个中国经济被寒潮侵袭，股市萧条的背景下实现的，我们做到了真正意义上的逆势而上，这是最艰难但也最让人自豪的成就。</p>
-
-<p>2012对于中国经济和IT互联网产业的发展来说都是极具挑战性的一年，很多公司遇到了困难——多年来，信息技术相关行业一直存在着某种规则：就像滑雪，再有经验的选手，一旦丧失了方向感和敏捷性，那便极有可能在转弯处摔倒，甚至于堕入悬崖。二十年前的苹果就曾经历过这样的迷失。而在2012年，一些未能及时转型、进化的个人电脑制造商和软件开发商们被巨大的压力压制得举步维艰。业务的停滞不前、下滑的市场份额和营收让不少厂商感到焦虑，甚至使先前引领行业和用户需求的行业巨头们也不得不思考对策、加速求变。与这些同行相比，金山的转型既及时又迅速——尽管我们自身也肩负着许多挑战：有的来自于竞争对手的无底线竞争，有的来自于网络游戏产业的放缓，有的来自于企业转型进程中的阵痛。</p>
-
-<p>正是在这样严峻的整体形势下，我们初步实现了由软件向互联网，由桌面向移动的转型。这绝不简单，需要从核心团队到每一位同事都以新的思维、新的模式管理和开发我们的产品和业务。</p>
-
-<p>正因为这样，在写这封邮件时，我感到由衷的喜悦和自豪。决定加入金山与各位同事并肩战斗之前，我曾在脑海里设想过一些困难的场景，但当我真正深入金山，我发现首先公司的研发实力、研发团队超出了我的预期，其次是员工的韧性和勇敢拥抱变化、再创业的基因超出了我的预期。这一切都使得金山的转型——包括管理、业务模式、产品开发流程的调整到位比想象中更顺利和迅疾，也让我有更多的时间来思考公司未来。</p>
-
-<p>那么，未来会怎样？尽管取得了很大的成绩，但也要承认，金山与中国顶尖、世界一流的应用软件和互联网开发商相比还有着比较大的差距，而且在新的一年里，我们身处的竞争环境会更残酷——看到了与以往不同的新金山，预计竞争对手会对我们给予更多的重视和“关照”。即便如此，我和整个金山管理团队仍然期待着，勤奋的金山人不只能推动公司继续以互联网速度快速前进，还能在各个业务领域逐步建立起优势、进而脱颖胜出。为实现更宏伟的目标，我们将在市场开拓、技术创新、产品品质、服务水平方面投入更大的资源，以确保行业领先者的地位。我们也希望各子公司能充分挖掘和释放协同效应，形成更大的合力，就像WPS与快盘、西山居与金山网络那样，同时在公司层面，金山也会不断加强与小米等兄弟品牌的协作。</p>
-
-<p>我相信2013年的金山将延续业务的增势，同时在一些快速成长的市场领域实现用户数量与市场份额的提升；我相信公司的发展、业务规模的扩大也能为每一位金山员工创造更丰富的发展机遇和更舒适的成长空间；我相信公司在即将过去的龙年所取得的业绩也能体现在我们的年终奖金里……
-最后，提前祝大家新年快乐！</p>
-
-<p>张宏江</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-27T00:00:00+00:00" pubdate data-updated="true">Dec 27<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/12/27/kingsoft-2012//index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/26/termkit/">
-		
-			TermKit, 图形化的Linux终端</a>
-	</h2>
-	<div class="entry-content">
-		<p><a href="http://www.leonzhang.com/2011/05/24/termkit/">TermKit, 图形化的Linux终端</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-26T00:00:00+00:00" pubdate data-updated="true">Dec 26<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/12/26/termkit//index.html#disqus_thread">Comments</a></div>
 	
 </div></article>
 

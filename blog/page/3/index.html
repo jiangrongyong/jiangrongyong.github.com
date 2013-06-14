@@ -7,8 +7,8 @@
 	<meta name="author" content="rongyong jiang">
 
 	
-	<meta name="description" content="如果需要实现程序自动登录功能，涉及到curl时发送cookie 关键方法 curl_setopt($curl, CURLOPT_HEADER, TRUE);设置返回response header
-curl_setopt($curl, CURLOPT_COOKIE, $cookie); &hellip;">
+	<meta name="description" content=" sudo vim /etc/sudoers
+me2 ALL = NOPASSWD: ALL #me2用户sudo时不用输入密码 Dec 18th, 2012 Comments ">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -77,6 +77,167 @@ curl_setopt($curl, CURLOPT_COOKIE, $cookie); &hellip;">
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/18/sudo-without-password/">
+		
+			Sudo 不用输入密码</a>
+	</h2>
+	<div class="entry-content">
+		<pre><code>sudo vim /etc/sudoers
+me2 ALL = NOPASSWD: ALL #me2用户sudo时不用输入密码
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-18T00:00:00+00:00" pubdate data-updated="true">Dec 18<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/18/sudo-without-password//blog/page/3/index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/16/svn/">
+		
+			SVN常用操作</a>
+	</h2>
+	<div class="entry-content">
+		<h3>一次性把所有未入库文件add</h3>
+
+<pre><code>svn status|grep "?"|awk '{print $2}'|xargs svn add
+</code></pre>
+
+<h3>对变化文件做处理</h3>
+
+<pre><code>svn status|awk '{print $2}'|while read line;
+do
+    // do something...
+    cp $line $DEPLOY_DIR/$line
+done
+</code></pre>
+
+<h3>通过PHP执行svn命令，如果文件名包含中文，会导致<code>svn up</code>失败，解决方法是在执行脚本前先设置字符集编码</h3>
+
+<pre><code>export LC_ALL=zh_CN.UTF-8;export LANG=en_US.UTF-8;
+</code></pre>
+
+<h3>svn忽略列表</h3>
+
+<pre><code>svn ps svn:ignore --file .svnignore .
+</code></pre>
+
+<h3>清空.svn文件夹</h3>
+
+<pre><code>find . -type d -name ".svn"|xargs rm -rf
+</code></pre>
+
+<h3>列出svn变化文件</h3>
+
+<blockquote><p><a href="http://blog.lysender.com/2010/11/svn-list-modified-files-between-revisions/">http://blog.lysender.com/2010/11/svn-list-modified-files-between-revisions/</a></p></blockquote>
+
+<pre><code>svn diff --summarize -r717:726
+svn log -r717:726 -q -v | grep "   M" | sort -u
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-16T00:00:00+00:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/16/svn//blog/page/3/index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/16/ssh-without-password/">
+		
+			Ssh 不用输入密码</a>
+	</h2>
+	<div class="entry-content">
+		<ul>
+<li><p>Step 1.生成ssh公钥和密钥</p>
+
+<pre><code>  ssh-keygen -t rsa
+</code></pre></li>
+<li><p>Step 2.上传公钥文件到远程服务器,生成authorized_keys文件</p>
+
+<pre><code>  scp ~/.ssh/id_rsa.pub root@10.20.229.145/root/.ssh/authorized_keys
+</code></pre></li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-16T00:00:00+00:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2012/12/16/ssh-without-password//blog/page/3/index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
 
 
     <article class="post">
@@ -5391,6 +5552,12 @@ When you don&#8217;t need the samples anymore just delete the <code>_posts/core-
 
 <ul class="posts">
   
+    <li><span>14 Jun 2013</span> &raquo; <a href="/blog/2013/06/14/osx-vpn-l2tp/">Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN</a></li>
+  
+    <li><span>14 Jun 2013</span> &raquo; <a href="/blog/2013/06/14/dd/">OSX下使用dd命令把镜像文件烧进SD卡</a></li>
+  
+    <li><span>04 May 2013</span> &raquo; <a href="/blog/2013/05/04/xmpp/">XMPP与Openfire</a></li>
+  
     <li><span>26 Apr 2013</span> &raquo; <a href="/blog/2013/04/26/enhance-history/">Bash加强history</a></li>
   
     <li><span>17 Apr 2013</span> &raquo; <a href="/blog/2013/04/17/centos-vsftpd/">Centos下搭建ftp</a></li>
@@ -5519,171 +5686,6 @@ We need to clean up the themes, make theme usage guides with theme-specific mark
 </div>
 	
 		<div class="comments"><a href="/blog/2012/12/09/jb-demo//blog/page/3/index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/09/github-hook/">
-		
-			Github Hook</a>
-	</h2>
-	<div class="entry-content">
-		<p>github有提供一个服务，在项目有更新时，会自动回调指定的URL。</p>
-
-<ul>
-<li><a href="https://help.github.com/articles/post-receive-hooks">Post-Receive Hooks</a></li>
-<li><a href="http://cnodejs.org/topic/507e2488f75c3a87621d1265">有没有好的方案从 Github 自动检测更新自动 pull 和部署应用?</a></li>
-</ul>
-
-
-<p>有空看看bitbucket有没有提供hook服务</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-09T00:00:00+00:00" pubdate data-updated="true">Dec 9<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/12/09/github-hook//blog/page/3/index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/07/mac-zhengban/">
-		
-			Mac正版列表</a>
-	</h2>
-	<div class="entry-content">
-		<ul>
-<li>iStat 4</li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-07T00:00:00+00:00" pubdate data-updated="true">Dec 7<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/12/07/mac-zhengban//blog/page/3/index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/05/node-mailer/">
-		
-			Node-mailer简单的发邮件程序</a>
-	</h2>
-	<div class="entry-content">
-		<p>明天公司有小米2的内部抢购，翻出n久前写的邮件程序，但愿明天能抢到。</p>
-
-<p>上代码，迟点丢到github</p>
-
-<p>mailer.js</p>
-
-<pre><code>var email = require('mailer');
-
-email.send({
-      host : "smtp.gmail.com",
-      port : "25",
-      domain : "smtp.gmail.com",
-      to : "jiangrongyong@gmail.com",
-      from : "jiangrongyong@gmail.com",
-      subject : "小米手机2竞购",
-      body: "小米32G*2",
-      authentication : "login",
-      username : "jiangrongyong",
-      password : "***"
-}, function(err, result){
-      if(err){ console.log(err); }
-      console.log(new Date() + 'sended.');
-});
-</code></pre>
-
-<p>start.sh</p>
-
-<pre><code>#!/bin/bash
-
-export PATH=/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:$PATH
-
-mails[0]='mailer.js'
-repeat=3
-
-for((i=1;i&lt;=$repeat;i++));do
-    for item in ${mails[@]}; do
-        node /data/app/node-mailer-test/$item &amp;
-    done
-    sleep 1
-done
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-05T00:00:00+00:00" pubdate data-updated="true">Dec 5<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2012/12/05/node-mailer//blog/page/3/index.html#disqus_thread">Comments</a></div>
 	
 </div></article>
 

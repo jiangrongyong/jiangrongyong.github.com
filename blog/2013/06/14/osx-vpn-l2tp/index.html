@@ -3,14 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Respberry Pi - Hugh Blog</title>
+	<title>Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN - Hugh Blog</title>
 	<meta name="author" content="rongyong jiang">
 
 	
-	<meta name="description" content="
-树莓派论坛
-打望两江
-xbmc直播插件 Dec 27th, 2012 Comments ">
+	<meta name="description" content="由于公司VPN使用的是L2TP协议，并且是无共享密钥的，OS X需要作一些配置才能支持，否则会提示“IPSec 共享密钥”丢失。请验证您的设置并尝试重新连接。 sudo vim /etc/ppp/options plugin L2TP.ppp l2tpnoipsec 最后把高级设置里面” &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -79,12 +76,17 @@ xbmc直播插件 Dec 27th, 2012 Comments ">
 		
 	
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Respberry Pi</h2>
-	<div class="entry-content"><ul>
-<li><a href="http://www.shumeipai.net/forum.php">树莓派论坛</a></li>
-<li><a href="http://geekpi.cn/blog/2012/10/1758">打望两江</a></li>
-<li><a href="http://raspberrypi.diandian.com/post/2013-02-25/40048470423">xbmc直播插件</a></li>
-</ul>
+	<h2 class="title">Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN</h2>
+	<div class="entry-content"><p>由于公司VPN使用的是L2TP协议，并且是无共享密钥的，OS X需要作一些配置才能支持，否则会提示<code>“IPSec 共享密钥”丢失。请验证您的设置并尝试重新连接。</code></p>
+
+<ol>
+<li><p><code>sudo vim /etc/ppp/options</code></p>
+
+<pre><code> plugin L2TP.ppp
+ l2tpnoipsec
+</code></pre></li>
+<li><p>最后把高级设置里面”通过VPN连接发送所有流量“钩上</p></li>
+</ol>
 
 </div>
 
@@ -102,12 +104,12 @@ xbmc直播插件 Dec 27th, 2012 Comments ">
   
 
 
-<time datetime="2012-12-27T00:00:00+00:00" pubdate data-updated="true">Dec 27<span>th</span>, 2012</time></div>
+<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
 	<div class="tags">
 
 </div>
 	
-		<div class="comments"><a href="/blog/2012/12/27/respberry-pi/#disqus_thread">Comments</a></div>
+		<div class="comments"><a href="/blog/2013/06/14/osx-vpn-l2tp/#disqus_thread">Comments</a></div>
 	
 </div></article>
 

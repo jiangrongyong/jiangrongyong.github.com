@@ -3,14 +3,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Respberry Pi - Hugh Blog</title>
+	<title>OSX下使用dd命令把镜像文件烧进SD卡 - Hugh Blog</title>
 	<meta name="author" content="rongyong jiang">
 
 	
-	<meta name="description" content="
-树莓派论坛
-打望两江
-xbmc直播插件 Dec 27th, 2012 Comments ">
+	<meta name="description" content="df -h
+unmount /dev/disk1s1
+diskutil list
+dd bs=4m if=raspbmc-final.img of=/dev/rdisk1 以上4步就ok了 参考来源 http://zhangshenjia.com/exprience/mac-raspbian/ &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -79,11 +79,21 @@ xbmc直播插件 Dec 27th, 2012 Comments ">
 		
 	
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Respberry Pi</h2>
-	<div class="entry-content"><ul>
-<li><a href="http://www.shumeipai.net/forum.php">树莓派论坛</a></li>
-<li><a href="http://geekpi.cn/blog/2012/10/1758">打望两江</a></li>
-<li><a href="http://raspberrypi.diandian.com/post/2013-02-25/40048470423">xbmc直播插件</a></li>
+	<h2 class="title">OSX下使用dd命令把镜像文件烧进SD卡</h2>
+	<div class="entry-content"><ol>
+<li><code>df -h</code></li>
+<li><code>unmount /dev/disk1s1</code></li>
+<li><code>diskutil list</code></li>
+<li><code>dd bs=4m if=raspbmc-final.img of=/dev/rdisk1</code></li>
+</ol>
+
+
+<p>以上4步就ok了</p>
+
+<p>参考来源</p>
+
+<ul>
+<li>http://zhangshenjia.com/exprience/mac-raspbian/</li>
 </ul>
 
 </div>
@@ -102,12 +112,12 @@ xbmc直播插件 Dec 27th, 2012 Comments ">
   
 
 
-<time datetime="2012-12-27T00:00:00+00:00" pubdate data-updated="true">Dec 27<span>th</span>, 2012</time></div>
+<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
 	<div class="tags">
 
 </div>
 	
-		<div class="comments"><a href="/blog/2012/12/27/respberry-pi/#disqus_thread">Comments</a></div>
+		<div class="comments"><a href="/blog/2013/06/14/dd/#disqus_thread">Comments</a></div>
 	
 </div></article>
 
