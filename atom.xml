@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-06-14T11:30:32+00:00</updated>
+  <updated>2013-06-14T11:35:57+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[rongyong jiang]]></name>
@@ -28,6 +28,41 @@
 </code></pre></li>
 <li><p>最后把高级设置里面”通过VPN连接发送所有流量“钩上</p></li>
 </ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用MAKEFILE自动化部署]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/06/14/makefile-autodeploy/"/>
+    <updated>2013-06-14T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/06/14/makefile-autodeploy</id>
+    <content type="html"><![CDATA[<p>自动提交本地git，然后ssh到服务器更新和部署，终于优雅实现这个一直很久的需求了</p>
+
+<p>vim Makefile</p>
+
+<pre><code> PROJECT=free-will.me
+ SERVER=hugh@106.187.34.61
+ PATH=/data/app/octopress/
+ SSH=/usr/bin/ssh
+ GIT=/usr/bin/git
+ AWK=/usr/bin/awk
+ XARGS=/usr/bin/xargs
+ LOCAL_PATH=/Users/jiangrongyong/Program/jiangrongyong.github.com
+
+ remote_deploy:
+        @cd $(LOCAL_PATH)
+        @$(GIT) status -s|$(AWK) '{print $$2}'|$(XARGS) $(GIT) add
+        @$(GIT) commit -m "posts update"
+        @$(GIT) push -u origin source
+        @$(SSH) -t $(SERVER) "echo Deploy $(PROJECT) to the $(SERVER) server.; cd $(PATH); git pull; rake gen_deploy;"
+</code></pre>
+
+<p>参考文章</p>
+
+<ul>
+<li>http://tchen.me/posts/2013-06-12-use-makefile-to-automate-deployment.html</li>
+</ul>
 
 ]]></content>
   </entry>
@@ -647,15 +682,6 @@ Starting MySQL: [ OK ]
     <content type="html"><![CDATA[<p>节瓜荷包蛋滚汤</p>
 
 <p><img src="http://free-will.me/media/images/3rd-lunch.jpg" alt="lunch" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SwitchHost一款好用的跨平台切换hosts工具]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2012/12/21/SwitchHost/"/>
-    <updated>2012-12-21T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2012/12/21/SwitchHost</id>
-    <content type="html"><![CDATA[<p>https://github.com/oldj/SwitchHosts</p>
 ]]></content>
   </entry>
   

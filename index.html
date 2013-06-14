@@ -129,6 +129,70 @@
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/06/14/makefile-autodeploy/">
+		
+			使用MAKEFILE自动化部署</a>
+	</h2>
+	<div class="entry-content">
+		<p>自动提交本地git，然后ssh到服务器更新和部署，终于优雅实现这个一直很久的需求了</p>
+
+<p>vim Makefile</p>
+
+<pre><code> PROJECT=free-will.me
+ SERVER=hugh@106.187.34.61
+ PATH=/data/app/octopress/
+ SSH=/usr/bin/ssh
+ GIT=/usr/bin/git
+ AWK=/usr/bin/awk
+ XARGS=/usr/bin/xargs
+ LOCAL_PATH=/Users/jiangrongyong/Program/jiangrongyong.github.com
+
+ remote_deploy:
+        @cd $(LOCAL_PATH)
+        @$(GIT) status -s|$(AWK) '{print $$2}'|$(XARGS) $(GIT) add
+        @$(GIT) commit -m "posts update"
+        @$(GIT) push -u origin source
+        @$(SSH) -t $(SERVER) "echo Deploy $(PROJECT) to the $(SERVER) server.; cd $(PATH); git pull; rake gen_deploy;"
+</code></pre>
+
+<p>参考文章</p>
+
+<ul>
+<li>http://tchen.me/posts/2013-06-12-use-makefile-to-automate-deployment.html</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+		<div class="comments"><a href="/blog/2013/06/14/makefile-autodeploy//index.html#disqus_thread">Comments</a></div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/06/14/dd/">
 		
 			OSX下使用dd命令把镜像文件烧进SD卡</a>
@@ -742,54 +806,6 @@ Starting MySQL: [ OK ]
 </div>
 	
 		<div class="comments"><a href="/blog/2013/02/02/nginx-ssl//index.html#disqus_thread">Comments</a></div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/01/31/youtube-dl/">
-		
-			OS X下载youtube视频</a>
-	</h2>
-	<div class="entry-content">
-		<p>首先上youtube必须先打开vpn</p>
-
-<p>然后到视频页面，如<code>http://www.youtube.com/watch?v=kUT1Z3F2nLE</code></p>
-
-<p>先安装brew，<code>ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"</code></p>
-
-<p>再安装youtube-dl，<code>brew install youtube-dl</code></p>
-
-<p>然后下载视频，<code>youtube-dl http://www.youtube.com/watch?v=kUT1Z3F2nLE</code></p>
-
-<p>下载完成后，可以发现视频文件名为<code>kUT1Z3F2nLE.flv</code></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-31T00:00:00+00:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time></div>
-	<div class="tags">
-
-</div>
-	
-		<div class="comments"><a href="/blog/2013/01/31/youtube-dl//index.html#disqus_thread">Comments</a></div>
 	
 </div></article>
 
