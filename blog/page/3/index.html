@@ -212,6 +212,18 @@ svn log -r717:726 -q -v | grep "   M" | sort -u
 </ul>
 
 
+<hr />
+
+<p>2013-06-14 更新</p>
+
+<ol>
+<li><p>如果遇到root下可以免密码ssh，其他用户没有生效，把authorized_keys用户组的写权限去掉即可</p>
+
+<pre><code> [hugh@li377-61 .ssh]$ chmod 600 /home/hugh/.ssh/authorized_keys
+</code></pre></li>
+</ol>
+
+
 		
 		
 	</div>
