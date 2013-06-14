@@ -1,12 +1,7 @@
- CHECK=\033[32m✔\033[39m
- DONE="\n$(CHECK) Done.\n"
-
  PROJECT=free-will.me
  SERVER=hugh@106.187.34.61
  PATH=/data/app/octopress/
  SSH=/usr/bin/ssh
- ECHO=/bin/echo -e
- SUDO=/usr/bin/sudo
  GIT=/usr/bin/git
  AWK=/usr/bin/awk
  XARGS=/usr/bin/xargs
