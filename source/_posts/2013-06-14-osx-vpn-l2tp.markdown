@@ -1,0 +1,15 @@
+---
+layout: post
+title: Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN
+tags: dd
+
+---
+
+由于公司VPN使用的是L2TP协议，并且是无共享密钥的，OS X需要作一些配置才能支持，否则会提示`“IPSec 共享密钥”丢失。请验证您的设置并尝试重新连接。`
+
+1. `sudo vim /etc/ppp/options`
+
+		plugin L2TP.ppp
+		l2tpnoipsec
+		
+2. 最后把高级设置里面”通过VPN连接发送所有流量“钩上

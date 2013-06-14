@@ -1,0 +1,93 @@
+---
+layout: post
+title: XMPP与Openfire
+tags: XMPP,Openfire
+
+---
+
+准备做一个实时应用的服务端，由于以前都是基于http协议开发的，没有这方面的经验
+
+查了下V2EX和知乎，发现目前国内大部分成熟应用用的协议都是XMPP，如米聊、微信和国外的kik
+
+以下是知乎上对XMPP的评价
+
+> 使用XMPP协议（Openfire + Spark + Smack）
+简介：基于XML协议的通讯协议，前身是Jabber，目前已由IETF国际标准化组织完成了标准化工作。
+优点：协议成熟、强大、可扩展性强、目前主要应用于许多聊天系统中，且已有开源的Java版的开发实例androidpn。
+缺点：协议较复杂、冗余（基于XML）、费流量、费电，部署硬件成本高。
+
+
+### 1. 部署开发环境
+
+#### 1.1 参考文章
+
+* [Home page](http://www.igniterealtime.org/projects/openfire/)
+* [Download page](http://www.igniterealtime.org/downloads/index.jsp)
+* [中文wiki](http://www.jabbercn.org/Openfire:%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97)
+* [Building the Source](http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/source-build.html)
+* [Javadoc](http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/javadoc/index.html)
+* [Openfire Plugin Developer Guide](http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/plugin-dev-guide.html)
+* [官方部署开发环境文档 - Openfire SVN + Eclipse 3.3 + Subversive Installation Guide](http://community.igniterealtime.org/docs/DOC-1020)
+* [Openfire开发配置,Openfire源代码配置,OpenFire二次开发配置](http://blog.csdn.net/ares1201/article/details/7737872)
+* [Openfire源码布署与打包](http://lmain.blog.51cto.com/779468/157942)
+* [openfire开发文档](http://www.blogjava.net/yi88han/archive/2009/02/10/gissing.html)
+* [Database Schema Guide](http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/database-guide.html)
+* [OpenFire客户端编程示例](http://zhuyx808.iteye.com/blog/414796)
+* 
+* [Android基于XMPP Smack Openfire开发IM【一】登录openfire服务器](http://android-zhang.iteye.com/blog/1836312)
+* [Android基于XMPP Smack Openfire开发IM 【二】获取好友列表](http://android-zhang.iteye.com/blog/1836603)
+* [Android基于XMPP Smack Openfire开发IM【三】客户端接收服务器发送的消息](http://android-zhang.iteye.com/blog/1836776)
+* [Android基于XMPP Smack Openfire开发IM【四】初步实现两个客户端通信](http://android-zhang.iteye.com/blog/1837189)
+* 
+* [即时通讯软件openfire+spark+smack](http://blog.csdn.net/windone0109/article/details/4675944)
+* [xmpp with openfire之四 扩展的AuthProvider](http://hetylei.iteye.com/blog/290519)
+* [XMPP协议及其服务器端的Openfire插件开发](http://www.docin.com/p-210007713.html)
+* 
+* [xmpp with openfire之一 xmpp and openfire](http://hetylei.iteye.com/blog/289854)
+* [xmpp with openfire之二 openfire安装](http://hetylei.iteye.com/blog/290031)
+* [xmpp with openfire之三 openfire扩展小试 整合现有系统用户](http://hetylei.iteye.com/blog/290140)
+* [xmpp with openfire之四 扩展的AuthProvider](http://hetylei.iteye.com/blog/290519)
+* [xmpp with openfire之五 插件－利用Broadcast实现群](http://hetylei.iteye.com/blog/291265)
+* 
+* [openfire 开发插件](http://blog.csdn.net/hexudong08/article/details/7429402)
+* [openfire插件开发续一(xmpp4r)](http://blog.csdn.net/hexudong08/article/details/7450206)
+* [openfire插件开发续二](http://blog.csdn.net/hexudong08/article/details/7454283)
+* [openfire插件开发三，java端开发](http://blog.csdn.net/hexudong08/article/details/7460246)
+* 
+* [【openfire插件开发】IQHandler处理IQ请求包（模板方法模式）](http://www.cnblogs.com/ErinCodeMM/archive/2011/12/25/2301220.html)
+* [openfire开发文档](http://forum.rooyeetone.com/simple/?t199.html)
+* [openfire插件开发最简单的demo](http://blog.sina.com.cn/s/blog_a4cf4b4301010rdb.html)
+* [Openfire插件开发流程](http://wenku.baidu.com/view/ccc01e6f7e21af45b307a88b.html)
+* [openfire+smack新用户注册、更改用户状态](http://blog.csdn.net/sapphire_aling/article/details/6677979)
+* [Android基于XMPP Smack openfire 开发的聊天室（四） 【创建房间、表单；报文】](http://blog.csdn.net/lnb333666/article/details/7598683)
+* [spark openfire conference修改使群组编程持久的。 类似qq群（1）](http://www.hutud.com/index.php/archives/328)
+* [改造MUC实现Openfire群](http://www.cnblogs.com/huazai8204/archive/2011/12/31/2309022.html)
+
+
+#### 1.2 Mac下启动与关闭Openfire（通过dmg包安装）
+
+关闭
+
+	sudo launchctl unload /Library/LaunchDaemons/org.jivesoftware.openfire.plist
+	
+启动
+
+	sudo launchctl load /Library/LaunchDaemons/org.jivesoftware.openfire.plist
+	
+[原文](http://community.igniterealtime.org/thread/38670)
+
+#### 1.3 编译源码
+
+##### 1.3.1 ant编译
+
+	cd /Users/jiangrongyong/Program/openfire_src/build
+
+	ant openfire
+
+##### 1.3.2 启动openfire
+
+	#先启动mysql
+	/usr/local/mysql/bin/mysqld
+
+	#openfire启动脚本
+	/Users/jiangrongyong/Program/openfire_src/target/openfire/bin/openfire.sh start

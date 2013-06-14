@@ -1,0 +1,17 @@
+---
+layout: post
+title: OSX下使用dd命令把镜像文件烧进SD卡
+tags: dd
+
+---
+
+1. `df -h`
+2. `unmount /dev/disk1s1`
+3. `diskutil list`
+4. `dd bs=4m if=raspbmc-final.img of=/dev/rdisk1`
+
+以上4步就ok了
+
+参考来源
+
+* http://zhangshenjia.com/exprience/mac-raspbian/
