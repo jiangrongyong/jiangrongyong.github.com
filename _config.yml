@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://jiangrongyong.github.com
-title: Hugh Blog
-subtitle: a hacker.
-author: rongyong jiang
+title: Hugh's Blog
+subtitle: Hack Anything
+author: Hugh
 simple_search: http://google.com/search
-description: enjoy lift.
+description: Enjoy Life.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -65,7 +65,7 @@ github_skip_forks: true
 
 # Twitter
 twitter_user: jiangrongyong
-twitter_tweet_button: true
+twitter_tweet_button: false
 
 # Google +1
 google_plus_one: false
@@ -86,10 +86,10 @@ delicious_count: 3
 
 # Disqus Comments
 disqus_short_name: free-will
-disqus_show_comment_count: true
+disqus_show_comment_count: false
 
 # Google Analytics
 google_analytics_tracking_id:
 
 # Facebook Like
-facebook_like: true
+facebook_like: false
