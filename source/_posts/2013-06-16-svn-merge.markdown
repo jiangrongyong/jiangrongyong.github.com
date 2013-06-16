@@ -1,0 +1,36 @@
+---
+layout: post
+title: svn在已经commit情况下回滚代码
+tags: svn
+
+---
+
+1. 保证代码最新
+
+		svn update
+		
+2. 查看要回滚代码的提交日志
+
+		svn log [something]
+		
+3. 对比该文件老版本和最新版本有什么不同，以下28是最新版本，25是需要回滚到的版本
+
+		svn diff -r 28:25 [something]
+		
+4. 回滚到版本25
+
+		svn merge -r 28:25 [something]
+		
+5. 为保险起见，再对比一下
+
+		svn diff [something]
+		
+6. 提交回滚
+
+		svn commit -m "Revert revision from r28 to r25,because of ..."
+		
+---
+
+参考文章：
+
+* http://blog.sina.com.cn/s/blog_5432f2730100vmz4.html
