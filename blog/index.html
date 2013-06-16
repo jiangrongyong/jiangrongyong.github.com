@@ -100,6 +100,145 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/06/16/svn-merge/">
+		
+			Svn在已经commit情况下回滚代码</a>
+	</h2>
+	<div class="entry-content">
+		<ol>
+<li><p>保证代码最新</p>
+
+<pre><code> svn update
+</code></pre></li>
+<li><p>查看要回滚代码的提交日志</p>
+
+<pre><code> svn log [something]
+</code></pre></li>
+<li><p>对比该文件老版本和最新版本有什么不同，以下28是最新版本，25是需要回滚到的版本</p>
+
+<pre><code> svn diff -r 28:25 [something]
+</code></pre></li>
+<li><p>回滚到版本25</p>
+
+<pre><code> svn merge -r 28:25 [something]
+</code></pre></li>
+<li><p>为保险起见，再对比一下</p>
+
+<pre><code> svn diff [something]
+</code></pre></li>
+<li><p>提交回滚</p>
+
+<pre><code> svn commit -m "Revert revision from r28 to r25,because of ..."
+</code></pre></li>
+</ol>
+
+
+<hr />
+
+<p>参考文章：</p>
+
+<ul>
+<li>http://blog.sina.com.cn/s/blog_5432f2730100vmz4.html</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-16T00:00:00+00:00" pubdate data-updated="true">Jun 16<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+		<span class="comments"><a href="/blog/2013/06/16/svn-merge//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/06/16/html-email/">
+		
+			Html Email 注意事项</a>
+	</h2>
+	<div class="entry-content">
+		<ol>
+<li>Doctype使用XHTML 1.0 Strict，不能用HTML5</li>
+<li><p>使用table布局</p>
+
+<pre><code> &lt;body style="margin: 0; padding: 0;"&gt;
+ 　&lt;table border="1" cellpadding="0" cellspacing="0" width="100%"&gt;
+ 　　&lt;tr&gt; 
+ 　　　&lt;td&gt; Hello! &lt;/td&gt;
+ 　　&lt;/tr&gt;
+ 　&lt;/table&gt;
+ &lt;/body&gt;
+</code></pre></li>
+<li><p>图片是唯一可以引用的外部资源。其他的外部资源，比如样式表文件、字体文件、视频文件等，一概不能引用。</p></li>
+<li>所有的CSS规则，最好都采用行内样式。因为放置在网页头部的样式，很可能会被客户端删除。客户端对CSS规则的支持情况，请看这里。</li>
+<li><p>Content-Type要使用</p>
+
+<pre><code> Content-Type: Multipart/Alternative;
+</code></pre></li>
+</ol>
+
+
+<hr />
+
+<p>参考文章</p>
+
+<ul>
+<li>http://www.ruanyifeng.com/blog/2013/06/html_email.html</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-16T00:00:00+00:00" pubdate data-updated="true">Jun 16<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+		<span class="comments"><a href="/blog/2013/06/16/html-email//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/06/14/osx-vpn-l2tp/">
 		
 			Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN</a>
@@ -116,6 +255,10 @@ $(document).ready(
 <li><p>最后把高级设置里面”通过VPN连接发送所有流量“钩上</p></li>
 </ol>
 
+
+<p>2013-06-16 更新</p>
+
+<p>iOS也可以用同样方法，不过必须越狱，建议安装openssh，然后ssh到iOS设备修改文件</p>
 
 		
 		
@@ -745,86 +888,6 @@ Starting MySQL: [ OK ]
 </div>
 	
 		<span class="comments"><a href="/blog/2013/02/28/gearman//blog/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/02/18/ip-proxy/">
-		
-			Ip转发</a>
-	</h2>
-	<div class="entry-content">
-		<p><a href="http://blog.csdn.net/shyodx/article/details/7977432">http://blog.csdn.net/shyodx/article/details/7977432</a></p>
-
-<p><a href="http://hintsforums.macworld.com/showthread.php?t=132108">http://hintsforums.macworld.com/showthread.php?t=132108</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-18T00:00:00+00:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-</div>
-	
-		<span class="comments"><a href="/blog/2013/02/18/ip-proxy//blog/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/02/02/nginx-ssl/">
-		
-			配置nginx Https</a>
-	</h2>
-	<div class="entry-content">
-		<p><code>http://blog.creke.net/762.html</code></p>
-
-<p>实测可行！</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-02T00:00:00+00:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2013</time></div>
-	<div class="tags">
-
-</div>
-	
-		<span class="comments"><a href="/blog/2013/02/02/nginx-ssl//blog/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 

@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN  | Hugh Blog</title>
+	<title>Html Email 注意事项  | Hugh Blog</title>
 
 <meta name="author" content="rongyong jiang"> 
 
@@ -95,22 +95,36 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN</h2>
-	<div class="entry-content"><p>由于公司VPN使用的是L2TP协议，并且是无共享密钥的，OS X需要作一些配置才能支持，否则会提示<code>“IPSec 共享密钥”丢失。请验证您的设置并尝试重新连接。</code></p>
+	<h2 class="title">Html Email 注意事项</h2>
+	<div class="entry-content"><ol>
+<li>Doctype使用XHTML 1.0 Strict，不能用HTML5</li>
+<li><p>使用table布局</p>
 
-<ol>
-<li><p><code>sudo vim /etc/ppp/options</code></p>
-
-<pre><code> plugin L2TP.ppp
- l2tpnoipsec
+<pre><code> &lt;body style="margin: 0; padding: 0;"&gt;
+ 　&lt;table border="1" cellpadding="0" cellspacing="0" width="100%"&gt;
+ 　　&lt;tr&gt; 
+ 　　　&lt;td&gt; Hello! &lt;/td&gt;
+ 　　&lt;/tr&gt;
+ 　&lt;/table&gt;
+ &lt;/body&gt;
 </code></pre></li>
-<li><p>最后把高级设置里面”通过VPN连接发送所有流量“钩上</p></li>
+<li><p>图片是唯一可以引用的外部资源。其他的外部资源，比如样式表文件、字体文件、视频文件等，一概不能引用。</p></li>
+<li>所有的CSS规则，最好都采用行内样式。因为放置在网页头部的样式，很可能会被客户端删除。客户端对CSS规则的支持情况，请看这里。</li>
+<li><p>Content-Type要使用</p>
+
+<pre><code> Content-Type: Multipart/Alternative;
+</code></pre></li>
 </ol>
 
 
-<p>2013-06-16 更新</p>
+<hr />
 
-<p>iOS也可以用同样方法，不过必须越狱，建议安装openssh，然后ssh到iOS设备修改文件</p>
+<p>参考文章</p>
+
+<ul>
+<li>http://www.ruanyifeng.com/blog/2013/06/html_email.html</li>
+</ul>
+
 </div>
 
 
@@ -127,12 +141,12 @@ $(document).ready(
   
 
 
-<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
+<time datetime="2013-06-16T00:00:00+00:00" pubdate data-updated="true">Jun 16<span>th</span>, 2013</time></div>
 	<div class="tags">
 
 </div>
 	
-		<span class="comments"><a href="/blog/2013/06/14/osx-vpn-l2tp/#disqus_thread">Comments</a></span>
+		<span class="comments"><a href="/blog/2013/06/16/html-email/#disqus_thread">Comments</a></span>
 	
 </div></article>
 
