@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-06-16T17:08:44+00:00</updated>
+  <updated>2013-06-19T16:22:04+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OSX Snap]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/06/20/osx-snap/"/>
+    <updated>2013-06-20T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/06/20/osx-snap</id>
+    <content type="html"><![CDATA[<p>Snap，终于找到这款<code>command + 数字</code>启动应用的神奇，今天还限免</p>
+
+<p>https://itunes.apple.com/cn/app/id418073146?mt=12</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[svn在已经commit情况下回滚代码]]></title>
@@ -712,20 +723,6 @@ Starting MySQL: [ OK ]
     <updated>2012-12-26T00:00:00+00:00</updated>
     <id>http://jiangrongyong.github.com/blog/2012/12/26/log-io</id>
     <content type="html"><![CDATA[<p><a href="http://vpsee.42qu.com/po/blog/10758321">安装 log.io 实时日志监控工具</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[业界新闻媒体收集]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2012/12/26/it-news/"/>
-    <updated>2012-12-26T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2012/12/26/it-news</id>
-    <content type="html"><![CDATA[<ul>
-<li><a href="http://tech2ipo.com/">创见</a></li>
-<li><a href="http://www.pingwest.com/">pingwest</a></li>
-<li><a href="http://www.chuangyejia.com/">创业家</a></li>
-</ul>
-
 ]]></content>
   </entry>
   
