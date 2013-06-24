@@ -62,6 +62,8 @@ tags: XMPP,Openfire
 * [Android基于XMPP Smack openfire 开发的聊天室（四） 【创建房间、表单；报文】](http://blog.csdn.net/lnb333666/article/details/7598683)
 * [spark openfire conference修改使群组编程持久的。 类似qq群（1）](http://www.hutud.com/index.php/archives/328)
 * [改造MUC实现Openfire群](http://www.cnblogs.com/huazai8204/archive/2011/12/31/2309022.html)
+* [XEP-0045: 多用户聊天](http://www.jabbercn.org/XEP-0045#.E6.88.BF.E9.97.B4.E7.B1.BB.E5.9E.8B)
+* [Database Schema Guide](http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/database-guide.html)
 
 
 #### 1.2 Mac下启动与关闭Openfire（通过dmg包安装）
