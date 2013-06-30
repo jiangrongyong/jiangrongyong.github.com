@@ -103,6 +103,61 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/11/29/nginx-config/">
+		
+			Nginx配置</a>
+	</h2>
+	<div class="entry-content">
+		<h4>配置多子站点时，例如游戏各种子官网，可以使用通配符或正则表达式的方式配置</h4>
+
+<pre><code>server {
+    listen       80;
+    server_name  *.wan.xoyo.com;
+    root   /Users/jiangrongyong/Program/online_code/official_website/guanwang;
+    index  index.html index.htm index.php;
+    location ~ \.php$ {
+        fastcgi_pass   127.0.0.1:9000;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
+</code></pre>
+
+<p>需要注意的是，PHP在获取<code>$_SERVER["SERVER_NAME"]</code>时，会获取到*.wan.xoyo.com，如果需要获取真实的域名，修改fastcgi_params，把SERVER_NAME的值改成host</p>
+
+<pre><code>fastcgi_param  SERVER_NAME        $host;
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-29T00:00:00+00:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/11/28/pms/">
 		
 			项目管理平台</a>
@@ -602,92 +657,6 @@ $(document).ready(
 		<h2>最近写PHP比较多，自己总结一个代码规范，方便以后统一书写，避免各种纠结</h2>
 
 <p>todo</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-21T00:00:00+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/21/chunzhen-ip-get-location/">
-		
-			使用纯真IP库获取IP相关地理信息</a>
-	</h2>
-	<div class="entry-content">
-		<h2>下载纯真IP库文件，是一个二进制的dat文件</h2>
-
-<pre><code>http://www.cz88.net/
-</code></pre>
-
-<h2>在ThinkPHP中的实现</h2>
-
-<h3>加入引导文件，静态工场+单例模式，防止重复实例化</h3>
-
-<pre><code>&lt;?php
-class IpLocation_Bootstrap {
-
-    private static $_instance = null;
-
-    private function __construct() {
-
-    }
-
-    private function __clone() {
-
-    }
-
-    public static function getInstance() {
-        import('ORG.Net.IpLocation');
-        if(null == self::$_instance) {
-            self::$_instance = new IpLocation();
-        }
-        return self::$_instance;
-    }
-}
-</code></pre>
-
-<blockquote><p>PHP单例模式注意点</p>
-
-<ul>
-<li>$_instance 必须声明为静态的私有变量</li>
-<li>构造函数和克隆函数必须声明为私有的,这是为了防止外部程序 new 类从而失去单例模式的意义</li>
-<li>getInstance()方法必须声明为公有的,必须调用此方法以返回唯一实例的一个引用</li>
-<li>::操作符只能访问静态变量或静态函数</li>
-<li>PHP的单例模式是相对而言的,因为PHP的解释运行机制使得每个PHP页面被解释执行后，所有的相关资源都会被回收。也就是说，PHP在语言级别上没有办法让某个对象常驻内存。在PHP中，所有的变量都是页面级的，无论是全局变量，还是类的静态成员，都会在页面执行完毕后被清空,结果会重新建立新的对象，这样也就完全失去了Singleton的意义。不过,在实际应用中同一个页面中可能会存在多个业务逻辑,这时单例模式就起到了很重要的作用,有效的避免了重复new 对象(注: new 对象会消耗内存资源)这么一个行为,所以我们说PHP的单例模式是相对而言的</li>
-</ul>
-</blockquote>
-
-<h3>加入ThinkPHP自带iplocation扩展类</h3>
-
-<pre><code>IpLocation.class.php
-</code></pre>
-
-<h3>IpLocation.class.php解读</h3>
-
-<blockquote><p><a href="http://smallerapp.com">纯真IP数据库格式详解</a></p></blockquote>
 
 		
 		

@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-06-24T02:26:03+00:00</updated>
+  <updated>2013-06-30T09:26:54+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[vim打开nginx conf时语法高亮]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/06/30/vim-nginx-syntax-on/"/>
+    <updated>2013-06-30T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/06/30/vim-nginx-syntax-on</id>
+    <content type="html"><![CDATA[<pre><code>mkdir -p ~/.vim/syntax/
+
+wget -O ~/.vim/syntax/nginx.vim http://www.vim.org/scripts/download_script.php?src_id=14376
+
+# /usr/local/etc/nginx/vhosts/*为nginx配置文件存放目录
+echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt; ~/.vim/filetype.vim
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OSX Snap]]></title>
@@ -716,15 +731,6 @@ Starting MySQL: [ OK ]
 </code></pre>
 
 <p>可以看整个硬盘的空间使用</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[log.io 实时日志监控工具]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2012/12/26/log-io/"/>
-    <updated>2012-12-26T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2012/12/26/log-io</id>
-    <content type="html"><![CDATA[<p><a href="http://vpsee.42qu.com/po/blog/10758321">安装 log.io 实时日志监控工具</a></p>
 ]]></content>
   </entry>
   

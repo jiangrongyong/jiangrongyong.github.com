@@ -103,6 +103,117 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/04/11/mysql-forgot-password/">
+		
+			Mysql忘记密码</a>
+	</h2>
+	<div class="entry-content">
+		<p>当忘记MySQL的root密码的时候，可以进行如下的步骤重新设置MySQL的root密码：</p>
+
+<p>1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。
+因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的
+状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对
+外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全
+状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。</p>
+
+<p>2．修改MySQL的登录设置：</p>
+
+<pre><code>vi /etc/my.cnf 
+</code></pre>
+
+<p>在[mysqld]的段中加上一句：skip-grant-tables
+例如：</p>
+
+<pre><code>[mysqld] 
+datadir=/var/lib/mysql 
+socket=/var/lib/mysql/mysql.sock 
+skip-grant-tables 
+</code></pre>
+
+<p>保存并且退出vi。</p>
+
+<p>3．重新启动mysqld</p>
+
+<pre><code>/etc/init.d/mysqld restart 
+
+Stopping MySQL: [ OK ] 
+Starting MySQL: [ OK ] 
+</code></pre>
+
+<p>4．登录并修改MySQL的root密码</p>
+
+<pre><code>/usr/bin/mysql 
+
+
+Welcome to the MySQL monitor. Commands end with ; or \g. 
+Your MySQL connection id is 3 to server version: 3.23.56 
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer. 
+
+mysql&gt; USE mysql ; 
+Reading table information for completion of table and column names 
+You can turn off this feature to get a quicker startup with -A 
+
+Database changed 
+mysql&gt; UPDATE user SET Password = password ( 'new-password' ) WHERE User = 'root' ; 
+Query OK, 0 rows affected (0.00 sec) 
+Rows matched: 2 Changed: 0 Warnings: 0 
+
+mysql&gt; flush privileges ; 
+Query OK, 0 rows affected (0.01 sec) 
+
+mysql&gt; quit 
+Bye 
+</code></pre>
+
+<p>5．将MySQL的登录设置修改回来</p>
+
+<pre><code>vi /etc/my.cnf 
+</code></pre>
+
+<p>将刚才在[mysqld]的段中加上的skip-grant-tables删除
+保存并且退出vi。</p>
+
+<p>6．重新启动mysqld</p>
+
+<pre><code>/etc/init.d/mysqld restart 
+
+Stopping MySQL: [ OK ] 
+Starting MySQL: [ OK ] 
+</code></pre>
+
+<p>7．恢复服务器的正常工作状态
+将步骤一中的操作逆向操作。恢复服务器的工作状态。</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-11T00:00:00+00:00" pubdate data-updated="true">Apr 11<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/02/28/gearman/">
 		
 			Gearman</a>
@@ -523,42 +634,6 @@ $(document).ready(
 </code></pre>
 
 <p>可以看整个硬盘的空间使用</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-26T00:00:00+00:00" pubdate data-updated="true">Dec 26<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/26/log-io/">
-		
-			log.io 实时日志监控工具</a>
-	</h2>
-	<div class="entry-content">
-		<p><a href="http://vpsee.42qu.com/po/blog/10758321">安装 log.io 实时日志监控工具</a></p>
 
 		
 		
