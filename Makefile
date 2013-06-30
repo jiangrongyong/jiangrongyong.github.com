@@ -5,7 +5,7 @@
  GIT=/usr/bin/git
  AWK=/usr/bin/awk
  XARGS=/usr/bin/xargs
- LOCAL_PATH=/Users/jiangrongyong/Program/jiangrongyong.github.com
+ LOCAL_PATH=/Users/jiangrongyong/Program/me/jiangrongyong.github.com
 
  remote_deploy:
 	@cd $(LOCAL_PATH)
