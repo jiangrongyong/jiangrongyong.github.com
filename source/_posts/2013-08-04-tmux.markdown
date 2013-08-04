@@ -1,0 +1,24 @@
+---
+layout: post
+title: tmux
+tags: tmux
+
+---
+
+最近介绍tmux的文章好多，虽然已久仰大名，今天试用了一下，果然是神器。没用过screen，直接跳级使用tmux。。
+
+记录下常用操作
+
+输入`tmux`，进入tmux模式
+
+`tmux attach -t {session_name}` attach到某个session
+
+`control + b` 操作入口
+
+`"` pane水平切割
+
+`%` pane纵向切割
+
+`$` 重命名session
+
+`d` detach tmux
