@@ -33,3 +33,12 @@ tags: algorithm
 github source
 
 [https://github.com/jiangrongyong/algorithm]()
+
+优化方案，加入缓存
+Ruby
+
+    def fibonacci(n, cache=Hash[[[0,0],[1,1]]])
+        return cache[n] if cache[n]
+        cache[n] = fibonacci(n-2, cache) + fibonacci(n-1, cache)
+    end
+    puts (1...1000).to_a.collect{|t| fibonacci(t) }.join(', ')
