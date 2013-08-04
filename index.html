@@ -103,6 +103,53 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/07/24/php-good-parts/">
+		
+			PHP Good Parts</a>
+	</h2>
+	<div class="entry-content">
+		<ol>
+<li><p>list函数</p>
+
+<pre><code> list($table, $field)=explode('.', $field);
+ $query = $this-&gt;CI-&gt;db-&gt;limit(1)-&gt;get_where($table, array($field =&gt; $str));
+</code></pre></li>
+<li><p>%s</p>
+
+<pre><code> $lang['required'] = "The %s field is required.";
+</code></pre></li>
+</ol>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-24T00:00:00+00:00" pubdate data-updated="true">Jul 24<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/06/30/vim-nginx-syntax-on/">
 		
 			Vim打开nginx Conf时语法高亮</a>
@@ -649,150 +696,6 @@ set completion-ignore-case on
 
 
 <time datetime="2013-04-26T00:00:00+00:00" pubdate data-updated="true">Apr 26<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/04/17/centos-vsftpd/">
-		
-			Centos下搭建ftp</a>
-	</h2>
-	<div class="entry-content">
-		<p>vsftpd作为FTP服务器，在Linux系统中是非常常用的。下面我们介绍如何在centos系统上安装vsftp。</p>
-
-<h3>什么是vsftpd</h3>
-
-<p>vsftpd是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
-
-<p>vsftpd 的名字代表”very secure FTP daemon”, 安全是它的开发者 Chris Evans 考虑的首要问题之一。在这个 FTP 服务器设计开发的最开始的时候，高安全性就是一个目标。</p>
-
-<h3>安装vsftpd</h3>
-
-<ol>
-<li><p>以管理员（root）身份执行以下命令</p>
-
-<pre><code> yum install vsftpd
-</code></pre></li>
-<li><p>设置开机启动vsftpd ftp服务</p>
-
-<pre><code> chkconfig vsftpd on
-</code></pre></li>
-<li><p>启动vsftpd服务</p>
-
-<pre><code> service vsftpd start
-</code></pre></li>
-</ol>
-
-
-<h3>管理vsftpd相关命令</h3>
-
-<ol>
-<li><p>停止vsftpd</p>
-
-<pre><code> service vsftpd stop
-</code></pre></li>
-<li><p>重启vsftpd</p>
-
-<pre><code> service vsftpd restart
-</code></pre></li>
-<li><p>配置防火墙</p>
-
-<p> 打开/etc/sysconfig/iptables文件</p>
-
-<pre><code> vi /etc/sysconfig/iptables
-</code></pre>
-
-<p> 在REJECT行之前添加如下代码</p>
-
-<pre><code> -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
-</code></pre>
-
-<p> 保存和关闭文件，重启防火墙</p>
-
-<pre><code> service iptables start
-</code></pre>
-
-<p> 配置vsftpd服务器</p>
-
-<p> 默认的配置文件是/etc/vsftpd/vsftpd.conf，你可以用文本编辑器打开。</p>
-
-<pre><code> vi /etc/vsftpd/vsftpd.conf
-</code></pre></li>
-</ol>
-
-
-<h3>添加ftp用户</h3>
-
-<p>下面是添加ftpuser用户，设置根目录为/home/wwwroot/ftpuser,禁止此用户登录SSH的权限，并限制其访问其它目录。</p>
-
-<ol>
-<li><p>修改/etc/vsftpd/vsftpd.conf</p>
-
-<p> 将底下三行</p>
-
-<pre><code> #chroot_list_enable=YES
- # (default follows)
- #chroot_list_file=/etc/vsftpd.chroot_list
-</code></pre>
-
-<p> 改为</p>
-
-<pre><code> chroot_list_enable=YES
- # (default follows)
- chroot_list_file=/etc/vsftpd/chroot_list
-</code></pre></li>
-<li><p>增加用户ftpuser，指向目录/home/wwwroot/ftpuser,禁止登录SSH权限。</p>
-
-<pre><code> useradd -d /home/wwwroot/ftpuser -g ftp -s /sbin/nologin ftpuser
-</code></pre></li>
-<li><p>设置用户口令</p>
-
-<pre><code> passwd ftpuser
-</code></pre></li>
-<li><p>编辑文件chroot_list:</p>
-
-<pre><code> vi /etc/vsftpd/chroot_list
-</code></pre>
-
-<p> 内容为ftp用户名,每个用户占一行,如：</p>
-
-<pre><code> peter
- john
-</code></pre></li>
-<li><p>重新启动vsftpd</p>
-
-<pre><code> service vsftpd restart
-</code></pre></li>
-</ol>
-
-
-<p><a href="http://www.centos.bz/2011/03/centos-install-vsftpd-ftp-server/">转载自</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-17T00:00:00+00:00" pubdate data-updated="true">Apr 17<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

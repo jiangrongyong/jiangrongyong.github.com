@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-06-30T09:26:54+00:00</updated>
+  <updated>2013-08-04T10:47:37+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHP Good Parts]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/07/24/php-good-parts/"/>
+    <updated>2013-07-24T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/07/24/php-good-parts</id>
+    <content type="html"><![CDATA[<ol>
+<li><p>list函数</p>
+
+<pre><code> list($table, $field)=explode('.', $field);
+ $query = $this-&gt;CI-&gt;db-&gt;limit(1)-&gt;get_where($table, array($field =&gt; $str));
+</code></pre></li>
+<li><p>%s</p>
+
+<pre><code> $lang['required'] = "The %s field is required.";
+</code></pre></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[vim打开nginx conf时语法高亮]]></title>
@@ -659,78 +679,6 @@ Starting MySQL: [ OK ]
 </code></pre>
 
 <p>nohup是个很有用的命令 , 可以让程序在当前窗口关了之后也继续运行</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[磁盘目录占用空间计算排序工具 - ncdu]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2012/12/26/ncdu/"/>
-    <updated>2012-12-26T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2012/12/26/ncdu</id>
-    <content type="html"><![CDATA[<h3>安装</h3>
-
-<pre><code>sudo port install ncdu
-</code></pre>
-
-<h3>使用方法</h3>
-
-<p>执行ncdu会提示选择目录，输入目标目录，回车，即可列出当前目录下的文件及目录的大小，默认按照大小进行排序</p>
-
-<p>可以使用“?”调出帮助菜单</p>
-
-<p>使用数字键，1、2、3进行切换，1为快捷键，2为显示格式说明，3为ncdu版权信息。</p>
-
-<p>Example</p>
-
-<p>查看当前目录磁盘使用情况</p>
-
-<pre><code>ncdu .
-</code></pre>
-
-<p>显示效果</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>--- /Users/jiangrongyong/Program/game-data-import -------------------------------
-</span><span class='line'>   24.3MiB [##########] /.git                                                                                                                                                      
-</span><span class='line'>   23.4MiB [######### ] /target
-</span><span class='line'>  116.0KiB [          ] /src
-</span><span class='line'>   12.0KiB [          ]  pom.xml
-</span><span class='line'>   12.0KiB [          ] /.settings
-</span><span class='line'>    4.0KiB [          ]  .classpath
-</span><span class='line'>    4.0KiB [          ]  .project
-</span><span class='line'>    4.0KiB [          ]  README
-</span><span class='line'>    4.0KiB [          ]  start.sh
-</span><span class='line'>    4.0KiB [          ]  .gitignore</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>常用快捷键</h4>
-
-<p>n ：按文件名进行排序</p>
-
-<p>s ：按文件大小进行排序</p>
-
-<p>r ：重新统计当前文件夹大小</p>
-
-<p>g ：用#或百分比显示各文件/目录的大小所占的百分比</p>
-
-<p>i ：显示当前文件/目录信息</p>
-
-<p>d ：删除</p>
-
-<pre><code>ncdu /
-</code></pre>
-
-<p>可以看整个硬盘的空间使用</p>
 ]]></content>
   </entry>
   
