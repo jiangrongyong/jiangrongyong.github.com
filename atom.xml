@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-08-04T10:47:37+00:00</updated>
+  <updated>2013-08-04T11:03:43+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fibonacci Algorithm]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/08/04/fibonacci/"/>
+    <updated>2013-08-04T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/08/04/fibonacci</id>
+    <content type="html"><![CDATA[<p><code>1,1,2,3,5,8,13,21</code>依次类推下去，你会发现，它后一个数等于前面两个数的和。在这个数列中的数字，就被称为斐波那契数(Fibonacci Sequence)。</p>
+
+<p>任何相邻的两个数，次第相除(如8/13,13/21)，其比率都最为接近<code>0.618</code>这个值，它的极限就是所谓的&#8221;黄金分割数&#8221;。</p>
+
+<p>递推关系</p>
+
+<pre><code>f(1)=1
+f(2)=1
+f(n)=f(n-1)+f(n-2) //n&gt;=2
+3f(n)=f(n+2)+f(n-2)
+</code></pre>
+
+<p>用PHP打印斐波那契数</p>
+
+<pre><code>&lt;?php
+function fib($n) {
+    if($n &lt;= 1) {
+        return $n;
+    }
+    return fib($n - 1) + fib($n - 2);
+}
+
+for($i = 0; $i &lt; 9; $i++) {
+    echo fib($i) . ' ';
+}
+</code></pre>
+
+<p>github source</p>
+
+<p><a href="">https://github.com/jiangrongyong/algorithm</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHP Good Parts]]></title>
@@ -667,18 +705,6 @@ Starting MySQL: [ OK ]
     <updated>2012-12-26T00:00:00+00:00</updated>
     <id>http://jiangrongyong.github.com/blog/2012/12/26/termkit</id>
     <content type="html"><![CDATA[<p><a href="http://www.leonzhang.com/2011/05/24/termkit/">TermKit, 图形化的Linux终端</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[nohup]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2012/12/26/nohup/"/>
-    <updated>2012-12-26T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2012/12/26/nohup</id>
-    <content type="html"><![CDATA[<pre><code>nohup jitter coffee static/js &gt; jitter.log 2&gt;&amp;1 &amp;
-</code></pre>
-
-<p>nohup是个很有用的命令 , 可以让程序在当前窗口关了之后也继续运行</p>
 ]]></content>
   </entry>
   

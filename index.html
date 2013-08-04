@@ -103,6 +103,71 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/08/04/fibonacci/">
+		
+			Fibonacci Algorithm</a>
+	</h2>
+	<div class="entry-content">
+		<p><code>1,1,2,3,5,8,13,21</code>依次类推下去，你会发现，它后一个数等于前面两个数的和。在这个数列中的数字，就被称为斐波那契数(Fibonacci Sequence)。</p>
+
+<p>任何相邻的两个数，次第相除(如8/13,13/21)，其比率都最为接近<code>0.618</code>这个值，它的极限就是所谓的&#8221;黄金分割数&#8221;。</p>
+
+<p>递推关系</p>
+
+<pre><code>f(1)=1
+f(2)=1
+f(n)=f(n-1)+f(n-2) //n&gt;=2
+3f(n)=f(n+2)+f(n-2)
+</code></pre>
+
+<p>用PHP打印斐波那契数</p>
+
+<pre><code>&lt;?php
+function fib($n) {
+    if($n &lt;= 1) {
+        return $n;
+    }
+    return fib($n - 1) + fib($n - 2);
+}
+
+for($i = 0; $i &lt; 9; $i++) {
+    echo fib($i) . ' ';
+}
+</code></pre>
+
+<p>github source</p>
+
+<p><a href="">https://github.com/jiangrongyong/algorithm</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-04T00:00:00+00:00" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/07/24/php-good-parts/">
 		
 			PHP Good Parts</a>
@@ -646,56 +711,6 @@ ant openfire
 
 
 <time datetime="2013-05-04T00:00:00+00:00" pubdate data-updated="true">May 4<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/04/26/enhance-history/">
-		
-			Bash加强history</a>
-	</h2>
-	<div class="entry-content">
-		<p>我们知道在 bash 里，可以通过 “上下” 键来浏览最近执行过的命令历史纪录（history），我们也知道如果历史纪录太多的话可以通过 ctrl+r 来查找命令或者通过 history 命令来浏览历史命令。我们不知道的是（也许只有本人不知道～），还有一种神奇的办法可以更准确、有效的在历史命令纪录中查找自己想要的命令。</p>
-
-<p>在自己的用户主目录（home directory）新建一个 <code>.inputrc</code> 文件：</p>
-
-<pre><code>$ vi ~/.inputrc
-
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-set show-all-if-ambiguous on
-set completion-ignore-case on
-</code></pre>
-
-<p>退出 bash 后重新登陆，敲打一个字母或者几个字母，然后 “上下” 键，就会看到以这个字母搜索到的完整命令行。如果搜索到几个类似命令，通过上下键来切换，有点像 ctrl+r，但是更好用。</p>
-
-<p><a href="http://feedproxy.google.com/~r/vpsee/~3/sC2N167c_c4/">原文</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-26T00:00:00+00:00" pubdate data-updated="true">Apr 26<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

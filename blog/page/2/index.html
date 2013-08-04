@@ -103,6 +103,56 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/04/26/enhance-history/">
+		
+			Bash加强history</a>
+	</h2>
+	<div class="entry-content">
+		<p>我们知道在 bash 里，可以通过 “上下” 键来浏览最近执行过的命令历史纪录（history），我们也知道如果历史纪录太多的话可以通过 ctrl+r 来查找命令或者通过 history 命令来浏览历史命令。我们不知道的是（也许只有本人不知道～），还有一种神奇的办法可以更准确、有效的在历史命令纪录中查找自己想要的命令。</p>
+
+<p>在自己的用户主目录（home directory）新建一个 <code>.inputrc</code> 文件：</p>
+
+<pre><code>$ vi ~/.inputrc
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+set show-all-if-ambiguous on
+set completion-ignore-case on
+</code></pre>
+
+<p>退出 bash 后重新登陆，敲打一个字母或者几个字母，然后 “上下” 键，就会看到以这个字母搜索到的完整命令行。如果搜索到几个类似命令，通过上下键来切换，有点像 ctrl+r，但是更好用。</p>
+
+<p><a href="http://feedproxy.google.com/~r/vpsee/~3/sC2N167c_c4/">原文</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-26T00:00:00+00:00" pubdate data-updated="true">Apr 26<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/04/17/centos-vsftpd/">
 		
 			Centos下搭建ftp</a>
@@ -640,45 +690,6 @@ Starting MySQL: [ OK ]
 	</h2>
 	<div class="entry-content">
 		<p><a href="http://www.leonzhang.com/2011/05/24/termkit/">TermKit, 图形化的Linux终端</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-26T00:00:00+00:00" pubdate data-updated="true">Dec 26<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/26/nohup/">
-		
-			Nohup</a>
-	</h2>
-	<div class="entry-content">
-		<pre><code>nohup jitter coffee static/js &gt; jitter.log 2&gt;&amp;1 &amp;
-</code></pre>
-
-<p>nohup是个很有用的命令 , 可以让程序在当前窗口关了之后也继续运行</p>
 
 		
 		
