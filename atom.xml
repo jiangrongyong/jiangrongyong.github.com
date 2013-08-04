@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-08-04T11:03:43+00:00</updated>
+  <updated>2013-08-04T11:26:47+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[tmux]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/08/04/tmux/"/>
+    <updated>2013-08-04T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/08/04/tmux</id>
+    <content type="html"><![CDATA[<p>最近介绍tmux的文章好多，虽然已久仰大名，今天试用了一下，果然是神器。没用过screen，直接跳级使用tmux。。</p>
+
+<p>记录下常用操作</p>
+
+<p>输入<code>tmux</code>，进入tmux模式</p>
+
+<p><code>tmux attach -t {session_name}</code> attach到某个session</p>
+
+<p><code>control + b</code> 操作入口</p>
+
+<p><code>"</code> pane水平切割</p>
+
+<p><code>%</code> pane纵向切割</p>
+
+<p><code>$</code> 重命名session</p>
+
+<p><code>d</code> detach tmux</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fibonacci Algorithm]]></title>
@@ -696,15 +721,6 @@ Starting MySQL: [ OK ]
 最后，提前祝大家新年快乐！</p>
 
 <p>张宏江</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[TermKit, 图形化的Linux终端]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2012/12/26/termkit/"/>
-    <updated>2012-12-26T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2012/12/26/termkit</id>
-    <content type="html"><![CDATA[<p><a href="http://www.leonzhang.com/2011/05/24/termkit/">TermKit, 图形化的Linux终端</a></p>
 ]]></content>
   </entry>
   

@@ -103,6 +103,42 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/12/26/termkit/">
+		
+			TermKit, 图形化的Linux终端</a>
+	</h2>
+	<div class="entry-content">
+		<p><a href="http://www.leonzhang.com/2011/05/24/termkit/">TermKit, 图形化的Linux终端</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-26T00:00:00+00:00" pubdate data-updated="true">Dec 26<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/12/26/nohup/">
 		
 			Nohup</a>
@@ -528,62 +564,6 @@ done
 <pre><code>svn diff --summarize -r717:726
 svn log -r717:726 -q -v | grep "   M" | sort -u
 </code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-16T00:00:00+00:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/16/ssh-without-password/">
-		
-			Ssh 不用输入密码</a>
-	</h2>
-	<div class="entry-content">
-		<ul>
-<li><p>Step 1.生成ssh公钥和密钥</p>
-
-<pre><code>  ssh-keygen -t rsa
-</code></pre></li>
-<li><p>Step 2.上传公钥文件到远程服务器,生成authorized_keys文件</p>
-
-<pre><code>  scp ~/.ssh/id_rsa.pub root@10.20.229.145/root/.ssh/authorized_keys
-</code></pre></li>
-</ul>
-
-
-<p>2013-06-14 更新</p>
-
-<ol>
-<li><p>如果遇到root下可以免密码ssh，其他用户没有生效，把authorized_keys用户组的写权限去掉即可</p>
-
-<pre><code> [hugh@li377-61 .ssh]$ chmod 600 /home/hugh/.ssh/authorized_keys
-</code></pre></li>
-</ol>
-
 
 		
 		

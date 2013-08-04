@@ -103,6 +103,62 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/12/16/ssh-without-password/">
+		
+			Ssh 不用输入密码</a>
+	</h2>
+	<div class="entry-content">
+		<ul>
+<li><p>Step 1.生成ssh公钥和密钥</p>
+
+<pre><code>  ssh-keygen -t rsa
+</code></pre></li>
+<li><p>Step 2.上传公钥文件到远程服务器,生成authorized_keys文件</p>
+
+<pre><code>  scp ~/.ssh/id_rsa.pub root@10.20.229.145/root/.ssh/authorized_keys
+</code></pre></li>
+</ul>
+
+
+<p>2013-06-14 更新</p>
+
+<ol>
+<li><p>如果遇到root下可以免密码ssh，其他用户没有生效，把authorized_keys用户组的写权限去掉即可</p>
+
+<pre><code> [hugh@li377-61 .ssh]$ chmod 600 /home/hugh/.ssh/authorized_keys
+</code></pre></li>
+</ol>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-16T00:00:00+00:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/12/16/php-curl-cookie/">
 		
 			PHP Curl发送cookie</a>
@@ -5400,6 +5456,8 @@ When you don&#8217;t need the samples anymore just delete the <code>_posts/core-
 
 <ul class="posts">
   
+    <li><span>04 Aug 2013</span> &raquo; <a href="/blog/2013/08/04/tmux/">tmux</a></li>
+  
     <li><span>04 Aug 2013</span> &raquo; <a href="/blog/2013/08/04/fibonacci/">Fibonacci Algorithm</a></li>
   
     <li><span>24 Jul 2013</span> &raquo; <a href="/blog/2013/07/24/php-good-parts/">PHP Good Parts</a></li>
@@ -5626,82 +5684,6 @@ We need to clean up the themes, make theme usage guides with theme-specific mark
 
 
 <time datetime="2012-12-07T00:00:00+00:00" pubdate data-updated="true">Dec 7<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/05/node-mailer/">
-		
-			Node-mailer简单的发邮件程序</a>
-	</h2>
-	<div class="entry-content">
-		<p>明天公司有小米2的内部抢购，翻出n久前写的邮件程序，但愿明天能抢到。</p>
-
-<p>上代码，迟点丢到github</p>
-
-<p>mailer.js</p>
-
-<pre><code>var email = require('mailer');
-
-email.send({
-      host : "smtp.gmail.com",
-      port : "25",
-      domain : "smtp.gmail.com",
-      to : "jiangrongyong@gmail.com",
-      from : "jiangrongyong@gmail.com",
-      subject : "小米手机2竞购",
-      body: "小米32G*2",
-      authentication : "login",
-      username : "jiangrongyong",
-      password : "***"
-}, function(err, result){
-      if(err){ console.log(err); }
-      console.log(new Date() + 'sended.');
-});
-</code></pre>
-
-<p>start.sh</p>
-
-<pre><code>#!/bin/bash
-
-export PATH=/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:$PATH
-
-mails[0]='mailer.js'
-repeat=3
-
-for((i=1;i&lt;=$repeat;i++));do
-    for item in ${mails[@]}; do
-        node /data/app/node-mailer-test/$item &amp;
-    done
-    sleep 1
-done
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-05T00:00:00+00:00" pubdate data-updated="true">Dec 5<span>th</span>, 2012</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

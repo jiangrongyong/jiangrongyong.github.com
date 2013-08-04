@@ -103,6 +103,58 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/08/04/tmux/">
+		
+			Tmux</a>
+	</h2>
+	<div class="entry-content">
+		<p>最近介绍tmux的文章好多，虽然已久仰大名，今天试用了一下，果然是神器。没用过screen，直接跳级使用tmux。。</p>
+
+<p>记录下常用操作</p>
+
+<p>输入<code>tmux</code>，进入tmux模式</p>
+
+<p><code>tmux attach -t {session_name}</code> attach到某个session</p>
+
+<p><code>control + b</code> 操作入口</p>
+
+<p><code>"</code> pane水平切割</p>
+
+<p><code>%</code> pane纵向切割</p>
+
+<p><code>$</code> 重命名session</p>
+
+<p><code>d</code> detach tmux</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-04T00:00:00+00:00" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/08/04/fibonacci/">
 		
 			Fibonacci Algorithm</a>
@@ -583,134 +635,6 @@ echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt;
 
 
 <time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/05/04/xmpp/">
-		
-			XMPP与Openfire</a>
-	</h2>
-	<div class="entry-content">
-		<p>准备做一个实时应用的服务端，由于以前都是基于http协议开发的，没有这方面的经验</p>
-
-<p>查了下V2EX和知乎，发现目前国内大部分成熟应用用的协议都是XMPP，如米聊、微信和国外的kik</p>
-
-<p>以下是知乎上对XMPP的评价</p>
-
-<blockquote><p>使用XMPP协议（Openfire + Spark + Smack）
-简介：基于XML协议的通讯协议，前身是Jabber，目前已由IETF国际标准化组织完成了标准化工作。
-优点：协议成熟、强大、可扩展性强、目前主要应用于许多聊天系统中，且已有开源的Java版的开发实例androidpn。
-缺点：协议较复杂、冗余（基于XML）、费流量、费电，部署硬件成本高。</p></blockquote>
-
-<h3>1. 部署开发环境</h3>
-
-<h4>1.1 参考文章</h4>
-
-<ul>
-<li><a href="http://www.igniterealtime.org/projects/openfire/">Home page</a></li>
-<li><a href="http://www.igniterealtime.org/downloads/index.jsp">Download page</a></li>
-<li><a href="http://www.jabbercn.org/Openfire:%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">中文wiki</a></li>
-<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/source-build.html">Building the Source</a></li>
-<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/javadoc/index.html">Javadoc</a></li>
-<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/plugin-dev-guide.html">Openfire Plugin Developer Guide</a></li>
-<li><a href="http://community.igniterealtime.org/docs/DOC-1020">官方部署开发环境文档 - Openfire SVN + Eclipse 3.3 + Subversive Installation Guide</a></li>
-<li><a href="http://blog.csdn.net/ares1201/article/details/7737872">Openfire开发配置,Openfire源代码配置,OpenFire二次开发配置</a></li>
-<li><a href="http://lmain.blog.51cto.com/779468/157942">Openfire源码布署与打包</a></li>
-<li><a href="http://www.blogjava.net/yi88han/archive/2009/02/10/gissing.html">openfire开发文档</a></li>
-<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/database-guide.html">Database Schema Guide</a></li>
-<li><a href="http://zhuyx808.iteye.com/blog/414796">OpenFire客户端编程示例</a></li>
-<li></li>
-<li><a href="http://android-zhang.iteye.com/blog/1836312">Android基于XMPP Smack Openfire开发IM【一】登录openfire服务器</a></li>
-<li><a href="http://android-zhang.iteye.com/blog/1836603">Android基于XMPP Smack Openfire开发IM 【二】获取好友列表</a></li>
-<li><a href="http://android-zhang.iteye.com/blog/1836776">Android基于XMPP Smack Openfire开发IM【三】客户端接收服务器发送的消息</a></li>
-<li><a href="http://android-zhang.iteye.com/blog/1837189">Android基于XMPP Smack Openfire开发IM【四】初步实现两个客户端通信</a></li>
-<li></li>
-<li><a href="http://blog.csdn.net/windone0109/article/details/4675944">即时通讯软件openfire+spark+smack</a></li>
-<li><a href="http://hetylei.iteye.com/blog/290519">xmpp with openfire之四 扩展的AuthProvider</a></li>
-<li><a href="http://www.docin.com/p-210007713.html">XMPP协议及其服务器端的Openfire插件开发</a></li>
-<li></li>
-<li><a href="http://hetylei.iteye.com/blog/289854">xmpp with openfire之一 xmpp and openfire</a></li>
-<li><a href="http://hetylei.iteye.com/blog/290031">xmpp with openfire之二 openfire安装</a></li>
-<li><a href="http://hetylei.iteye.com/blog/290140">xmpp with openfire之三 openfire扩展小试 整合现有系统用户</a></li>
-<li><a href="http://hetylei.iteye.com/blog/290519">xmpp with openfire之四 扩展的AuthProvider</a></li>
-<li><a href="http://hetylei.iteye.com/blog/291265">xmpp with openfire之五 插件－利用Broadcast实现群</a></li>
-<li></li>
-<li><a href="http://blog.csdn.net/hexudong08/article/details/7429402">openfire 开发插件</a></li>
-<li><a href="http://blog.csdn.net/hexudong08/article/details/7450206">openfire插件开发续一(xmpp4r)</a></li>
-<li><a href="http://blog.csdn.net/hexudong08/article/details/7454283">openfire插件开发续二</a></li>
-<li><a href="http://blog.csdn.net/hexudong08/article/details/7460246">openfire插件开发三，java端开发</a></li>
-<li></li>
-<li><a href="http://www.cnblogs.com/ErinCodeMM/archive/2011/12/25/2301220.html">【openfire插件开发】IQHandler处理IQ请求包（模板方法模式）</a></li>
-<li><a href="http://forum.rooyeetone.com/simple/?t199.html">openfire开发文档</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_a4cf4b4301010rdb.html">openfire插件开发最简单的demo</a></li>
-<li><a href="http://wenku.baidu.com/view/ccc01e6f7e21af45b307a88b.html">Openfire插件开发流程</a></li>
-<li><a href="http://blog.csdn.net/sapphire_aling/article/details/6677979">openfire+smack新用户注册、更改用户状态</a></li>
-<li><a href="http://blog.csdn.net/lnb333666/article/details/7598683">Android基于XMPP Smack openfire 开发的聊天室（四） 【创建房间、表单；报文】</a></li>
-<li><a href="http://www.hutud.com/index.php/archives/328">spark openfire conference修改使群组编程持久的。 类似qq群（1）</a></li>
-<li><a href="http://www.cnblogs.com/huazai8204/archive/2011/12/31/2309022.html">改造MUC实现Openfire群</a></li>
-<li><a href="http://www.jabbercn.org/XEP-0045#.E6.88.BF.E9.97.B4.E7.B1.BB.E5.9E.8B">XEP-0045: 多用户聊天</a></li>
-<li><a href="http://www.igniterealtime.org/builds/openfire/docs/latest/documentation/database-guide.html">Database Schema Guide</a></li>
-</ul>
-
-
-<h4>1.2 Mac下启动与关闭Openfire（通过dmg包安装）</h4>
-
-<p>关闭</p>
-
-<pre><code>sudo launchctl unload /Library/LaunchDaemons/org.jivesoftware.openfire.plist
-</code></pre>
-
-<p>启动</p>
-
-<pre><code>sudo launchctl load /Library/LaunchDaemons/org.jivesoftware.openfire.plist
-</code></pre>
-
-<p><a href="http://community.igniterealtime.org/thread/38670">原文</a></p>
-
-<h4>1.3 编译源码</h4>
-
-<h5>1.3.1 ant编译</h5>
-
-<pre><code>cd /Users/jiangrongyong/Program/openfire_src/build
-
-ant openfire
-</code></pre>
-
-<h5>1.3.2 启动openfire</h5>
-
-<pre><code>#先启动mysql
-/usr/local/mysql/bin/mysqld
-
-#openfire启动脚本
-/Users/jiangrongyong/Program/openfire_src/target/openfire/bin/openfire.sh start
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-04T00:00:00+00:00" pubdate data-updated="true">May 4<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>
