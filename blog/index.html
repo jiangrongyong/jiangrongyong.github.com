@@ -103,6 +103,83 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/08/07/php-utf8-bom/">
+		
+			Php Utf-8 Bom</a>
+	</h2>
+	<div class="entry-content">
+		<h3>1. 测试接口是否有返回有BOM</h3>
+
+<pre><code>curl -s http://i.wan.liebao.cn/ | head -1 |sed -n l
+
+# 有BOM情况
+\357\273\277{"data":{"uname":"jiangrongyong","s_face":"http:\/\/static.hdslb.com\/images\/member\/noface.gif"},"msg":"ok","code":1}
+
+# 无BOM情况    
+{"data":{"uname":"jiangrongyong","s_face":"http:\/\/static.hdslb.com\/images\/member\/noface.gif"},"msg":"ok","code":1}
+</code></pre>
+
+<h3>2. vim设置BOM</h3>
+
+<p>设置utf-8编码</p>
+
+<pre><code>:set fileencoding=utf-8
+</code></pre>
+
+<p>添加BOM</p>
+
+<pre><code>:set bomb
+</code></pre>
+
+<p>删除BOM</p>
+
+<pre><code>:set nobomb
+</code></pre>
+
+<p>检测是否有BOM</p>
+
+<pre><code>:set bomb?
+</code></pre>
+
+<h3>3. 查找有BOM的文件</h3>
+
+<pre><code>grep -r -I -l $'^\xEF\xBB\xBF' $path
+</code></pre>
+
+<h3>4. 批量删除BOM</h3>
+
+<pre><code>grep -r -I -l $'^\xEF\xBB\xBF' /path | xargs sed -i 's/^\xEF\xBB\xBF//;q'
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-07T00:00:00+00:00" pubdate data-updated="true">Aug 7<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/08/04/tmux/">
 		
 			Tmux</a>
@@ -572,57 +649,6 @@ echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt;
 
 <ul>
 <li>http://tchen.me/posts/2013-06-12-use-makefile-to-automate-deployment.html</li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/06/14/dd/">
-		
-			OSX下使用dd命令把镜像文件烧进SD卡</a>
-	</h2>
-	<div class="entry-content">
-		<ol>
-<li><code>df -h</code></li>
-<li><code>unmount /dev/disk1s1</code></li>
-<li><code>diskutil list</code></li>
-<li><code>dd bs=4m if=raspbmc-final.img of=/dev/rdisk1</code></li>
-</ol>
-
-
-<p>以上4步就ok了</p>
-
-<p>参考来源</p>
-
-<ul>
-<li>http://zhangshenjia.com/exprience/mac-raspbian/</li>
 </ul>
 
 

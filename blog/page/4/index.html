@@ -103,6 +103,77 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/12/16/svn/">
+		
+			SVN常用操作</a>
+	</h2>
+	<div class="entry-content">
+		<h3>一次性把所有未入库文件add</h3>
+
+<pre><code>svn status|grep "?"|awk '{print $2}'|xargs svn add
+</code></pre>
+
+<h3>对变化文件做处理</h3>
+
+<pre><code>svn status|awk '{print $2}'|while read line;
+do
+    // do something...
+    cp $line $DEPLOY_DIR/$line
+done
+</code></pre>
+
+<h3>通过PHP执行svn命令，如果文件名包含中文，会导致<code>svn up</code>失败，解决方法是在执行脚本前先设置字符集编码</h3>
+
+<pre><code>export LC_ALL=zh_CN.UTF-8;export LANG=en_US.UTF-8;
+</code></pre>
+
+<h3>svn忽略列表</h3>
+
+<pre><code>svn ps svn:ignore --file .svnignore .
+</code></pre>
+
+<h3>清空.svn文件夹</h3>
+
+<pre><code>find . -type d -name ".svn"|xargs rm -rf
+</code></pre>
+
+<h3>列出svn变化文件</h3>
+
+<blockquote><p><a href="http://blog.lysender.com/2010/11/svn-list-modified-files-between-revisions/">http://blog.lysender.com/2010/11/svn-list-modified-files-between-revisions/</a></p></blockquote>
+
+<pre><code>svn diff --summarize -r717:726
+svn log -r717:726 -q -v | grep "   M" | sort -u
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-16T00:00:00+00:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/12/16/ssh-without-password/">
 		
 			Ssh 不用输入密码</a>
@@ -5456,6 +5527,8 @@ When you don&#8217;t need the samples anymore just delete the <code>_posts/core-
 
 <ul class="posts">
   
+    <li><span>07 Aug 2013</span> &raquo; <a href="/blog/2013/08/07/php-utf8-bom/">php utf-8 bom</a></li>
+  
     <li><span>04 Aug 2013</span> &raquo; <a href="/blog/2013/08/04/tmux/">tmux</a></li>
   
     <li><span>04 Aug 2013</span> &raquo; <a href="/blog/2013/08/04/fibonacci/">Fibonacci Algorithm</a></li>
@@ -5645,55 +5718,6 @@ We need to clean up the themes, make theme usage guides with theme-specific mark
 
 
 <time datetime="2012-12-09T00:00:00+00:00" pubdate data-updated="true">Dec 9<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/07/mac-zhengban/">
-		
-			Mac正版列表</a>
-	</h2>
-	<div class="entry-content">
-		<ul>
-<li>iStat 4</li>
-<li>TextExpander</li>
-<li>Sparrow</li>
-<li>1Password</li>
-<li>Alfred 2</li>
-<li>Bartender</li>
-<li>CleanMyMac 2</li>
-<li>Fantastical</li>
-<li>Path Finder</li>
-<li>PhpStorm</li>
-<li>Fantastical</li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-07T00:00:00+00:00" pubdate data-updated="true">Dec 7<span>th</span>, 2012</time></div>
 	<div class="tags" style="display:none;">
 
 </div>
