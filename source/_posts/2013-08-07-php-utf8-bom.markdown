@@ -1,0 +1,43 @@
+---
+layout: post
+title: php utf-8 bom
+tags: php,bom
+
+---
+
+### 1. 测试接口是否有返回有BOM
+
+    curl -s http://i.wan.liebao.cn/ | head -1 |sed -n l
+    
+    # 有BOM情况
+    \357\273\277{"data":{"uname":"jiangrongyong","s_face":"http:\/\/static.hdslb.com\/images\/member\/noface.gif"},"msg":"ok","code":1}
+
+    # 无BOM情况    
+    {"data":{"uname":"jiangrongyong","s_face":"http:\/\/static.hdslb.com\/images\/member\/noface.gif"},"msg":"ok","code":1}
+    
+### 2. vim设置BOM
+
+设置utf-8编码
+    
+    :set fileencoding=utf-8
+    
+添加BOM
+
+    :set bomb
+    
+删除BOM
+
+    :set nobomb
+    
+检测是否有BOM
+
+    :set bomb?
+    
+### 3. 查找有BOM的文件
+
+    grep -r -I -l $'^\xEF\xBB\xBF' $path
+    
+### 4. 批量删除BOM
+
+    grep -r -I -l $'^\xEF\xBB\xBF' /path | xargs sed -i 's/^\xEF\xBB\xBF//;q'
+    
