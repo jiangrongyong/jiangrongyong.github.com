@@ -13,6 +13,8 @@ tags: tmux
 
 `tmux attach -t {session_name}` attach到某个session
 
+`tmux kill-session -t {session_name}` kill掉某个session
+
 `control + b` 操作入口
 
 `"` pane水平切割
