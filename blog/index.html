@@ -103,6 +103,49 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/08/19/php-cookie-deleted/">
+		
+			Php Cookie Deleted</a>
+	</h2>
+	<div class="entry-content">
+		<p>使用<code>setcookie('name', '')</code>方式删除cookie时，PHP将cookie的值设置为<code>deleted</code>，过期时间设置为一年前。如果用户本地时间为两年前，则该cookie没有被删除，而是将值设置为了deleted。</p>
+
+<p>比较靠谱的删除cookie的方法为：</p>
+
+<pre><code>setcookie('name', 'deleted', 1, $path, $domain);
+</code></pre>
+
+<p>注意：在PHP5.2版本之前(包含5.2)，cookie的值可以不是deleted，但是不能为空，否则，时间参数将不被参考。</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-19T00:00:00+00:00" pubdate data-updated="true">Aug 19<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/08/07/php-utf8-bom/">
 		
 			Php Utf-8 Bom</a>
@@ -192,6 +235,8 @@ $(document).ready(
 <p>输入<code>tmux</code>，进入tmux模式</p>
 
 <p><code>tmux attach -t {session_name}</code> attach到某个session</p>
+
+<p><code>tmux kill-session -t {session_name}</code> kill掉某个session</p>
 
 <p><code>control + b</code> 操作入口</p>
 
@@ -589,68 +634,6 @@ echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt;
 <p>2013-06-16 更新</p>
 
 <p>iOS也可以用同样方法，不过必须越狱，建议安装openssh，然后ssh到iOS设备修改文件</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/06/14/makefile-autodeploy/">
-		
-			使用MAKEFILE自动化部署</a>
-	</h2>
-	<div class="entry-content">
-		<p>自动提交本地git，然后ssh到服务器更新和部署，终于优雅实现这个一直很久的需求了</p>
-
-<p>vim Makefile</p>
-
-<pre><code> PROJECT=free-will.me
- SERVER=hugh@106.187.34.61
- PATH=/data/app/octopress/
- SSH=/usr/bin/ssh
- GIT=/usr/bin/git
- AWK=/usr/bin/awk
- XARGS=/usr/bin/xargs
- LOCAL_PATH=/Users/jiangrongyong/Program/jiangrongyong.github.com
-
- remote_deploy:
-        @cd $(LOCAL_PATH)
-        @$(GIT) status -s|$(AWK) '{print $$2}'|$(XARGS) $(GIT) add
-        @$(GIT) commit -m "posts update"
-        @$(GIT) push -u origin source
-        @$(SSH) -t $(SERVER) "echo Deploy $(PROJECT) to the $(SERVER) server.; cd $(PATH); git pull; rake gen_deploy;"
-</code></pre>
-
-<p>参考文章</p>
-
-<ul>
-<li>http://tchen.me/posts/2013-06-12-use-makefile-to-automate-deployment.html</li>
-</ul>
-
 
 		
 		

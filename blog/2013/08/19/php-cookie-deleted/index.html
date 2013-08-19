@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>tmux  | Hugh's Blog</title>
+	<title>php cookie deleted  | Hugh's Blog</title>
 
 <meta name="author" content="Hugh"> 
 
@@ -98,26 +98,15 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Tmux</h2>
-	<div class="entry-content"><p>最近介绍tmux的文章好多，虽然已久仰大名，今天试用了一下，果然是神器。没用过screen，直接跳级使用tmux。。</p>
+	<h2 class="title">Php Cookie Deleted</h2>
+	<div class="entry-content"><p>使用<code>setcookie('name', '')</code>方式删除cookie时，PHP将cookie的值设置为<code>deleted</code>，过期时间设置为一年前。如果用户本地时间为两年前，则该cookie没有被删除，而是将值设置为了deleted。</p>
 
-<p>记录下常用操作</p>
+<p>比较靠谱的删除cookie的方法为：</p>
 
-<p>输入<code>tmux</code>，进入tmux模式</p>
+<pre><code>setcookie('name', 'deleted', 1, $path, $domain);
+</code></pre>
 
-<p><code>tmux attach -t {session_name}</code> attach到某个session</p>
-
-<p><code>tmux kill-session -t {session_name}</code> kill掉某个session</p>
-
-<p><code>control + b</code> 操作入口</p>
-
-<p><code>"</code> pane水平切割</p>
-
-<p><code>%</code> pane纵向切割</p>
-
-<p><code>$</code> 重命名session</p>
-
-<p><code>d</code> detach tmux</p>
+<p>注意：在PHP5.2版本之前(包含5.2)，cookie的值可以不是deleted，但是不能为空，否则，时间参数将不被参考。</p>
 </div>
 
 
@@ -134,7 +123,7 @@ $(document).ready(
   
 
 
-<time datetime="2013-08-04T00:00:00+00:00" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time></div>
+<time datetime="2013-08-19T00:00:00+00:00" pubdate data-updated="true">Aug 19<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>
