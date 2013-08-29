@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-08-19T15:37:45+00:00</updated>
+  <updated>2013-08-29T10:05:14+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[防止ssh过一段时间后中断]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/08/29/sshd-interrupt/"/>
+    <updated>2013-08-29T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/08/29/sshd-interrupt</id>
+    <content type="html"><![CDATA[<pre><code>$ sudo vim /etc/ssh/sshd_config
+</code></pre>
+
+<p>修改</p>
+
+<pre><code># 如果超过15秒后没有收到客户端的任何数据，sshd将通过安全通道向客户端发送一个"alive"消息，并等候应答，默认值0表示不发送
+ClientAliveInterval 15
+
+# sshd在未收到任何客户端回应前最多允许发送45个"alive"消息，默认值3
+ClientAliveCountMax 45
+</code></pre>
+
+<p>重启sshd</p>
+
+<pre><code>$ sudo /etc/init.d/sshd restart
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[php cookie deleted]]></title>
@@ -726,25 +750,6 @@ Starting MySQL: [ OK ]
     <content type="html"><![CDATA[<p><code>http://blog.creke.net/762.html</code></p>
 
 <p>实测可行！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OS X下载youtube视频]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/01/31/youtube-dl/"/>
-    <updated>2013-01-31T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/01/31/youtube-dl</id>
-    <content type="html"><![CDATA[<p>首先上youtube必须先打开vpn</p>
-
-<p>然后到视频页面，如<code>http://www.youtube.com/watch?v=kUT1Z3F2nLE</code></p>
-
-<p>先安装brew，<code>ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"</code></p>
-
-<p>再安装youtube-dl，<code>brew install youtube-dl</code></p>
-
-<p>然后下载视频，<code>youtube-dl http://www.youtube.com/watch?v=kUT1Z3F2nLE</code></p>
-
-<p>下载完成后，可以发现视频文件名为<code>kUT1Z3F2nLE.flv</code></p>
 ]]></content>
   </entry>
   
