@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-08-29T10:05:14+00:00</updated>
+  <updated>2013-09-02T14:44:12+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OSX 文件系统大小写不敏感]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/09/02/osx-file-system-case-insensitive/"/>
+    <updated>2013-09-02T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/09/02/osx-file-system-case-insensitive</id>
+    <content type="html"><![CDATA[<p>HFS+(Mac文件系统)一般配置是大小写不敏感但大小写保留，意思是文件系统会认为<code>foo</code>和<code>FoO</code>是同一个文件，但当创建该文件时系统就记住哪个字母大写哪个小写</p>
+
+<p>当格式化成HFS+格式时你可以指定文件系统是否大小写敏感。但如果你格式化成UFS(Unix FileSystem)的话将会永远是大小写敏感</p>
+
+<p>检查你的磁盘格式是否大小写敏感</p>
+
+<pre><code>diskutil info &lt;device&gt;
+</code></pre>
+
+<p>例如</p>
+
+<pre><code>diskutil info /dev/disk0s2
+</code></pre>
+
+<p><code>Name (User Visible):      Mac OS Extended (Journaled)</code></p>
+
+<p>如果是<code>Mac OS Extended (Case-sensitive, Journaled)</code>则表示大小写敏感，如果没有<code>Case-sensitive</code>字样则仅仅是大小写保留非大小写敏感。</p>
+
+<hr />
+
+<p>http://apple.stackexchange.com/questions/22297/is-bash-in-osx-case-insensitive</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[vim批量注释]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/08/30/vim-comment/"/>
+    <updated>2013-08-30T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/08/30/vim-comment</id>
+    <content type="html"><![CDATA[<ul>
+<li><p>批量注释</p>
+
+<ol>
+<li><code>ctrl+v</code> 进入列编辑模式</li>
+<li>上下移动光标,把需要注释的行的开头选中</li>
+<li><code>shift+i</code>,插入注释符,比如<code>//</code></li>
+<li><code>Esc</code>,就会全部注释了</li>
+</ol>
+</li>
+<li><p>批量去掉注释</p>
+
+<ol>
+<li><code>ctrl+v</code>,进入列编辑模式</li>
+<li>横向选中列的个数，如<code>//</code>注释符号</li>
+<li>按<code>d</code>, 就会删除注释符号</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[防止ssh过一段时间后中断]]></title>
@@ -728,28 +785,6 @@ Starting MySQL: [ OK ]
 <p><a href="http://blog.s135.com/dips/2/1/">http://blog.s135.com/dips/2/1/</a></p>
 
 <p><a href="http://gearman.org/">http://gearman.org/</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ip转发]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/02/18/ip-proxy/"/>
-    <updated>2013-02-18T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/02/18/ip-proxy</id>
-    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/shyodx/article/details/7977432">http://blog.csdn.net/shyodx/article/details/7977432</a></p>
-
-<p><a href="http://hintsforums.macworld.com/showthread.php?t=132108">http://hintsforums.macworld.com/showthread.php?t=132108</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[配置nginx https]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/02/02/nginx-ssl/"/>
-    <updated>2013-02-02T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/02/02/nginx-ssl</id>
-    <content type="html"><![CDATA[<p><code>http://blog.creke.net/762.html</code></p>
-
-<p>实测可行！</p>
 ]]></content>
   </entry>
   

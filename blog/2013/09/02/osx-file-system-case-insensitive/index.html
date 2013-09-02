@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Mac正版列表  | Hugh's Blog</title>
+	<title>OSX 文件系统大小写不敏感  | Hugh's Blog</title>
 
 <meta name="author" content="Hugh"> 
 
@@ -98,22 +98,28 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Mac正版列表</h2>
-	<div class="entry-content"><ul>
-<li>iStat 4</li>
-<li>TextExpander</li>
-<li>Sparrow</li>
-<li>1Password</li>
-<li>Alfred 2</li>
-<li>Bartender</li>
-<li>CleanMyMac 2</li>
-<li>Fantastical</li>
-<li>Path Finder</li>
-<li>PhpStorm</li>
-<li>Fantastical</li>
-<li>Moom</li>
-</ul>
+	<h2 class="title">OSX 文件系统大小写不敏感</h2>
+	<div class="entry-content"><p>HFS+(Mac文件系统)一般配置是大小写不敏感但大小写保留，意思是文件系统会认为<code>foo</code>和<code>FoO</code>是同一个文件，但当创建该文件时系统就记住哪个字母大写哪个小写</p>
 
+<p>当格式化成HFS+格式时你可以指定文件系统是否大小写敏感。但如果你格式化成UFS(Unix FileSystem)的话将会永远是大小写敏感</p>
+
+<p>检查你的磁盘格式是否大小写敏感</p>
+
+<pre><code>diskutil info &lt;device&gt;
+</code></pre>
+
+<p>例如</p>
+
+<pre><code>diskutil info /dev/disk0s2
+</code></pre>
+
+<p><code>Name (User Visible):      Mac OS Extended (Journaled)</code></p>
+
+<p>如果是<code>Mac OS Extended (Case-sensitive, Journaled)</code>则表示大小写敏感，如果没有<code>Case-sensitive</code>字样则仅仅是大小写保留非大小写敏感。</p>
+
+<hr />
+
+<p>http://apple.stackexchange.com/questions/22297/is-bash-in-osx-case-insensitive</p>
 </div>
 
 
@@ -130,7 +136,7 @@ $(document).ready(
   
 
 
-<time datetime="2012-12-07T00:00:00+00:00" pubdate data-updated="true">Dec 7<span>th</span>, 2012</time></div>
+<time datetime="2013-09-02T00:00:00+00:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>
