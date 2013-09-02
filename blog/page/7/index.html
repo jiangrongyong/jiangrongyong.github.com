@@ -103,6 +103,62 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/11/04/php-memory-limit/">
+		
+			Php内存回收</a>
+	</h2>
+	<div class="entry-content">
+		<h2>最近在写一个从mysql导数据到memcache的php cli脚本，每次执行内存都一直上涨，内存没有回收，经过一晚的debug，终于在unset了以后释放了内存</h2>
+
+<pre><code>private static function updateGlCache($field, $value, $tabname, $mem) {
+    $cache_key = get_cache_key("gl_{$field}", $value);
+    $tabnames = $mem-&gt;get($cache_key);
+
+    if($tabnames == null) {
+        $mem-&gt;set($cache_key, array($tabname));
+        print_r("flushing:{$field}{$value}{$tabname}\n");
+    }else {
+        if(!in_array($tabname, $tabnames)) {
+            array_push($tabnames, $tabname);
+            $mem-&gt;set($cache_key, $tabnames);
+            print_r("flushing:{$field}{$value}{$tabname}\n");
+        }
+    }
+
+    unset($tabnames); //gc
+    unset($cache_key); //gc
+}
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-04T00:00:00+00:00" pubdate data-updated="true">Nov 4<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/11/04/first-lunch/">
 		
 			本少爷下厨(1)</a>
