@@ -17,3 +17,4 @@ tags: OSX
 * PhpStorm 
 * Fantastical
 * Moom
+* CrossOver
