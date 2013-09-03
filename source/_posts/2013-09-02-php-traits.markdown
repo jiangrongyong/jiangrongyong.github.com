@@ -12,3 +12,6 @@ tags: php
 > Trait 和一个类相似，但仅仅旨在用细粒度和一致的方式来组合功能。Trait 不能通过它自身来实例化。它为传统继承增加了水平特性的组合；也就是说，应用类的成员不需要继承。
 
 可以用此关键字实现多继承，类似Ruby中的`Mixin`
+
+---
+http://php.net/manual/zh/language.oop5.traits.php
