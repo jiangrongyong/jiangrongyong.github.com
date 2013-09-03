@@ -103,6 +103,105 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/12/26/ncdu/">
+		
+			磁盘目录占用空间计算排序工具 - Ncdu</a>
+	</h2>
+	<div class="entry-content">
+		<h3>安装</h3>
+
+<pre><code>sudo port install ncdu
+</code></pre>
+
+<h3>使用方法</h3>
+
+<p>执行ncdu会提示选择目录，输入目标目录，回车，即可列出当前目录下的文件及目录的大小，默认按照大小进行排序</p>
+
+<p>可以使用“?”调出帮助菜单</p>
+
+<p>使用数字键，1、2、3进行切换，1为快捷键，2为显示格式说明，3为ncdu版权信息。</p>
+
+<p>Example</p>
+
+<p>查看当前目录磁盘使用情况</p>
+
+<pre><code>ncdu .
+</code></pre>
+
+<p>显示效果</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>--- /Users/jiangrongyong/Program/game-data-import -------------------------------
+</span><span class='line'>   24.3MiB [##########] /.git                                                                                                                                                      
+</span><span class='line'>   23.4MiB [######### ] /target
+</span><span class='line'>  116.0KiB [          ] /src
+</span><span class='line'>   12.0KiB [          ]  pom.xml
+</span><span class='line'>   12.0KiB [          ] /.settings
+</span><span class='line'>    4.0KiB [          ]  .classpath
+</span><span class='line'>    4.0KiB [          ]  .project
+</span><span class='line'>    4.0KiB [          ]  README
+</span><span class='line'>    4.0KiB [          ]  start.sh
+</span><span class='line'>    4.0KiB [          ]  .gitignore</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>常用快捷键</h4>
+
+<p>n ：按文件名进行排序</p>
+
+<p>s ：按文件大小进行排序</p>
+
+<p>r ：重新统计当前文件夹大小</p>
+
+<p>g ：用#或百分比显示各文件/目录的大小所占的百分比</p>
+
+<p>i ：显示当前文件/目录信息</p>
+
+<p>d ：删除</p>
+
+<pre><code>ncdu /
+</code></pre>
+
+<p>可以看整个硬盘的空间使用</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-26T00:00:00+00:00" pubdate data-updated="true">Dec 26<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/12/26/log-io/">
 		
 			log.io 实时日志监控工具</a>
@@ -523,42 +622,6 @@ svn log -r717:726 -q -v | grep "   M" | sort -u
     curl_close($curl);
 }
 </code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-16T00:00:00+00:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/12/16/cloud9-ide/">
-		
-			云端IDE:cloud9</a>
-	</h2>
-	<div class="entry-content">
-		<p><a href="https://c9.io/">Cloud9</a>是一个在线IDE，通过它在可以云端coding，甚至debug，支持直接导入Github和Bitbucket工程，而且代码开源，托管在Github，<a href="https://github.com/ajaxorg/cloud9/">项目地址</a>，很方便在内网部署，还可以在网页IDE中执行git命令。</p>
 
 		
 		

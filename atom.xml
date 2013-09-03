@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-09-03T14:55:52+00:00</updated>
+  <updated>2013-09-03T16:41:33+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -24,6 +24,19 @@
 
 list($content, $code) = callee();
 </code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Minimum viable product 最小可行产品]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/09/03/minimum-viable-product/"/>
+    <updated>2013-09-03T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/09/03/minimum-viable-product</id>
+    <content type="html"><![CDATA[<blockquote><p>In product development, the Minimum Viable Product (MVP) is a strategy used for fast and quantitative market testing of a product or product feature, popularized by Eric Ries for web applications.</p></blockquote>
+
+<hr />
+
+<p>https://en.wikipedia.org/wiki/Minimum_viable_product</p>
 ]]></content>
   </entry>
   
@@ -598,123 +611,6 @@ set completion-ignore-case on
 <p>退出 bash 后重新登陆，敲打一个字母或者几个字母，然后 “上下” 键，就会看到以这个字母搜索到的完整命令行。如果搜索到几个类似命令，通过上下键来切换，有点像 ctrl+r，但是更好用。</p>
 
 <p><a href="http://feedproxy.google.com/~r/vpsee/~3/sC2N167c_c4/">原文</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Centos下搭建ftp]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/04/17/centos-vsftpd/"/>
-    <updated>2013-04-17T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/04/17/centos-vsftpd</id>
-    <content type="html"><![CDATA[<p>vsftpd作为FTP服务器，在Linux系统中是非常常用的。下面我们介绍如何在centos系统上安装vsftp。</p>
-
-<h3>什么是vsftpd</h3>
-
-<p>vsftpd是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
-
-<p>vsftpd 的名字代表”very secure FTP daemon”, 安全是它的开发者 Chris Evans 考虑的首要问题之一。在这个 FTP 服务器设计开发的最开始的时候，高安全性就是一个目标。</p>
-
-<h3>安装vsftpd</h3>
-
-<ol>
-<li><p>以管理员（root）身份执行以下命令</p>
-
-<pre><code> yum install vsftpd
-</code></pre></li>
-<li><p>设置开机启动vsftpd ftp服务</p>
-
-<pre><code> chkconfig vsftpd on
-</code></pre></li>
-<li><p>启动vsftpd服务</p>
-
-<pre><code> service vsftpd start
-</code></pre></li>
-</ol>
-
-
-<h3>管理vsftpd相关命令</h3>
-
-<ol>
-<li><p>停止vsftpd</p>
-
-<pre><code> service vsftpd stop
-</code></pre></li>
-<li><p>重启vsftpd</p>
-
-<pre><code> service vsftpd restart
-</code></pre></li>
-<li><p>配置防火墙</p>
-
-<p> 打开/etc/sysconfig/iptables文件</p>
-
-<pre><code> vi /etc/sysconfig/iptables
-</code></pre>
-
-<p> 在REJECT行之前添加如下代码</p>
-
-<pre><code> -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
-</code></pre>
-
-<p> 保存和关闭文件，重启防火墙</p>
-
-<pre><code> service iptables start
-</code></pre>
-
-<p> 配置vsftpd服务器</p>
-
-<p> 默认的配置文件是/etc/vsftpd/vsftpd.conf，你可以用文本编辑器打开。</p>
-
-<pre><code> vi /etc/vsftpd/vsftpd.conf
-</code></pre></li>
-</ol>
-
-
-<h3>添加ftp用户</h3>
-
-<p>下面是添加ftpuser用户，设置根目录为/home/wwwroot/ftpuser,禁止此用户登录SSH的权限，并限制其访问其它目录。</p>
-
-<ol>
-<li><p>修改/etc/vsftpd/vsftpd.conf</p>
-
-<p> 将底下三行</p>
-
-<pre><code> #chroot_list_enable=YES
- # (default follows)
- #chroot_list_file=/etc/vsftpd.chroot_list
-</code></pre>
-
-<p> 改为</p>
-
-<pre><code> chroot_list_enable=YES
- # (default follows)
- chroot_list_file=/etc/vsftpd/chroot_list
-</code></pre></li>
-<li><p>增加用户ftpuser，指向目录/home/wwwroot/ftpuser,禁止登录SSH权限。</p>
-
-<pre><code> useradd -d /home/wwwroot/ftpuser -g ftp -s /sbin/nologin ftpuser
-</code></pre></li>
-<li><p>设置用户口令</p>
-
-<pre><code> passwd ftpuser
-</code></pre></li>
-<li><p>编辑文件chroot_list:</p>
-
-<pre><code> vi /etc/vsftpd/chroot_list
-</code></pre>
-
-<p> 内容为ftp用户名,每个用户占一行,如：</p>
-
-<pre><code> peter
- john
-</code></pre></li>
-<li><p>重新启动vsftpd</p>
-
-<pre><code> service vsftpd restart
-</code></pre></li>
-</ol>
-
-
-<p><a href="http://www.centos.bz/2011/03/centos-install-vsftpd-ftp-server/">转载自</a></p>
 ]]></content>
   </entry>
   
