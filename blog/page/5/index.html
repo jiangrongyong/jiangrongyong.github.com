@@ -103,6 +103,44 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/12/15/2nd-lunch/">
+		
+			本少爷下厨(2)</a>
+	</h2>
+	<div class="entry-content">
+		<p>劲抄白菜</p>
+
+<p><img src="http://free-will.me/media/images/2nd-lunch.jpg" alt="lunch" /></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-15T00:00:00+00:00" pubdate data-updated="true">Dec 15<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/12/13/podcast/">
 		
 			推荐Podcast</a>
@@ -5249,6 +5287,8 @@ When you don&#8217;t need the samples anymore just delete the <code>_posts/core-
 
 <ul class="posts">
   
+    <li><span>03 Sep 2013</span> &raquo; <a href="/blog/2013/09/03/php-muti-return/">php返回多个参数</a></li>
+  
     <li><span>02 Sep 2013</span> &raquo; <a href="/blog/2013/09/02/php-traits/">traits in php 5.4</a></li>
   
     <li><span>02 Sep 2013</span> &raquo; <a href="/blog/2013/09/02/osx-file-system-case-insensitive/">OSX 文件系统大小写不敏感</a></li>
@@ -5707,61 +5747,6 @@ make install
 
 
 <time datetime="2012-12-04T00:00:00+00:00" pubdate data-updated="true">Dec 4<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/29/nginx-config/">
-		
-			Nginx配置</a>
-	</h2>
-	<div class="entry-content">
-		<h4>配置多子站点时，例如游戏各种子官网，可以使用通配符或正则表达式的方式配置</h4>
-
-<pre><code>server {
-    listen       80;
-    server_name  *.wan.xoyo.com;
-    root   /Users/jiangrongyong/Program/online_code/official_website/guanwang;
-    index  index.html index.htm index.php;
-    location ~ \.php$ {
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include        fastcgi_params;
-    }
-}
-</code></pre>
-
-<p>需要注意的是，PHP在获取<code>$_SERVER["SERVER_NAME"]</code>时，会获取到*.wan.xoyo.com，如果需要获取真实的域名，修改fastcgi_params，把SERVER_NAME的值改成host</p>
-
-<pre><code>fastcgi_param  SERVER_NAME        $host;
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-29T00:00:00+00:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

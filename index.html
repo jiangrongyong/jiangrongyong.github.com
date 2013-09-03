@@ -103,6 +103,47 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/03/php-muti-return/">
+		
+			Php返回多个参数</a>
+	</h2>
+	<div class="entry-content">
+		<pre><code>function callee() {
+    return array($content = "foo", $code = 200);
+}
+
+list($content, $code) = callee();
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-03T00:00:00+00:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/09/02/php-traits/">
 		
 			Traits in Php 5.4</a>
@@ -115,6 +156,10 @@ $(document).ready(
 <p>Trait 和一个类相似，但仅仅旨在用细粒度和一致的方式来组合功能。Trait 不能通过它自身来实例化。它为传统继承增加了水平特性的组合；也就是说，应用类的成员不需要继承。</p></blockquote>
 
 <p>可以用此关键字实现多继承，类似Ruby中的<code>Mixin</code></p>
+
+<hr />
+
+<p>http://php.net/manual/zh/language.oop5.traits.php</p>
 
 		
 		
@@ -593,48 +638,6 @@ puts (1...1000).to_a.collect{|t| fibonacci(t) }.join(', ')
 
 
 <time datetime="2013-07-24T00:00:00+00:00" pubdate data-updated="true">Jul 24<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/06/30/vim-nginx-syntax-on/">
-		
-			Vim打开nginx Conf时语法高亮</a>
-	</h2>
-	<div class="entry-content">
-		<pre><code>mkdir -p ~/.vim/syntax/
-
-wget -O ~/.vim/syntax/nginx.vim http://www.vim.org/scripts/download_script.php?src_id=14376
-
-# /usr/local/etc/nginx/vhosts/*为nginx配置文件存放目录
-echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt; ~/.vim/filetype.vim
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-30T00:00:00+00:00" pubdate data-updated="true">Jun 30<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

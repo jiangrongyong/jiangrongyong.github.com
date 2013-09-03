@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>traits in php 5.4  | Hugh's Blog</title>
+	<title>php返回多个参数  | Hugh's Blog</title>
 
 <meta name="author" content="Hugh"> 
 
@@ -98,18 +98,13 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Traits in Php 5.4</h2>
-	<div class="entry-content"><blockquote><p>自 PHP 5.4.0 起，PHP 实现了代码复用的一个方法，称为 traits。</p>
+	<h2 class="title">Php返回多个参数</h2>
+	<div class="entry-content"><pre><code>function callee() {
+    return array($content = "foo", $code = 200);
+}
 
-<p>Traits 是一种为类似 PHP 的单继承语言而准备的代码复用机制。Trait 为了减少单继承语言的限制，使开发人员能够自由地在不同层次结构内独立的类中复用方法集。Traits 和类组合的语义是定义了一种方式来减少复杂性，避免传统多继承和混入类（Mixin）相关的典型问题。</p>
-
-<p>Trait 和一个类相似，但仅仅旨在用细粒度和一致的方式来组合功能。Trait 不能通过它自身来实例化。它为传统继承增加了水平特性的组合；也就是说，应用类的成员不需要继承。</p></blockquote>
-
-<p>可以用此关键字实现多继承，类似Ruby中的<code>Mixin</code></p>
-
-<hr />
-
-<p>http://php.net/manual/zh/language.oop5.traits.php</p>
+list($content, $code) = callee();
+</code></pre>
 </div>
 
 
@@ -126,7 +121,7 @@ $(document).ready(
   
 
 
-<time datetime="2013-09-02T00:00:00+00:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time></div>
+<time datetime="2013-09-03T00:00:00+00:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>
