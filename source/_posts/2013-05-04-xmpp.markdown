@@ -93,3 +93,55 @@ tags: XMPP,Openfire
 
 	#openfire启动脚本
 	/Users/jiangrongyong/Program/openfire_src/target/openfire/bin/openfire.sh start
+	
+### 2. 通用术语
+
+* *Bare JID*(纯JID) 一个用户的标识符 <user@host>, 不同于任何已有会话或资源的上下文, 与之相对的是全JID和房间JID.
+* *Full JID*(全JID) 一个在线用户的标识符 <user@host/resource> , 不同于一个房间的上下文; 与之相对的是纯JID和房间JID.
+* *Affiliation*(岗位) 一个长期存在的和房间之间的联系或连接; 可能的岗位有 `owner`(所有者), `admin`(管理者), `member`(成员), 以及 `outcast`(被排斥者) (当然也可能没有岗位); 岗位(affiliation)和角色(role)是有区别的. 一个岗位跨越了用户对一个房间的访问期间.
+* *Occupant*(房客) 一个房间里的任何Jabber用户 (这是一个 "抽象类" 并且不对应任何特定的角色).
+
+### 3. 接口
+
+#### 3.1 邀请接口
+
+    http://wiki.jabbercn.org/XEP-0045#.E9.97.B4.E6.8E.A5.E9.82.80.E8.AF.B7
+    
+客户端请求
+
+    <message from='crone1@shakespeare.lit/desktop' to='darkcave@chat.shakespeare.lit'>
+        <x xmlns='http://jabber.org/protocol/muc#user'>
+            <invite to='hecate@shakespeare.lit'>
+                <reason>
+                    Hey Hecate, this is the place for all good witches!
+                </reason>
+            </invite>
+        </x>
+    </message>
+    
+源码在`LocalMUCUser.java`296行开始
+
+错误返回
+
+    <message id="jBnmc-4" to="admin@localhost/Smack" from="room39@conference.localhost" type="error">
+      <x xmlns="http://jabber.org/protocol/muc#user">
+          <invite to="hugh@localhost">
+              <reason>meizi</reason>
+          </invite>
+      </x>
+      <error code="406" type="modify">
+          <not-acceptable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"></not-acceptable>
+      </error>
+    </message>
+
+
+### 4. 读源码
+
+#### 4.1 LocalMUCUser.java process()
+
+1. 处理`decline`拒绝邀请 (239行)
+
+### 5. 错误码
+
+    http://blog.csdn.net/love254443233/article/details/7887279
+    

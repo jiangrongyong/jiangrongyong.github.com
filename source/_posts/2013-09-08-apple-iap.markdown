@@ -1,0 +1,13 @@
+---
+layout: post
+title: Apple IAP
+tags: 
+
+---
+
+In-APP Purchase(IAP)，iOS支付方式
+
+[iOS应用内付费(IAP)开发步骤列表 - 唐巧的技术博客](http://blog.devtang.com/blog/2012/12/09/in-app-purchase-check-list/)  
+[iOS应用内支付(IAP)的那些坑 - 唐巧的技术博客](http://blog.devtang.com/blog/2013/04/07/tricks-in-iap/)  
+[In-App Purchase（iap）快速指南 - GungYi - 博客频道 - CSDN.NET](http://blog.csdn.net/kevin_zqw/article/details/6973473)  
+[服务端验证接口](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/StoreKitGuide/VerifyingStoreReceipts/VerifyingStoreReceipts.html#//apple_ref/doc/uid/TP40008267-CH104-SW3)
