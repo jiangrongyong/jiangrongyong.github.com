@@ -103,6 +103,176 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/12/05/node-mailer/">
+		
+			Node-mailer简单的发邮件程序</a>
+	</h2>
+	<div class="entry-content">
+		<p>明天公司有小米2的内部抢购，翻出n久前写的邮件程序，但愿明天能抢到。</p>
+
+<p>上代码，迟点丢到github</p>
+
+<p>mailer.js</p>
+
+<pre><code>var email = require('mailer');
+
+email.send({
+      host : "smtp.gmail.com",
+      port : "25",
+      domain : "smtp.gmail.com",
+      to : "jiangrongyong@gmail.com",
+      from : "jiangrongyong@gmail.com",
+      subject : "小米手机2竞购",
+      body: "小米32G*2",
+      authentication : "login",
+      username : "jiangrongyong",
+      password : "***"
+}, function(err, result){
+      if(err){ console.log(err); }
+      console.log(new Date() + 'sended.');
+});
+</code></pre>
+
+<p>start.sh</p>
+
+<pre><code>#!/bin/bash
+
+export PATH=/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:$PATH
+
+mails[0]='mailer.js'
+repeat=3
+
+for((i=1;i&lt;=$repeat;i++));do
+    for item in ${mails[@]}; do
+        node /data/app/node-mailer-test/$item &amp;
+    done
+    sleep 1
+done
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-05T00:00:00+00:00" pubdate data-updated="true">Dec 5<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/05/linode-evn/">
+		
+			Linode环境搭建</a>
+	</h2>
+	<div class="entry-content">
+		<h3>安装gcc</h3>
+
+<pre><code>yum install gcc 
+</code></pre>
+
+<h3>安装git</h3>
+
+<pre><code>yum install git
+</code></pre>
+
+<h3>163 centos镜像</h3>
+
+<blockquote><p>http://mirrors.163.com/.help/centos.html</p></blockquote>
+
+<pre><code>mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+wget http://mirrors.163.com/.help/CentOS6-Base-163.repo
+yum makecache
+</code></pre>
+
+<h3>安装ruby</h3>
+
+<blockquote><p>http://zengrong.net/post/1674.htm</p></blockquote>
+
+<p>找不到make<code>yum -y install gcc automake autoconf libtool make</code></p>
+
+<h3>安装jekyll</h3>
+
+<pre><code>gem install jekyll
+</code></pre>
+
+<h3>安装nginx</h3>
+
+<blockquote><p>http://www.centos.bz/2011/07/centos-compile-nginx-from-source/</p></blockquote>
+
+<p>nginx.conf</p>
+
+<pre><code>server {
+    listen 80;
+    server_name free-will.me,106.187.34.61;
+    root        /data/app/jiangrongyong.github.com/_site;
+    index       index.html index.htm;
+}
+</code></pre>
+
+<h3>安装nodejs</h3>
+
+<pre><code>yum install gcc-c++ openssl-devel  #先安装nodejs编译依赖
+
+git clone git://github.com/joyent/node.git  #clone源码
+
+cd node
+
+#编译源码
+./configure
+make
+make install
+
+#新版本已自带npm
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-05T00:00:00+00:00" pubdate data-updated="true">Dec 5<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/12/04/yangshuo/">
 		
 			阳朔之行</a>
@@ -506,175 +676,6 @@ $(document).ready(
 
 
 <time datetime="2012-11-26T00:00:00+00:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/21/vpncloud/">
-		
-			vpncloud.me</a>
-	</h2>
-	<div class="entry-content">
-		<h2>今天淘到一个高调的VPN提供商，界面做还做得很小清新，在rubychina人气很高。</h2>
-
-<pre><code>http://www.vpncloud.me/
-</code></pre>
-
-<p><img src="http://free-will.me/media/images/vpncloud-home.png" title="Title here" alt="Smaller icon" /></p>
-
-<h2>尝新心态购买了一年标准版，120包年，支持3台设备，80G流量</h2>
-
-<p><img src="http://free-will.me/media/images/vpncloud-price.png" title="vpncloud-price" alt="Smaller icon" /></p>
-
-<h2>看youtube十分流畅，赞一个，目前使用的是香港结点，日本结点被攻击了目前还在维护中，稳定性有待进一步考察</h2>
-
-<h2>现在touch也可以翻墙了，万岁</h2>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-21T00:00:00+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/21/toread-list/">
-		
-			Toread List</a>
-	</h2>
-	<div class="entry-content">
-		<h2>开源项目</h2>
-
-<ul>
-<li><a href="https://github.com/yuguo/33pu">33号铺</a></li>
-<li><a href="http://www.v2ex.com/t/54289">做了一个想把 dropbox 当做私人 evernote 来用的东西，求测试，求反馈</a></li>
-<li><a href="http://42qu.cc/:help">42区在线随手贴</a></li>
-<li><a href="http://teamtoy.net/">teamtoy团队效率</a></li>
-<li><a href="http://lab.hsinglin.com/taijiong/">泰囧表情生成器</a></li>
-</ul>
-
-
-<h2>业界</h2>
-
-<ul>
-<li><a href="http://www.pingwest.com/why-public-cloud-is-so-difficult-to-build-in-china/">专业人士解读：为什么在中国“公有云”落地那么难？</a></li>
-</ul>
-
-
-<h2>Ruby</h2>
-
-<ul>
-<li><a href="http://huacnlee.com/blog/how-to-start-learning-ruby-on-rails/">如何从零开始学会 Ruby on Rails?</a></li>
-<li><a href="http://guides.ruby.tw/rails3/getting_started.html">Rails Guides</a></li>
-</ul>
-
-
-<h2>面试</h2>
-
-<ul>
-<li><a href="http://www.cnblogs.com/cathsfz/archive/2012/11/05/facebook-interview-experience.html">Catchan面试体验：Facebook 篇</a></li>
-<li><a href="http://www.cnblogs.com/cathsfz/archive/2012/08/08/google-interview-experience.html">Catchan面试体验：Google 篇</a></li>
-<li><a href="http://www.cnblogs.com/cathsfz/archive/2012/08/14/microsoft-interview-experience.html">Catchan面试体验：Microsoft 篇</a></li>
-<li><a href="http://www.cnblogs.com/cathsfz/archive/2012/08/21/yahoo-interview-experience.html">Catchan面试体验：Yahoo 篇</a></li>
-</ul>
-
-
-<h2>Nginx</h2>
-
-<ul>
-<li><a href="http://tengine.taobao.org/book/index.html">Nginx开发从入门到精通</a></li>
-</ul>
-
-
-<h2>Hacker</h2>
-
-<ul>
-<li><a href="http://man.lupaworld.com/content/develop/joyfire/project/7.html#I660">如何成为一名Hacker</a></li>
-</ul>
-
-
-<h2>linux</h2>
-
-<ul>
-<li><a href="http://lutaf.com/81.htm">用shell脚本监控vps实时流量</a></li>
-</ul>
-
-
-<h2>Git</h2>
-
-<ul>
-<li><a href="http://segmentfault.com/q/1010000000155212">如何把一个工程中的某个目录添加为git submodule</a></li>
-<li><a href="http://yuguo.us/weblog/git-submodule/">git子模块</a></li>
-</ul>
-
-
-<h2>Cool site</h2>
-
-<ul>
-<li><a href="http://linuxtoy.org/">linuxtoy</a></li>
-</ul>
-
-
-<h2>Game</h2>
-
-<ul>
-<li><a href="http://bbs.weiphone.com/read-htm-tid-4073220.html">Kingdom Rush 国王保卫战图文攻略</a></li>
-</ul>
-
-
-<h2>Mysql</h2>
-
-<ul>
-<li><a href="http://javabkb.iteye.com/blog/1441197">Mysql Innodb小结</a></li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-21T00:00:00+00:00" pubdate data-updated="true">Nov 21<span>st</span>, 2012</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

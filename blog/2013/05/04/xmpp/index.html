@@ -192,6 +192,66 @@ ant openfire
 #openfire启动脚本
 /Users/jiangrongyong/Program/openfire_src/target/openfire/bin/openfire.sh start
 </code></pre>
+
+<h3>2. 通用术语</h3>
+
+<ul>
+<li><em>Bare JID</em>(纯JID) 一个用户的标识符 &lt;user@host>, 不同于任何已有会话或资源的上下文, 与之相对的是全JID和房间JID.</li>
+<li><em>Full JID</em>(全JID) 一个在线用户的标识符 &lt;user@host/resource> , 不同于一个房间的上下文; 与之相对的是纯JID和房间JID.</li>
+<li><em>Affiliation</em>(岗位) 一个长期存在的和房间之间的联系或连接; 可能的岗位有 <code>owner</code>(所有者), <code>admin</code>(管理者), <code>member</code>(成员), 以及 <code>outcast</code>(被排斥者) (当然也可能没有岗位); 岗位(affiliation)和角色(role)是有区别的. 一个岗位跨越了用户对一个房间的访问期间.</li>
+<li><em>Occupant</em>(房客) 一个房间里的任何Jabber用户 (这是一个 &#8220;抽象类&#8221; 并且不对应任何特定的角色).</li>
+</ul>
+
+
+<h3>3. 接口</h3>
+
+<h4>3.1 邀请接口</h4>
+
+<pre><code>http://wiki.jabbercn.org/XEP-0045#.E9.97.B4.E6.8E.A5.E9.82.80.E8.AF.B7
+</code></pre>
+
+<p>客户端请求</p>
+
+<pre><code>&lt;message from='crone1@shakespeare.lit/desktop' to='darkcave@chat.shakespeare.lit'&gt;
+    &lt;x xmlns='http://jabber.org/protocol/muc#user'&gt;
+        &lt;invite to='hecate@shakespeare.lit'&gt;
+            &lt;reason&gt;
+                Hey Hecate, this is the place for all good witches!
+            &lt;/reason&gt;
+        &lt;/invite&gt;
+    &lt;/x&gt;
+&lt;/message&gt;
+</code></pre>
+
+<p>源码在<code>LocalMUCUser.java</code>296行开始</p>
+
+<p>错误返回</p>
+
+<pre><code>&lt;message id="jBnmc-4" to="admin@localhost/Smack" from="room39@conference.localhost" type="error"&gt;
+  &lt;x xmlns="http://jabber.org/protocol/muc#user"&gt;
+      &lt;invite to="hugh@localhost"&gt;
+          &lt;reason&gt;meizi&lt;/reason&gt;
+      &lt;/invite&gt;
+  &lt;/x&gt;
+  &lt;error code="406" type="modify"&gt;
+      &lt;not-acceptable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"&gt;&lt;/not-acceptable&gt;
+  &lt;/error&gt;
+&lt;/message&gt;
+</code></pre>
+
+<h3>4. 读源码</h3>
+
+<h4>4.1 LocalMUCUser.java process()</h4>
+
+<ol>
+<li>处理<code>decline</code>拒绝邀请 (239行)</li>
+</ol>
+
+
+<h3>5. 错误码</h3>
+
+<pre><code>http://blog.csdn.net/love254443233/article/details/7887279
+</code></pre>
 </div>
 
 

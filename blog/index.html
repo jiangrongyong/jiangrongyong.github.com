@@ -103,6 +103,92 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/08/java-inputstream-to-string/">
+		
+			Java Inputstream to String</a>
+	</h2>
+	<div class="entry-content">
+		<p>A nice way to do this is using <a href="http://commons.apache.org/">Apache commons</a> <a href="http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/IOUtils.html">IOUtils</a> to copy the InputStream into a StringWriter</p>
+
+<pre><code>StringWriter writer = new StringWriter();
+IOUtils.copy(inputStream, writer, encoding);
+String theString = writer.toString();
+</code></pre>
+
+<hr />
+
+<p>http://stackoverflow.com/questions/309424/read-convert-an-inputstream-to-a-string</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-08T00:00:00+00:00" pubdate data-updated="true">Sep 8<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/09/08/apple-iap/">
+		
+			Apple IAP</a>
+	</h2>
+	<div class="entry-content">
+		<p>In-APP Purchase(IAP)，iOS支付方式</p>
+
+<p><a href="http://blog.devtang.com/blog/2012/12/09/in-app-purchase-check-list/">iOS应用内付费(IAP)开发步骤列表 - 唐巧的技术博客</a><br/>
+<a href="http://blog.devtang.com/blog/2013/04/07/tricks-in-iap/">iOS应用内支付(IAP)的那些坑 - 唐巧的技术博客</a><br/>
+<a href="http://blog.csdn.net/kevin_zqw/article/details/6973473">In-App Purchase（iap）快速指南 - GungYi - 博客频道 - CSDN.NET</a><br/>
+<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/StoreKitGuide/VerifyingStoreReceipts/VerifyingStoreReceipts.html#//apple_ref/doc/uid/TP40008267-CH104-SW3">服务端验证接口</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-08T00:00:00+00:00" pubdate data-updated="true">Sep 8<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/09/03/php-muti-return/">
 		
 			Php返回多个参数</a>
@@ -502,135 +588,6 @@ ClientAliveCountMax 45
 
 
 <time datetime="2013-08-07T00:00:00+00:00" pubdate data-updated="true">Aug 7<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/08/04/tmux/">
-		
-			Tmux</a>
-	</h2>
-	<div class="entry-content">
-		<p>最近介绍tmux的文章好多，虽然已久仰大名，今天试用了一下，果然是神器。没用过screen，直接跳级使用tmux。。</p>
-
-<p>记录下常用操作</p>
-
-<p>输入<code>tmux</code>，进入tmux模式</p>
-
-<p><code>tmux attach -t {session_name}</code> attach到某个session</p>
-
-<p><code>tmux kill-session -t {session_name}</code> kill掉某个session</p>
-
-<p><code>control + b</code> 操作入口</p>
-
-<p><code>"</code> pane水平切割</p>
-
-<p><code>%</code> pane纵向切割</p>
-
-<p><code>$</code> 重命名session</p>
-
-<p><code>d</code> detach tmux</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-04T00:00:00+00:00" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/08/04/fibonacci/">
-		
-			Fibonacci Algorithm</a>
-	</h2>
-	<div class="entry-content">
-		<p><code>1,1,2,3,5,8,13,21</code>依次类推下去，你会发现，它后一个数等于前面两个数的和。在这个数列中的数字，就被称为斐波那契数(Fibonacci Sequence)。</p>
-
-<p>任何相邻的两个数，次第相除(如8/13,13/21)，其比率都最为接近<code>0.618</code>这个值，它的极限就是所谓的&#8221;黄金分割数&#8221;。</p>
-
-<p>递推关系</p>
-
-<pre><code>f(1)=1
-f(2)=1
-f(n)=f(n-1)+f(n-2) //n&gt;=2
-3f(n)=f(n+2)+f(n-2)
-</code></pre>
-
-<p>用PHP打印斐波那契数</p>
-
-<pre><code>&lt;?php
-function fib($n) {
-    if($n &lt;= 1) {
-        return $n;
-    }
-    return fib($n - 1) + fib($n - 2);
-}
-
-for($i = 0; $i &lt; 9; $i++) {
-    echo fib($i) . ' ';
-}
-</code></pre>
-
-<p>github source</p>
-
-<p><a href="">https://github.com/jiangrongyong/algorithm</a></p>
-
-<p>优化方案，加入缓存
-Ruby</p>
-
-<pre><code>def fibonacci(n, cache=Hash[[[0,0],[1,1]]])
-    return cache[n] if cache[n]
-    cache[n] = fibonacci(n-2, cache) + fibonacci(n-1, cache)
-end
-puts (1...1000).to_a.collect{|t| fibonacci(t) }.join(', ')
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-04T00:00:00+00:00" pubdate data-updated="true">Aug 4<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>
