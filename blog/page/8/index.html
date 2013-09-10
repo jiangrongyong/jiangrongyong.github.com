@@ -1,0 +1,324 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>Hack Anything  | Hugh's Blog</title>
+
+<meta name="author" content="Hugh"> 
+
+<meta name="description" content="Enjoy Life."> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Hugh's Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.ico" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Hugh's Blog</a></h1>
+<h4>
+<img src="http://f.vip.duba.net/data/avatar/201301/22/336/1358864337c8G2.jpg" width="50" height="50" alt="" style="border-radius: 50%;">
+</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:jiangrongyong.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/07/18/zf-performance/">
+		
+			Zf性能测试</a>
+	</h2>
+	<div class="entry-content">
+		<h1>背景</h1>
+
+<p>在最近一次压力测试中，发现zend framework框架的性能很差，请求一上来cpu就瞬间100%，而且qps很很不理想</p>
+
+<h1>实测</h1>
+
+<ul>
+<li>两台服务器负载均衡情况下，使用ab的测试情况，测试程序使用zend framework打印hello world，cpu瞬间60%</li>
+</ul>
+
+
+<p><code>ab -c 10 -n 2000 http://peifusvr/api/accttest/pfm</code></p>
+
+<pre><code>Server Software:        nginx/0.6.39
+Server Hostname:        peifusvr
+Server Port:            80
+
+Document Path:          /api/accttest/pfm
+Document Length:        17 bytes
+
+Concurrency Level:      10
+
+Time taken for tests:   5.656198 seconds
+Complete requests:      2000
+Failed requests:        0
+Write errors:           0
+Total transferred:      388000 bytes
+HTML transferred:       34000 bytes
+Requests per second:    353.59 [#/sec] (mean)
+Time per request:       28.281 [ms] (mean)
+Time per request:       2.828 [ms] (mean, across all concurrent requests)
+Transfer rate:          66.83 [Kbytes/sec] received
+
+Connection Times (ms)
+          min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    17   27   7.8     26      64
+Waiting:       17   27   7.8     26      64
+Total:         17   27   7.8     26      64
+
+Percentage of the requests served within a certain time (ms)
+   50%     26
+   66%     29
+   75%     32
+   80%     34
+   90%     39
+   95%     43
+   98%     48
+   99%     53
+  100%     64 (longest request)
+</code></pre>
+
+<ul>
+<li>单台服务器情况下</li>
+</ul>
+
+
+<p><code>ab -c 20 -n 2000 http://10.20.223.111/api/accttest/pfm</code></p>
+
+<pre><code>Server Software:        nginx
+Server Hostname:        10.20.223.111
+Server Port:            80
+Document Path:          /api/accttest/pfm
+Document Length:        17 bytes
+Concurrency Level:      20
+Time taken for tests:   11.552084 seconds
+Complete requests:      2000
+Failed requests:        0
+Write errors:           0
+Total transferred:      328000 bytes
+HTML transferred:       34000 bytes
+Requests per second:    173.13 [#/sec] (mean)
+Time per request:       115.521 [ms] (mean)
+Time per request:       5.776 [ms] (mean, across all concurrent requests)
+Transfer rate:          27.70 [Kbytes/sec] received
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    28  114  29.5    112     275
+Waiting:       28  114  29.5    112     275
+Total:         28  114  29.5    112     275
+Percentage of the requests served within a certain time (ms)
+  50%    112
+  66%    124
+  75%    132
+  80%    138
+  90%    154
+  95%    166
+  98%    183
+  99%    195
+ 100%    275 (longest request)
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T00:00:00+00:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/02/19/beijing-first/">
+		
+			北京首次之行</a>
+	</h2>
+	<div class="entry-content">
+		<h3>第一天</h3>
+
+<p>星期三，今天是启程之日，珠海大雾。今天八点有尼克斯对猛龙，当然要准时起床支持lin。九点半和琦焕出发，出租车->机场快线。到达机场时候还早，这时传来了振奋人心的消息，lin三分绝杀猛龙了，我们两个都很high。12点半，我们终于登机了，首次坐飞机，紧张并小心翼翼。在飞机上时间过得很快，感觉比坐车快多了，吃了又睡睡了又吃，过了三小时终于抵达传说中的帝都。机场快轨->10号线，去了趟公司，要见的人都见到了，很是高兴。晚上跟北京的同事吃饭，那天我们俩被灌了很多酒，连饭馆的名字都想不起来了，对了还吃了北京烤鸭。后来糊里糊涂回酒店早早就睡了。</p>
+
+<h3>第二天</h3>
+
+<p>星期四，白天上班，这边有免费咖啡奶茶，羡慕啊。晚上跟云飞和力峰吃饭，聊了一些。</p>
+
+<h3>第三天</h3>
+
+<p>星期五，晚上见孙健了，游了一趟奥林匹克，神马鸟巢 水立方。接着去了一间叫海碗馆的吃炸酱面，里面的羊肉汤不是人喝的，跟猪馊有得一比，炸酱面还可以。</p>
+
+<h3>第四天</h3>
+
+<p>星期六，今天去了天安门广场，故宫，国家博物馆，大前门。买了只烤鸭给老妈做手信。</p>
+
+<h3>第五天</h3>
+
+<p>星期日，回程之日，6点起床赶九点的飞机，珠海我回来了。</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-19T00:00:00+00:00" pubdate data-updated="true">Feb 19<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+<nav id="pagenavi">
+    
+        <a href="/blog/page/7/" class="prev">Prev</a>
+    
+    
+    <div class="center"><a href="/archives">Blog Archives</a></div>
+</nav></div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Hugh
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'free-will';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

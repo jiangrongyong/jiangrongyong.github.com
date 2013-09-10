@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-09-09T02:38:16+00:00</updated>
+  <updated>2013-09-10T05:33:49+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,80 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Jetbrains Idea Config]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/09/10/jetbrains-idea-config/"/>
+    <updated>2013-09-10T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/09/10/jetbrains-idea-config</id>
+    <content type="html"><![CDATA[<h3>通用设置</h3>
+
+<p>针对IntelliJ IDEA, WebStorm, PhpStorm等均有效</p>
+
+<ul>
+<li><p>设置光标不允许在行结尾以外</p>
+
+<p>  Preferences - IDE Settings - Editor - Allow placement of create after end of line</p></li>
+</ul>
+
+
+<h3>快捷键</h3>
+
+<ul>
+<li>关闭Tab <code>alt + F4</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript Error Class]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/09/10/javascript-error-class/"/>
+    <updated>2013-09-10T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/09/10/javascript-error-class</id>
+    <content type="html"><![CDATA[<ul>
+<li><p>Error</p>
+
+<pre><code>  function Error(msg,id) {}
+  Error = {};
+</code></pre></li>
+<li><p>EvalError</p>
+
+<pre><code>  EvalError.prototype = new Error();
+  EvalError = {};
+</code></pre></li>
+<li><p>RangeError</p>
+
+<pre><code>  RangeError.prototype = new Error();
+  RangeError = {};
+</code></pre></li>
+<li><p>ReferenceError</p>
+
+<pre><code>  ReferenceError.prototype = new Error();
+  ReferenceError = {};
+</code></pre></li>
+<li><p>SyntaxError</p>
+
+<pre><code>  SyntaxError.prototype = new Error();
+  SyntaxError = {};
+</code></pre></li>
+<li><p>TypeError</p>
+
+<p>  A TypeError is thrown when a value is a different type than what was expected<br/>
+  比较常用，当参数或变量跟预期不一样，就可以抛出这个异常</p>
+
+<pre><code>  TypeError.prototype = new Error();
+  TypeError = {};
+</code></pre></li>
+<li><p>URIError</p>
+
+<pre><code>  URIError.prototype = new Error();
+  URIError = {};
+</code></pre></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Java Inputstream to String]]></title>
@@ -460,65 +534,6 @@ echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt;
 <p>2013-06-16 更新</p>
 
 <p>iOS也可以用同样方法，不过必须越狱，建议安装openssh，然后ssh到iOS设备修改文件</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[使用MAKEFILE自动化部署]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/06/14/makefile-autodeploy/"/>
-    <updated>2013-06-14T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/06/14/makefile-autodeploy</id>
-    <content type="html"><![CDATA[<p>自动提交本地git，然后ssh到服务器更新和部署，终于优雅实现这个一直很久的需求了</p>
-
-<p>vim Makefile</p>
-
-<pre><code> PROJECT=free-will.me
- SERVER=hugh@106.187.34.61
- PATH=/data/app/octopress/
- SSH=/usr/bin/ssh
- GIT=/usr/bin/git
- AWK=/usr/bin/awk
- XARGS=/usr/bin/xargs
- LOCAL_PATH=/Users/jiangrongyong/Program/jiangrongyong.github.com
-
- remote_deploy:
-        @cd $(LOCAL_PATH)
-        @$(GIT) status -s|$(AWK) '{print $$2}'|$(XARGS) $(GIT) add
-        @$(GIT) commit -m "posts update"
-        @$(GIT) push -u origin source
-        @$(SSH) -t $(SERVER) "echo Deploy $(PROJECT) to the $(SERVER) server.; cd $(PATH); git pull; rake gen_deploy;"
-</code></pre>
-
-<p>参考文章</p>
-
-<ul>
-<li>http://tchen.me/posts/2013-06-12-use-makefile-to-automate-deployment.html</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OSX下使用dd命令把镜像文件烧进SD卡]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/06/14/dd/"/>
-    <updated>2013-06-14T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/06/14/dd</id>
-    <content type="html"><![CDATA[<ol>
-<li><code>df -h</code></li>
-<li><code>unmount /dev/disk1s1</code></li>
-<li><code>diskutil list</code></li>
-<li><code>dd bs=4m if=raspbmc-final.img of=/dev/rdisk1</code></li>
-</ol>
-
-
-<p>以上4步就ok了</p>
-
-<p>参考来源</p>
-
-<ul>
-<li>http://zhangshenjia.com/exprience/mac-raspbian/</li>
-</ul>
-
 ]]></content>
   </entry>
   

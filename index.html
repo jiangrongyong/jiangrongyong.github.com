@@ -103,6 +103,134 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/10/jetbrains-idea-config/">
+		
+			Jetbrains Idea Config</a>
+	</h2>
+	<div class="entry-content">
+		<h3>通用设置</h3>
+
+<p>针对IntelliJ IDEA, WebStorm, PhpStorm等均有效</p>
+
+<ul>
+<li><p>设置光标不允许在行结尾以外</p>
+
+<p>  Preferences - IDE Settings - Editor - Allow placement of create after end of line</p></li>
+</ul>
+
+
+<h3>快捷键</h3>
+
+<ul>
+<li>关闭Tab <code>alt + F4</code></li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-10T00:00:00+00:00" pubdate data-updated="true">Sep 10<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/09/10/javascript-error-class/">
+		
+			Javascript Error Class</a>
+	</h2>
+	<div class="entry-content">
+		<ul>
+<li><p>Error</p>
+
+<pre><code>  function Error(msg,id) {}
+  Error = {};
+</code></pre></li>
+<li><p>EvalError</p>
+
+<pre><code>  EvalError.prototype = new Error();
+  EvalError = {};
+</code></pre></li>
+<li><p>RangeError</p>
+
+<pre><code>  RangeError.prototype = new Error();
+  RangeError = {};
+</code></pre></li>
+<li><p>ReferenceError</p>
+
+<pre><code>  ReferenceError.prototype = new Error();
+  ReferenceError = {};
+</code></pre></li>
+<li><p>SyntaxError</p>
+
+<pre><code>  SyntaxError.prototype = new Error();
+  SyntaxError = {};
+</code></pre></li>
+<li><p>TypeError</p>
+
+<p>  A TypeError is thrown when a value is a different type than what was expected<br/>
+  比较常用，当参数或变量跟预期不一样，就可以抛出这个异常</p>
+
+<pre><code>  TypeError.prototype = new Error();
+  TypeError = {};
+</code></pre></li>
+<li><p>URIError</p>
+
+<pre><code>  URIError.prototype = new Error();
+  URIError = {};
+</code></pre></li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-10T00:00:00+00:00" pubdate data-updated="true">Sep 10<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/09/08/java-inputstream-to-string/">
 		
 			Java Inputstream to String</a>
@@ -468,126 +596,6 @@ ClientAliveCountMax 45
 
 
 <time datetime="2013-08-29T00:00:00+00:00" pubdate data-updated="true">Aug 29<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/08/19/php-cookie-deleted/">
-		
-			Php Cookie Deleted</a>
-	</h2>
-	<div class="entry-content">
-		<p>使用<code>setcookie('name', '')</code>方式删除cookie时，PHP将cookie的值设置为<code>deleted</code>，过期时间设置为一年前。如果用户本地时间为两年前，则该cookie没有被删除，而是将值设置为了deleted。</p>
-
-<p>比较靠谱的删除cookie的方法为：</p>
-
-<pre><code>setcookie('name', 'deleted', 1, $path, $domain);
-</code></pre>
-
-<p>注意：在PHP5.2版本之前(包含5.2)，cookie的值可以不是deleted，但是不能为空，否则，时间参数将不被参考。</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-19T00:00:00+00:00" pubdate data-updated="true">Aug 19<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/08/07/php-utf8-bom/">
-		
-			Php Utf-8 Bom</a>
-	</h2>
-	<div class="entry-content">
-		<h3>1. 测试接口是否有返回有BOM</h3>
-
-<pre><code>curl -s http://i.wan.liebao.cn/ | head -1 |sed -n l
-
-# 有BOM情况
-\357\273\277{"data":{"uname":"jiangrongyong","s_face":"http:\/\/static.hdslb.com\/images\/member\/noface.gif"},"msg":"ok","code":1}
-
-# 无BOM情况    
-{"data":{"uname":"jiangrongyong","s_face":"http:\/\/static.hdslb.com\/images\/member\/noface.gif"},"msg":"ok","code":1}
-</code></pre>
-
-<h3>2. vim设置BOM</h3>
-
-<p>设置utf-8编码</p>
-
-<pre><code>:set fileencoding=utf-8
-</code></pre>
-
-<p>添加BOM</p>
-
-<pre><code>:set bomb
-</code></pre>
-
-<p>删除BOM</p>
-
-<pre><code>:set nobomb
-</code></pre>
-
-<p>检测是否有BOM</p>
-
-<pre><code>:set bomb?
-</code></pre>
-
-<h3>3. 查找有BOM的文件</h3>
-
-<pre><code>grep -r -I -l $'^\xEF\xBB\xBF' $path
-</code></pre>
-
-<h3>4. 批量删除BOM</h3>
-
-<pre><code>grep -r -I -l $'^\xEF\xBB\xBF' /path | xargs sed -i 's/^\xEF\xBB\xBF//;q'
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-07T00:00:00+00:00" pubdate data-updated="true">Aug 7<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>
