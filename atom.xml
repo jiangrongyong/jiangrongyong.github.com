@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-09-10T05:33:49+00:00</updated>
+  <updated>2013-09-28T09:56:10+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,132 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[关于ETag、Last-Modified、Cache-Control和Expires总结]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/09/28/browser-http-cache/"/>
+    <updated>2013-09-28T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/09/28/browser-http-cache</id>
+    <content type="html"><![CDATA[<h3>相关名词</h3>
+
+<ol>
+<li><p>ETag</p>
+
+<ul>
+<li><p>Nginx 1.3.3版本开始支持，打开ETag支持后，Response Header会返回，如<code>ETag:"52468652-169d5"</code>。下一次客户端的http请求中如果包含<code>If-None-Match</code>头，如<code>If-None-Match:"52468652-169d5"</code>，Nginx就会比较该值和计算出的ETag，一致就返回304。</p></li>
+<li><p>ETag开关</p>
+
+<pre><code>  etag on | off; // 缺省为on
+</code></pre></li>
+<li><p><code>If-Modified-Since</code>和<code>If-None-Match</code>是与的关系，即均满足条件才返回304。</p></li>
+</ul>
+</li>
+<li><p>Last-Modified</p>
+
+<ul>
+<li>在第一次请求某个服务器资源时，服务器端的返回状态会是200，同时Response Header会返回Last-Modified，表示该资源在服务期端最后被修改的时间，如<code>Last-Modified:Sat, 28 Sep 2013 07:33:38 GMT</code>。</li>
+<li>当第二次请求该资源时，浏览器会在Request Header中带有If-Modified-Since，询问该时间之后资源是否有被修改过，如<code>If-Modified-Since:Sat, 28 Sep 2013 07:33:38 GMT</code>，如果服务器端的资源没有变化，则返回304。</li>
+<li>配合Expires可以做浏览器或代理服务器本地缓存</li>
+</ul>
+</li>
+<li><p>Nginx中的expires</p>
+
+<ul>
+<li>如果Nginx设置了<code>expires 1d;</code>，那么Response Header新增返回两个头信息，分别是<code>Cache-Control</code>和<code>Expires</code></li>
+<li>如果Nginx设置了<code>expires -1;</code>，那么Cache-Control会被设为no-cache，Expires则被设为当前服务器时间减1秒</li>
+<li>如果设置了<code>expires 1d;</code>，在第一次请求某个服务器资源时，服务器端的返回状态会是200，同时Response Header会返回Last-Modified和Expires和Cache-Control，这时浏览器客户端会把该资源缓存在本地1天，如果使用浏览器的转到按钮、或者在地址栏直接回车、或者打开新窗口重新输入该网址，这时浏览器不会访问服务端，而是直接读取浏览器客户端缓存，在Chrome dev tool的Network下显示的是<code>from cache</code>，在Firefox的firebug下显示的是没有任何请求情况，网络请求为空</li>
+</ul>
+</li>
+<li><p>Cache-Control</p>
+
+<p> 表示该资源的有效期，如<code>Cache-Control:max-age=86400</code>，优先级比Expires要高</p>
+
+<p> Cache-Control有如下取值</p>
+
+<ul>
+<li>no-cache 数据内容不能被缓存, 每次请求都重新访问服务器</li>
+<li>max-age 相对过期时间, 即以秒为单位的缓存时间</li>
+</ul>
+
+
+<p> Request Header中的Cache-Control</p>
+
+<ul>
+<li>Cache-Control:max-age=0 如果使用浏览器的刷新按钮、F5刷新或者是Mac Chrome下的Command + r刷新，浏览器就会设置成这个头，表示不走浏览器客户端缓存，要从服务端获取，服务端有可能返回304或者200</li>
+<li>Cache-Control:no-cache 如果使用浏览器的强制刷新，如Ctrl+ F5或者是Mac Chrome下的Command + Shift + r，浏览器就会设置成这个头，表示既不走浏览器客户端缓存，也不走服务端缓存，服务端返回200，不会返回304</li>
+</ul>
+</li>
+<li><p>Expires</p>
+
+<ul>
+<li>表示该资源过期的GMT时间，如<code>Expires:Sun, 29 Sep 2013 08:34:15 GMT</code></li>
+<li>配合Last-Modified可以做浏览器或代理服务器本地缓存</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>浏览器的三种刷新方式</h3>
+
+<ol>
+<li><p>使用浏览器的转到按钮、或者在地址栏直接回车、或者打开新窗口重新输入该网址</p>
+
+<p> 优先走浏览器本地缓存，如果本地有缓存则根本不会访问服务器</p>
+
+<p> 注：如果是chrome下，在本窗口下的地址栏直接回车，html不会走本地缓存，如果是新开窗口在地址栏输入网址回车，则html依然会走本地缓存。估计是chrome的策略，firefox下则都会走本地缓存</p></li>
+<li><p>使用浏览器的刷新按钮、F5刷新或者是Mac Chrome下的Command + r刷新</p>
+
+<p> 不走浏览器本地缓存，不过会走服务端缓存，会返回304</p></li>
+<li><p>使用浏览器的强制刷新，如Ctrl+ F5或者是Mac Chrome下的Command + Shift + r</p>
+
+<p> 既不走浏览器本地缓存，也不走服务端缓存，不返回304</p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP construct sql with implode]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/09/27/php-construct-sql/"/>
+    <updated>2013-09-27T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/09/27/php-construct-sql</id>
+    <content type="html"><![CDATA[<p>使用implode拼接sql</p>
+
+<pre><code>&lt;?php
+function construct_sql($base, $logic, $clauses, $suffix = '') {
+    // initialise array to avoid warnings/notices on some PHP installations
+    $queries = array();
+
+    // create array of strings to be glued together by logic
+    foreach ($clauses as $key =&gt; $value)
+        $queries[] = "`" . escape($key) . "`='" . escape($value) . "'";
+
+    // add a space in case $base doesn't have a space at the end and glue clauses together
+    $base .= " " . implode(" $logic ", $queries) . " " . $suffix;
+
+    return $base;
+}
+
+/**
+ * @param string $str string to escape for intended use
+ * @return string
+ */
+function escape($str) {
+    return mysql_real_escape_string($str);
+}
+
+$updates = array(
+    'field1' =&gt; 'val1',
+    'field2' =&gt; 'val2'
+);
+$wheres = array(
+    'field1' =&gt; 'cond1',
+    'field2' =&gt; 'cond2'
+);
+echo construct_sql(construct_sql("UPDATE table SET", ", ", $updates) . " WHERE ", " AND ", $wheres);
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Jetbrains Idea Config]]></title>
@@ -25,14 +151,26 @@
 <ul>
 <li><p>设置光标不允许在行结尾以外</p>
 
-<p>  Preferences - IDE Settings - Editor - Allow placement of create after end of line</p></li>
+<p>  Preferences - IDE Settings - Editor - Allow placement of create after end of         line</p></li>
+<li><p>安装vim插件</p>
+
+<p>  Preferences - Plugins - Install JetBrains plugin - IdeaVim</p></li>
+</ul>
+
+
+<h3>IntelliJ IDEA</h3>
+
+<ul>
+<li><p>在Intellij idea下安装IdeaVim插件后，关闭当前tab无法使用<code>command + w</code>快捷键，只能使用<code>command + F4</code>，需要更改<code>Keymap</code></p>
+
+<p>  Preferences - Keymap - Main menu - Window - Editor Tabs - Close</p></li>
 </ul>
 
 
 <h3>快捷键</h3>
 
 <ul>
-<li>关闭Tab <code>alt + F4</code></li>
+<li><code>control + enter</code> generate 代码自动生成</li>
 </ul>
 
 ]]></content>
@@ -88,6 +226,23 @@
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[使用Intellij IDEA创建Maven模块]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/09/10/intellij-idea-create-maven-module/"/>
+    <updated>2013-09-10T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/09/10/intellij-idea-create-maven-module</id>
+    <content type="html"><![CDATA[<p>自己的一个Java的Clint工程，由于包依赖原来越多，决定使用Maven做依赖管理，提高日后的开发效率，IDE使用Intellij</p>
+
+<ol>
+<li><p>创建Maven Module</p>
+
+<p> File - New Module - 选择Maven Module - 填写Module name - Next - 使用默认配置 Finish</p></li>
+<li></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Java Inputstream to String]]></title>
     <link href="http://jiangrongyong.github.com/blog/2013/09/08/java-inputstream-to-string/"/>
     <updated>2013-09-08T00:00:00+00:00</updated>
@@ -116,6 +271,20 @@ String theString = writer.toString();
 <a href="http://blog.devtang.com/blog/2013/04/07/tricks-in-iap/">iOS应用内支付(IAP)的那些坑 - 唐巧的技术博客</a><br/>
 <a href="http://blog.csdn.net/kevin_zqw/article/details/6973473">In-App Purchase（iap）快速指南 - GungYi - 博客频道 - CSDN.NET</a><br/>
 <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/StoreKitGuide/VerifyingStoreReceipts/VerifyingStoreReceipts.html#//apple_ref/doc/uid/TP40008267-CH104-SW3">服务端验证接口</a></p>
+
+<p>verify接口返回status码</p>
+
+<ul>
+<li>21000 App Store不能读取你提供的JSON对象</li>
+<li>21002 receipt-data域的数据有问题</li>
+<li>21003 receipt无法通过验证</li>
+<li>21004 提供的shared secret不匹配你账号中的shared secret</li>
+<li>21005 receipt服务器当前不可用</li>
+<li>21006 receipt合法，但是订阅已过期。服务器接收到这个状态码时，receipt数据仍然会解码并一起发送</li>
+<li>21007 receipt是Sandbox receipt，但却发送至生产系统的验证服务</li>
+<li>21008 receipt是生产receipt，但却发送至Sandbox环境的验证服务</li>
+</ul>
+
 ]]></content>
   </entry>
   
@@ -430,110 +599,6 @@ echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt;
     <content type="html"><![CDATA[<p>Snap，终于找到这款<code>command + 数字</code>启动应用的神器，今天还限免</p>
 
 <p>https://itunes.apple.com/cn/app/id418073146?mt=12</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[svn在已经commit情况下回滚代码]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/06/16/svn-merge/"/>
-    <updated>2013-06-16T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/06/16/svn-merge</id>
-    <content type="html"><![CDATA[<ol>
-<li><p>保证代码最新</p>
-
-<pre><code> svn update
-</code></pre></li>
-<li><p>查看要回滚代码的提交日志</p>
-
-<pre><code> svn log [something]
-</code></pre></li>
-<li><p>对比该文件老版本和最新版本有什么不同，以下28是最新版本，25是需要回滚到的版本</p>
-
-<pre><code> svn diff -r 28:25 [something]
-</code></pre></li>
-<li><p>回滚到版本25</p>
-
-<pre><code> svn merge -r 28:25 [something]
-</code></pre></li>
-<li><p>为保险起见，再对比一下</p>
-
-<pre><code> svn diff [something]
-</code></pre></li>
-<li><p>提交回滚</p>
-
-<pre><code> svn commit -m "Revert revision from r28 to r25,because of ..."
-</code></pre></li>
-</ol>
-
-
-<hr />
-
-<p>参考文章：</p>
-
-<ul>
-<li>http://blog.sina.com.cn/s/blog_5432f2730100vmz4.html</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Html Email 注意事项]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/06/16/html-email/"/>
-    <updated>2013-06-16T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/06/16/html-email</id>
-    <content type="html"><![CDATA[<ol>
-<li>Doctype使用XHTML 1.0 Strict，不能用HTML5</li>
-<li><p>使用table布局</p>
-
-<pre><code> &lt;body style="margin: 0; padding: 0;"&gt;
- 　&lt;table border="1" cellpadding="0" cellspacing="0" width="100%"&gt;
- 　　&lt;tr&gt; 
- 　　　&lt;td&gt; Hello! &lt;/td&gt;
- 　　&lt;/tr&gt;
- 　&lt;/table&gt;
- &lt;/body&gt;
-</code></pre></li>
-<li><p>图片是唯一可以引用的外部资源。其他的外部资源，比如样式表文件、字体文件、视频文件等，一概不能引用。</p></li>
-<li>所有的CSS规则，最好都采用行内样式。因为放置在网页头部的样式，很可能会被客户端删除。客户端对CSS规则的支持情况，请看这里。</li>
-<li><p>Content-Type要使用</p>
-
-<pre><code> Content-Type: Multipart/Alternative;
-</code></pre></li>
-</ol>
-
-
-<hr />
-
-<p>参考文章</p>
-
-<ul>
-<li>http://www.ruanyifeng.com/blog/2013/06/html_email.html</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/06/14/osx-vpn-l2tp/"/>
-    <updated>2013-06-14T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/06/14/osx-vpn-l2tp</id>
-    <content type="html"><![CDATA[<p>由于公司VPN使用的是L2TP协议，并且是无共享密钥的，OS X需要作一些配置才能支持，否则会提示<code>“IPSec 共享密钥”丢失。请验证您的设置并尝试重新连接。</code></p>
-
-<ol>
-<li><p><code>sudo vim /etc/ppp/options</code></p>
-
-<pre><code> plugin L2TP.ppp
- l2tpnoipsec
-</code></pre></li>
-<li><p>最后把高级设置里面”通过VPN连接发送所有流量“钩上</p></li>
-</ol>
-
-
-<p>2013-06-16 更新</p>
-
-<p>iOS也可以用同样方法，不过必须越狱，建议安装openssh，然后ssh到iOS设备修改文件</p>
 ]]></content>
   </entry>
   

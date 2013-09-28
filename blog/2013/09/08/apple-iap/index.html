@@ -105,6 +105,20 @@ $(document).ready(
 <a href="http://blog.devtang.com/blog/2013/04/07/tricks-in-iap/">iOS应用内支付(IAP)的那些坑 - 唐巧的技术博客</a><br/>
 <a href="http://blog.csdn.net/kevin_zqw/article/details/6973473">In-App Purchase（iap）快速指南 - GungYi - 博客频道 - CSDN.NET</a><br/>
 <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/StoreKitGuide/VerifyingStoreReceipts/VerifyingStoreReceipts.html#//apple_ref/doc/uid/TP40008267-CH104-SW3">服务端验证接口</a></p>
+
+<p>verify接口返回status码</p>
+
+<ul>
+<li>21000 App Store不能读取你提供的JSON对象</li>
+<li>21002 receipt-data域的数据有问题</li>
+<li>21003 receipt无法通过验证</li>
+<li>21004 提供的shared secret不匹配你账号中的shared secret</li>
+<li>21005 receipt服务器当前不可用</li>
+<li>21006 receipt合法，但是订阅已过期。服务器接收到这个状态码时，receipt数据仍然会解码并一起发送</li>
+<li>21007 receipt是Sandbox receipt，但却发送至生产系统的验证服务</li>
+<li>21008 receipt是生产receipt，但却发送至Sandbox环境的验证服务</li>
+</ul>
+
 </div>
 
 

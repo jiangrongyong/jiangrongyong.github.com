@@ -103,6 +103,186 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/28/browser-http-cache/">
+		
+			关于ETag、Last-Modified、Cache-Control和Expires总结</a>
+	</h2>
+	<div class="entry-content">
+		<h3>相关名词</h3>
+
+<ol>
+<li><p>ETag</p>
+
+<ul>
+<li><p>Nginx 1.3.3版本开始支持，打开ETag支持后，Response Header会返回，如<code>ETag:"52468652-169d5"</code>。下一次客户端的http请求中如果包含<code>If-None-Match</code>头，如<code>If-None-Match:"52468652-169d5"</code>，Nginx就会比较该值和计算出的ETag，一致就返回304。</p></li>
+<li><p>ETag开关</p>
+
+<pre><code>  etag on | off; // 缺省为on
+</code></pre></li>
+<li><p><code>If-Modified-Since</code>和<code>If-None-Match</code>是与的关系，即均满足条件才返回304。</p></li>
+</ul>
+</li>
+<li><p>Last-Modified</p>
+
+<ul>
+<li>在第一次请求某个服务器资源时，服务器端的返回状态会是200，同时Response Header会返回Last-Modified，表示该资源在服务期端最后被修改的时间，如<code>Last-Modified:Sat, 28 Sep 2013 07:33:38 GMT</code>。</li>
+<li>当第二次请求该资源时，浏览器会在Request Header中带有If-Modified-Since，询问该时间之后资源是否有被修改过，如<code>If-Modified-Since:Sat, 28 Sep 2013 07:33:38 GMT</code>，如果服务器端的资源没有变化，则返回304。</li>
+<li>配合Expires可以做浏览器或代理服务器本地缓存</li>
+</ul>
+</li>
+<li><p>Nginx中的expires</p>
+
+<ul>
+<li>如果Nginx设置了<code>expires 1d;</code>，那么Response Header新增返回两个头信息，分别是<code>Cache-Control</code>和<code>Expires</code></li>
+<li>如果Nginx设置了<code>expires -1;</code>，那么Cache-Control会被设为no-cache，Expires则被设为当前服务器时间减1秒</li>
+<li>如果设置了<code>expires 1d;</code>，在第一次请求某个服务器资源时，服务器端的返回状态会是200，同时Response Header会返回Last-Modified和Expires和Cache-Control，这时浏览器客户端会把该资源缓存在本地1天，如果使用浏览器的转到按钮、或者在地址栏直接回车、或者打开新窗口重新输入该网址，这时浏览器不会访问服务端，而是直接读取浏览器客户端缓存，在Chrome dev tool的Network下显示的是<code>from cache</code>，在Firefox的firebug下显示的是没有任何请求情况，网络请求为空</li>
+</ul>
+</li>
+<li><p>Cache-Control</p>
+
+<p> 表示该资源的有效期，如<code>Cache-Control:max-age=86400</code>，优先级比Expires要高</p>
+
+<p> Cache-Control有如下取值</p>
+
+<ul>
+<li>no-cache 数据内容不能被缓存, 每次请求都重新访问服务器</li>
+<li>max-age 相对过期时间, 即以秒为单位的缓存时间</li>
+</ul>
+
+
+<p> Request Header中的Cache-Control</p>
+
+<ul>
+<li>Cache-Control:max-age=0 如果使用浏览器的刷新按钮、F5刷新或者是Mac Chrome下的Command + r刷新，浏览器就会设置成这个头，表示不走浏览器客户端缓存，要从服务端获取，服务端有可能返回304或者200</li>
+<li>Cache-Control:no-cache 如果使用浏览器的强制刷新，如Ctrl+ F5或者是Mac Chrome下的Command + Shift + r，浏览器就会设置成这个头，表示既不走浏览器客户端缓存，也不走服务端缓存，服务端返回200，不会返回304</li>
+</ul>
+</li>
+<li><p>Expires</p>
+
+<ul>
+<li>表示该资源过期的GMT时间，如<code>Expires:Sun, 29 Sep 2013 08:34:15 GMT</code></li>
+<li>配合Last-Modified可以做浏览器或代理服务器本地缓存</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>浏览器的三种刷新方式</h3>
+
+<ol>
+<li><p>使用浏览器的转到按钮、或者在地址栏直接回车、或者打开新窗口重新输入该网址</p>
+
+<p> 优先走浏览器本地缓存，如果本地有缓存则根本不会访问服务器</p>
+
+<p> 注：如果是chrome下，在本窗口下的地址栏直接回车，html不会走本地缓存，如果是新开窗口在地址栏输入网址回车，则html依然会走本地缓存。估计是chrome的策略，firefox下则都会走本地缓存</p></li>
+<li><p>使用浏览器的刷新按钮、F5刷新或者是Mac Chrome下的Command + r刷新</p>
+
+<p> 不走浏览器本地缓存，不过会走服务端缓存，会返回304</p></li>
+<li><p>使用浏览器的强制刷新，如Ctrl+ F5或者是Mac Chrome下的Command + Shift + r</p>
+
+<p> 既不走浏览器本地缓存，也不走服务端缓存，不返回304</p></li>
+</ol>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-28T00:00:00+00:00" pubdate data-updated="true">Sep 28<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/09/27/php-construct-sql/">
+		
+			PHP Construct Sql With Implode</a>
+	</h2>
+	<div class="entry-content">
+		<p>使用implode拼接sql</p>
+
+<pre><code>&lt;?php
+function construct_sql($base, $logic, $clauses, $suffix = '') {
+    // initialise array to avoid warnings/notices on some PHP installations
+    $queries = array();
+
+    // create array of strings to be glued together by logic
+    foreach ($clauses as $key =&gt; $value)
+        $queries[] = "`" . escape($key) . "`='" . escape($value) . "'";
+
+    // add a space in case $base doesn't have a space at the end and glue clauses together
+    $base .= " " . implode(" $logic ", $queries) . " " . $suffix;
+
+    return $base;
+}
+
+/**
+ * @param string $str string to escape for intended use
+ * @return string
+ */
+function escape($str) {
+    return mysql_real_escape_string($str);
+}
+
+$updates = array(
+    'field1' =&gt; 'val1',
+    'field2' =&gt; 'val2'
+);
+$wheres = array(
+    'field1' =&gt; 'cond1',
+    'field2' =&gt; 'cond2'
+);
+echo construct_sql(construct_sql("UPDATE table SET", ", ", $updates) . " WHERE ", " AND ", $wheres);
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-27T00:00:00+00:00" pubdate data-updated="true">Sep 27<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/09/10/jetbrains-idea-config/">
 		
 			Jetbrains Idea Config</a>
@@ -115,14 +295,26 @@ $(document).ready(
 <ul>
 <li><p>设置光标不允许在行结尾以外</p>
 
-<p>  Preferences - IDE Settings - Editor - Allow placement of create after end of line</p></li>
+<p>  Preferences - IDE Settings - Editor - Allow placement of create after end of         line</p></li>
+<li><p>安装vim插件</p>
+
+<p>  Preferences - Plugins - Install JetBrains plugin - IdeaVim</p></li>
+</ul>
+
+
+<h3>IntelliJ IDEA</h3>
+
+<ul>
+<li><p>在Intellij idea下安装IdeaVim插件后，关闭当前tab无法使用<code>command + w</code>快捷键，只能使用<code>command + F4</code>，需要更改<code>Keymap</code></p>
+
+<p>  Preferences - Keymap - Main menu - Window - Editor Tabs - Close</p></li>
 </ul>
 
 
 <h3>快捷键</h3>
 
 <ul>
-<li>关闭Tab <code>alt + F4</code></li>
+<li><code>control + enter</code> generate 代码自动生成</li>
 </ul>
 
 
@@ -231,6 +423,50 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/10/intellij-idea-create-maven-module/">
+		
+			使用Intellij IDEA创建Maven模块</a>
+	</h2>
+	<div class="entry-content">
+		<p>自己的一个Java的Clint工程，由于包依赖原来越多，决定使用Maven做依赖管理，提高日后的开发效率，IDE使用Intellij</p>
+
+<ol>
+<li><p>创建Maven Module</p>
+
+<p> File - New Module - 选择Maven Module - 填写Module name - Next - 使用默认配置 Finish</p></li>
+<li></li>
+</ol>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-10T00:00:00+00:00" pubdate data-updated="true">Sep 10<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/09/08/java-inputstream-to-string/">
 		
 			Java Inputstream to String</a>
@@ -287,6 +523,20 @@ String theString = writer.toString();
 <a href="http://blog.devtang.com/blog/2013/04/07/tricks-in-iap/">iOS应用内支付(IAP)的那些坑 - 唐巧的技术博客</a><br/>
 <a href="http://blog.csdn.net/kevin_zqw/article/details/6973473">In-App Purchase（iap）快速指南 - GungYi - 博客频道 - CSDN.NET</a><br/>
 <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/StoreKitGuide/VerifyingStoreReceipts/VerifyingStoreReceipts.html#//apple_ref/doc/uid/TP40008267-CH104-SW3">服务端验证接口</a></p>
+
+<p>verify接口返回status码</p>
+
+<ul>
+<li>21000 App Store不能读取你提供的JSON对象</li>
+<li>21002 receipt-data域的数据有问题</li>
+<li>21003 receipt无法通过验证</li>
+<li>21004 提供的shared secret不匹配你账号中的shared secret</li>
+<li>21005 receipt服务器当前不可用</li>
+<li>21006 receipt合法，但是订阅已过期。服务器接收到这个状态码时，receipt数据仍然会解码并一起发送</li>
+<li>21007 receipt是Sandbox receipt，但却发送至生产系统的验证服务</li>
+<li>21008 receipt是生产receipt，但却发送至Sandbox环境的验证服务</li>
+</ul>
+
 
 		
 		
@@ -434,168 +684,6 @@ list($content, $code) = callee();
 
 
 <time datetime="2013-09-02T00:00:00+00:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/02/osx-file-system-case-insensitive/">
-		
-			OSX 文件系统大小写不敏感</a>
-	</h2>
-	<div class="entry-content">
-		<p>HFS+(Mac文件系统)一般配置是大小写不敏感但大小写保留，意思是文件系统会认为<code>foo</code>和<code>FoO</code>是同一个文件，但当创建该文件时系统就记住哪个字母大写哪个小写</p>
-
-<p>当格式化成HFS+格式时你可以指定文件系统是否大小写敏感。但如果你格式化成UFS(Unix FileSystem)的话将会永远是大小写敏感</p>
-
-<p>检查你的磁盘格式是否大小写敏感</p>
-
-<pre><code>diskutil info &lt;device&gt;
-</code></pre>
-
-<p>例如</p>
-
-<pre><code>diskutil info /dev/disk0s2
-</code></pre>
-
-<p><code>Name (User Visible):      Mac OS Extended (Journaled)</code></p>
-
-<p>如果是<code>Mac OS Extended (Case-sensitive, Journaled)</code>则表示大小写敏感，如果没有<code>Case-sensitive</code>字样则仅仅是大小写保留非大小写敏感。</p>
-
-<hr />
-
-<p>http://apple.stackexchange.com/questions/22297/is-bash-in-osx-case-insensitive</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-02T00:00:00+00:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/08/30/vim-comment/">
-		
-			Vim批量注释</a>
-	</h2>
-	<div class="entry-content">
-		<ul>
-<li><p>批量注释</p>
-
-<ol>
-<li><code>ctrl+v</code> 进入列编辑模式</li>
-<li>上下移动光标,把需要注释的行的开头选中</li>
-<li><code>shift+i</code>,插入注释符,比如<code>//</code></li>
-<li><code>Esc</code>,就会全部注释了</li>
-</ol>
-</li>
-<li><p>批量去掉注释</p>
-
-<ol>
-<li><code>ctrl+v</code>,进入列编辑模式</li>
-<li>横向选中列的个数，如<code>//</code>注释符号</li>
-<li>按<code>d</code>, 就会删除注释符号</li>
-</ol>
-</li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-30T00:00:00+00:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/08/29/sshd-interrupt/">
-		
-			防止ssh过一段时间后中断</a>
-	</h2>
-	<div class="entry-content">
-		<pre><code>$ sudo vim /etc/ssh/sshd_config
-</code></pre>
-
-<p>修改</p>
-
-<pre><code># 如果超过15秒后没有收到客户端的任何数据，sshd将通过安全通道向客户端发送一个"alive"消息，并等候应答，默认值0表示不发送
-ClientAliveInterval 15
-
-# sshd在未收到任何客户端回应前最多允许发送45个"alive"消息，默认值3
-ClientAliveCountMax 45
-</code></pre>
-
-<p>重启sshd</p>
-
-<pre><code>$ sudo /etc/init.d/sshd restart
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-29T00:00:00+00:00" pubdate data-updated="true">Aug 29<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

@@ -103,6 +103,168 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/02/osx-file-system-case-insensitive/">
+		
+			OSX 文件系统大小写不敏感</a>
+	</h2>
+	<div class="entry-content">
+		<p>HFS+(Mac文件系统)一般配置是大小写不敏感但大小写保留，意思是文件系统会认为<code>foo</code>和<code>FoO</code>是同一个文件，但当创建该文件时系统就记住哪个字母大写哪个小写</p>
+
+<p>当格式化成HFS+格式时你可以指定文件系统是否大小写敏感。但如果你格式化成UFS(Unix FileSystem)的话将会永远是大小写敏感</p>
+
+<p>检查你的磁盘格式是否大小写敏感</p>
+
+<pre><code>diskutil info &lt;device&gt;
+</code></pre>
+
+<p>例如</p>
+
+<pre><code>diskutil info /dev/disk0s2
+</code></pre>
+
+<p><code>Name (User Visible):      Mac OS Extended (Journaled)</code></p>
+
+<p>如果是<code>Mac OS Extended (Case-sensitive, Journaled)</code>则表示大小写敏感，如果没有<code>Case-sensitive</code>字样则仅仅是大小写保留非大小写敏感。</p>
+
+<hr />
+
+<p>http://apple.stackexchange.com/questions/22297/is-bash-in-osx-case-insensitive</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-02T00:00:00+00:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/08/30/vim-comment/">
+		
+			Vim批量注释</a>
+	</h2>
+	<div class="entry-content">
+		<ul>
+<li><p>批量注释</p>
+
+<ol>
+<li><code>ctrl+v</code> 进入列编辑模式</li>
+<li>上下移动光标,把需要注释的行的开头选中</li>
+<li><code>shift+i</code>,插入注释符,比如<code>//</code></li>
+<li><code>Esc</code>,就会全部注释了</li>
+</ol>
+</li>
+<li><p>批量去掉注释</p>
+
+<ol>
+<li><code>ctrl+v</code>,进入列编辑模式</li>
+<li>横向选中列的个数，如<code>//</code>注释符号</li>
+<li>按<code>d</code>, 就会删除注释符号</li>
+</ol>
+</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-30T00:00:00+00:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/08/29/sshd-interrupt/">
+		
+			防止ssh过一段时间后中断</a>
+	</h2>
+	<div class="entry-content">
+		<pre><code>$ sudo vim /etc/ssh/sshd_config
+</code></pre>
+
+<p>修改</p>
+
+<pre><code># 如果超过15秒后没有收到客户端的任何数据，sshd将通过安全通道向客户端发送一个"alive"消息，并等候应答，默认值0表示不发送
+ClientAliveInterval 15
+
+# sshd在未收到任何客户端回应前最多允许发送45个"alive"消息，默认值3
+ClientAliveCountMax 45
+</code></pre>
+
+<p>重启sshd</p>
+
+<pre><code>$ sudo /etc/init.d/sshd restart
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-29T00:00:00+00:00" pubdate data-updated="true">Aug 29<span>th</span>, 2013</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/08/19/php-cookie-deleted/">
 		
 			Php Cookie Deleted</a>
@@ -469,191 +631,6 @@ echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt;
 
 
 <time datetime="2013-06-20T00:00:00+00:00" pubdate data-updated="true">Jun 20<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/06/16/svn-merge/">
-		
-			Svn在已经commit情况下回滚代码</a>
-	</h2>
-	<div class="entry-content">
-		<ol>
-<li><p>保证代码最新</p>
-
-<pre><code> svn update
-</code></pre></li>
-<li><p>查看要回滚代码的提交日志</p>
-
-<pre><code> svn log [something]
-</code></pre></li>
-<li><p>对比该文件老版本和最新版本有什么不同，以下28是最新版本，25是需要回滚到的版本</p>
-
-<pre><code> svn diff -r 28:25 [something]
-</code></pre></li>
-<li><p>回滚到版本25</p>
-
-<pre><code> svn merge -r 28:25 [something]
-</code></pre></li>
-<li><p>为保险起见，再对比一下</p>
-
-<pre><code> svn diff [something]
-</code></pre></li>
-<li><p>提交回滚</p>
-
-<pre><code> svn commit -m "Revert revision from r28 to r25,because of ..."
-</code></pre></li>
-</ol>
-
-
-<hr />
-
-<p>参考文章：</p>
-
-<ul>
-<li>http://blog.sina.com.cn/s/blog_5432f2730100vmz4.html</li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-16T00:00:00+00:00" pubdate data-updated="true">Jun 16<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/06/16/html-email/">
-		
-			Html Email 注意事项</a>
-	</h2>
-	<div class="entry-content">
-		<ol>
-<li>Doctype使用XHTML 1.0 Strict，不能用HTML5</li>
-<li><p>使用table布局</p>
-
-<pre><code> &lt;body style="margin: 0; padding: 0;"&gt;
- 　&lt;table border="1" cellpadding="0" cellspacing="0" width="100%"&gt;
- 　　&lt;tr&gt; 
- 　　　&lt;td&gt; Hello! &lt;/td&gt;
- 　　&lt;/tr&gt;
- 　&lt;/table&gt;
- &lt;/body&gt;
-</code></pre></li>
-<li><p>图片是唯一可以引用的外部资源。其他的外部资源，比如样式表文件、字体文件、视频文件等，一概不能引用。</p></li>
-<li>所有的CSS规则，最好都采用行内样式。因为放置在网页头部的样式，很可能会被客户端删除。客户端对CSS规则的支持情况，请看这里。</li>
-<li><p>Content-Type要使用</p>
-
-<pre><code> Content-Type: Multipart/Alternative;
-</code></pre></li>
-</ol>
-
-
-<hr />
-
-<p>参考文章</p>
-
-<ul>
-<li>http://www.ruanyifeng.com/blog/2013/06/html_email.html</li>
-</ul>
-
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-16T00:00:00+00:00" pubdate data-updated="true">Jun 16<span>th</span>, 2013</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/06/14/osx-vpn-l2tp/">
-		
-			Mac OSX 无共享的密钥情况下连接基于L2TP协议的VPN</a>
-	</h2>
-	<div class="entry-content">
-		<p>由于公司VPN使用的是L2TP协议，并且是无共享密钥的，OS X需要作一些配置才能支持，否则会提示<code>“IPSec 共享密钥”丢失。请验证您的设置并尝试重新连接。</code></p>
-
-<ol>
-<li><p><code>sudo vim /etc/ppp/options</code></p>
-
-<pre><code> plugin L2TP.ppp
- l2tpnoipsec
-</code></pre></li>
-<li><p>最后把高级设置里面”通过VPN连接发送所有流量“钩上</p></li>
-</ol>
-
-
-<p>2013-06-16 更新</p>
-
-<p>iOS也可以用同样方法，不过必须越狱，建议安装openssh，然后ssh到iOS设备修改文件</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-14T00:00:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

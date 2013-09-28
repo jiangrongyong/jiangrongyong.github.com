@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Jetbrains Idea Config  | Hugh's Blog</title>
+	<title>使用Intellij IDEA创建Maven模块  | Hugh's Blog</title>
 
 <meta name="author" content="Hugh"> 
 
@@ -98,35 +98,15 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Jetbrains Idea Config</h2>
-	<div class="entry-content"><h3>通用设置</h3>
+	<h2 class="title">使用Intellij IDEA创建Maven模块</h2>
+	<div class="entry-content"><p>自己的一个Java的Clint工程，由于包依赖原来越多，决定使用Maven做依赖管理，提高日后的开发效率，IDE使用Intellij</p>
 
-<p>针对IntelliJ IDEA, WebStorm, PhpStorm等均有效</p>
+<ol>
+<li><p>创建Maven Module</p>
 
-<ul>
-<li><p>设置光标不允许在行结尾以外</p>
-
-<p>  Preferences - IDE Settings - Editor - Allow placement of create after end of         line</p></li>
-<li><p>安装vim插件</p>
-
-<p>  Preferences - Plugins - Install JetBrains plugin - IdeaVim</p></li>
-</ul>
-
-
-<h3>IntelliJ IDEA</h3>
-
-<ul>
-<li><p>在Intellij idea下安装IdeaVim插件后，关闭当前tab无法使用<code>command + w</code>快捷键，只能使用<code>command + F4</code>，需要更改<code>Keymap</code></p>
-
-<p>  Preferences - Keymap - Main menu - Window - Editor Tabs - Close</p></li>
-</ul>
-
-
-<h3>快捷键</h3>
-
-<ul>
-<li><code>control + enter</code> generate 代码自动生成</li>
-</ul>
+<p> File - New Module - 选择Maven Module - 填写Module name - Next - 使用默认配置 Finish</p></li>
+<li></li>
+</ol>
 
 </div>
 

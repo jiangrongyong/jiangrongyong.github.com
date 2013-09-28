@@ -103,6 +103,158 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/11/04/php-memory-limit/">
+		
+			Php内存回收</a>
+	</h2>
+	<div class="entry-content">
+		<h2>最近在写一个从mysql导数据到memcache的php cli脚本，每次执行内存都一直上涨，内存没有回收，经过一晚的debug，终于在unset了以后释放了内存</h2>
+
+<pre><code>private static function updateGlCache($field, $value, $tabname, $mem) {
+    $cache_key = get_cache_key("gl_{$field}", $value);
+    $tabnames = $mem-&gt;get($cache_key);
+
+    if($tabnames == null) {
+        $mem-&gt;set($cache_key, array($tabname));
+        print_r("flushing:{$field}{$value}{$tabname}\n");
+    }else {
+        if(!in_array($tabname, $tabnames)) {
+            array_push($tabnames, $tabname);
+            $mem-&gt;set($cache_key, $tabnames);
+            print_r("flushing:{$field}{$value}{$tabname}\n");
+        }
+    }
+
+    unset($tabnames); //gc
+    unset($cache_key); //gc
+}
+</code></pre>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-04T00:00:00+00:00" pubdate data-updated="true">Nov 4<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/11/04/first-lunch/">
+		
+			本少爷下厨(1)</a>
+	</h2>
+	<div class="entry-content">
+		<p>鸡腿肉宫爆玉米粒</p>
+
+<p><img src="http://free-will.me/media/images/lunch.png" alt="lunch" /></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-04T00:00:00+00:00" pubdate data-updated="true">Nov 4<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/07/19/centos-vsftpd-config/">
+		
+			Centos下vsftpd配置</a>
+	</h2>
+	<div class="entry-content">
+		<h1>背景</h1>
+
+<p>每次为服务器添加ftp用户总要google，老记不住，运维那边也不是每次都那么有空可以帮忙配置，这次自己配好并mark下来</p>
+
+<h2>创建ftp用户</h2>
+
+<ul>
+<li><code>/usr/sbin/adduser -d /data/app/kis_support -g ftp -s /sbin/nologin jiangrongyong</code></li>
+</ul>
+
+
+<p>adduser 代表添加jiangrongyong用户</p>
+
+<p>并却不能登录系统(-s /sbin/nologin)</p>
+
+<p>自己的所属文件夹，即ftp的根目录在(-d /data/app/kis_support)</p>
+
+<p>属于组ftp(-g ftp)</p>
+
+<ul>
+<li>接着给用户创建<code>passwd jiangrongyong</code>，就大功告成了</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-19T00:00:00+00:00" pubdate data-updated="true">Jul 19<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/07/18/zf-performance/">
 		
 			Zf性能测试</a>
