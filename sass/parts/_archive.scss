@@ -6,7 +6,6 @@
 			position: absolute;
 			bottom: 0;
 			width: 200px;
-			border-top: 1px solid $color-gray04;
 		}
 	}
 	.year{
@@ -21,7 +20,6 @@
 			position: absolute;
 			top: -2px;
 			width: 100%;
-			border-top: 1px solid $color-gray04;
 		}
 		@media screen and (max-width: 600px){
 			position: relative;
