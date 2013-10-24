@@ -1,0 +1,17 @@
+---
+layout: post
+title: Laravel 4
+tags: 
+
+---
+
+## cli
+
+* `php artisan migrate`数据库迁移
+* `php artisan db:seed` 导入种子数据
+* `php artisan migrate:refresh` 回滚所有迁移并重新运行所有迁移
+* `php artisan migrate:refresh --seed` 回滚所有迁移并重新运行所有迁移with seed
+* 
+* `php artisan workbench chinanetcenter/cdn` 新建workbench
+* 
+* `php artisan controller:make SessionController` 新建Controller
