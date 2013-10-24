@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-10-19T04:13:53+00:00</updated>
+  <updated>2013-10-24T06:34:56+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Laravel 4]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/10/24/laravel4/"/>
+    <updated>2013-10-24T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/10/24/laravel4</id>
+    <content type="html"><![CDATA[<h2>cli</h2>
+
+<ul>
+<li><code>php artisan migrate</code>数据库迁移</li>
+<li><code>php artisan db:seed</code> 导入种子数据</li>
+<li><code>php artisan migrate:refresh</code> 回滚所有迁移并重新运行所有迁移</li>
+<li><code>php artisan migrate:refresh --seed</code> 回滚所有迁移并重新运行所有迁移with seed</li>
+<li></li>
+<li><code>php artisan workbench chinanetcenter/cdn</code> 新建workbench</li>
+<li></li>
+<li><code>php artisan controller:make SessionController</code> 新建Controller</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pokemon X/Y]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/10/22/pokemon-xy/"/>
+    <updated>2013-10-22T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/10/22/pokemon-xy</id>
+    <content type="html"><![CDATA[<h2>tips</h2>
+
+<ul>
+<li>由于一开始的主角选择了一贯风格火属性，后面发现还可以从初代的三只主角中选择一只当小伙伴，果断<code>小火龙</code>啊，所以删档重玩一开始选<code>泡沫蛙</code>好了。ps:重置存档的方式是一进入开场动画按<code>上箭头 + x + b</code></li>
+<li>第一个道馆虫族，如果主角还没到14级，估计比较难打馆主，可以去右边的22番道路打NPC练到14级出新技能</li>
+<li>Pokemon Center高端了，可以当商店用，还能给主角换衣服</li>
+<li>选初代主角的时候，顺便从博士那里获得学习机器，练级就效率了</li>
+<li>防虫喷雾在使用完后会提示是否继续使用下一个，大赞！可以考虑买便宜的性价比高的防虫喷雾了！</li>
+<li>战斗动画，大口蝠飞在天上，技能就往天上打，细节有惊喜</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[关于ETag、Last-Modified、Cache-Control和Expires总结]]></title>
@@ -573,32 +613,6 @@ puts (1...1000).to_a.collect{|t| fibonacci(t) }.join(', ')
 </code></pre></li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[vim打开nginx conf时语法高亮]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/06/30/vim-nginx-syntax-on/"/>
-    <updated>2013-06-30T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/06/30/vim-nginx-syntax-on</id>
-    <content type="html"><![CDATA[<pre><code>mkdir -p ~/.vim/syntax/
-
-wget -O ~/.vim/syntax/nginx.vim http://www.vim.org/scripts/download_script.php?src_id=14376
-
-# /usr/local/etc/nginx/vhosts/*为nginx配置文件存放目录
-echo "au BufRead,BufNewFile /usr/local/etc/nginx/vhosts/* set ft=nginx" &gt;&gt; ~/.vim/filetype.vim
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OSX Snap]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/06/20/osx-snap/"/>
-    <updated>2013-06-20T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/06/20/osx-snap</id>
-    <content type="html"><![CDATA[<p>Snap，终于找到这款<code>command + 数字</code>启动应用的神器，今天还限免</p>
-
-<p>https://itunes.apple.com/cn/app/id418073146?mt=12</p>
 ]]></content>
   </entry>
   

@@ -69,6 +69,87 @@
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2012/12/15/2nd-lunch/">
+		
+			本少爷下厨(2)</a>
+	</h2>
+	<div class="entry-content">
+		<p>劲抄白菜</p>
+
+<p><img src="http://free-will.me/media/images/2nd-lunch.jpg" alt="lunch" /></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-15T00:00:00+00:00" pubdate data-updated="true">Dec 15<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2012/12/13/podcast/">
+		
+			推荐Podcast</a>
+	</h2>
+	<div class="entry-content">
+		<h3>Apple</h3>
+
+<ul>
+<li><a href="https://itunes.apple.com/cn/podcast/tiny4voice/id400000696?mt=2">Tiny4Voice</a>，<a href="http://weibo.com/tinyfool">@tinyfool</a>大叔的Podcast，话题主要围绕程序员、天朝、创业和Apple。</li>
+<li><a href="https://itunes.apple.com/cn/podcast/ibuick-italk/id543511354?mt=2">ibuick , italk</a>，<a href="http://weibo.com/ibuick">@ibuick</a>的Podcast，主要介绍大别在编程、学习和思考的一些经验总结。</li>
+<li><a href="https://itunes.apple.com/cn/podcast/you-de-liao-bo-ke/id493254305?mt=2">友的聊播客</a>，最近在听，更新很快，科技+闲聊，主要是苹果</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-13T00:00:00+00:00" pubdate data-updated="true">Dec 13<span>th</span>, 2012</time></div>
+	<div class="tags" style="display:none;">
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2012/12/11/pi/">
 		
 			Pi</a>
@@ -5172,6 +5253,10 @@ When you don&#8217;t need the samples anymore just delete the <code>_posts/core-
 
 <ul class="posts">
   
+    <li><span>24 Oct 2013</span> &raquo; <a href="/blog/2013/10/24/laravel4/">Laravel 4</a></li>
+  
+    <li><span>22 Oct 2013</span> &raquo; <a href="/blog/2013/10/22/pokemon-xy/">Pokemon X/Y</a></li>
+  
     <li><span>28 Sep 2013</span> &raquo; <a href="/blog/2013/09/28/browser-http-cache/">关于ETag、Last-Modified、Cache-Control和Expires总结</a></li>
   
     <li><span>27 Sep 2013</span> &raquo; <a href="/blog/2013/09/27/php-construct-sql/">PHP construct sql with implode</a></li>
@@ -5650,113 +5735,6 @@ make install
 
 
 <time datetime="2012-12-04T00:00:00+00:00" pubdate data-updated="true">Dec 4<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/29/nginx-config/">
-		
-			Nginx配置</a>
-	</h2>
-	<div class="entry-content">
-		<h4>配置多子站点时，例如游戏各种子官网，可以使用通配符或正则表达式的方式配置</h4>
-
-<pre><code>server {
-    listen       80;
-    server_name  *.wan.xoyo.com;
-    root   /Users/jiangrongyong/Program/online_code/official_website/guanwang;
-    index  index.html index.htm index.php;
-    location ~ \.php$ {
-        fastcgi_pass   127.0.0.1:9000;
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include        fastcgi_params;
-    }
-}
-</code></pre>
-
-<p>需要注意的是，PHP在获取<code>$_SERVER["SERVER_NAME"]</code>时，会获取到*.wan.xoyo.com，如果需要获取真实的域名，修改fastcgi_params，把SERVER_NAME的值改成host</p>
-
-<pre><code>fastcgi_param  SERVER_NAME        $host;
-</code></pre>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-29T00:00:00+00:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time></div>
-	<div class="tags" style="display:none;">
-
-</div>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2012/11/28/pms/">
-		
-			项目管理平台</a>
-	</h2>
-	<div class="entry-content">
-		<p>最近帮组内搭建一个项目管理平台，找了下资料</p>
-
-<h3><a href="http://basecamp.com/">Basecamp</a></h3>
-
-<p>国外开发，小清新风格，很多人推荐，20刀每月，45天试用，国内访问速度较慢</p>
-
-<h3><a href="https://tower.im/">Tower</a></h3>
-
-<p>彩程开发的，今天刚上线，类似Basecamp，收费比Basecamp便宜，45天免费试用</p>
-
-<h3><a href="http://www.zentao.net/">Zentao</a></h3>
-
-<p>国内开发，有开源和收费版本</p>
-
-<h3><a href="http://www.redmine.org/">Redmine</a></h3>
-
-<p>开源，ruby开发</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-28T00:00:00+00:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time></div>
 	<div class="tags" style="display:none;">
 
 </div>
