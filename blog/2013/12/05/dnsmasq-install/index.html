@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Jetbrains Idea Config  | Hugh's Blog</title>
+	<title>Install dnsmasq on Centos  | Hugh's Blog</title>
 
 <meta name="author" content="Hugh"> 
 
@@ -64,38 +64,27 @@
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Jetbrains Idea Config</h2>
-	<div class="entry-content"><h3>通用设置</h3>
+	<h2 class="title">Install Dnsmasq on Centos</h2>
+	<div class="entry-content"><h2>1. 安装</h2>
 
-<p>针对IntelliJ IDEA, WebStorm, PhpStorm等均有效</p>
+<p>yum install dnsmasq</p>
 
-<ul>
-<li><p>设置光标不允许在行结尾以外</p>
+<h2>2. 配置</h2>
 
-<p>  Preferences - IDE Settings - Editor - Allow placement of create after end of         line</p></li>
-<li><p>安装vim插件</p>
+<p>vim /etc/dnsmasq.conf</p>
 
-<p>  Preferences - Plugins - Install JetBrains plugin - IdeaVim</p></li>
-</ul>
+<pre><code>conf-dir=/etc/dnsmasq.d
+</code></pre>
 
+<p>vim /etc/dnsmasq.d/mobile-game.conf</p>
 
-<h3>IntelliJ IDEA</h3>
+<pre><code>address=/www.baidu.com/127.0.0.1
+server=8.8.8.8
+</code></pre>
 
-<ul>
-<li><p>在Intellij idea下安装IdeaVim插件后，关闭当前tab无法使用<code>command + w</code>快捷键，只能使用<code>command + F4</code>，需要更改<code>Keymap</code></p>
+<h2>3. 配置生效</h2>
 
-<p>  Preferences - Keymap - Main menu - Window - Editor Tabs - Close</p></li>
-</ul>
-
-
-<h3>快捷键</h3>
-
-<ul>
-<li><code>control + enter</code> generate 代码自动生成</li>
-<li><code>alt + F7</code> 查找被引用</li>
-<li></li>
-</ul>
-
+<p>/etc/init.d/dnsmasq restart</p>
 </div>
 
 
@@ -112,7 +101,7 @@
   
 
 
-<time datetime="2013-09-10T00:00:00+00:00" pubdate data-updated="true">Sep 10<span>th</span>, 2013</time></div>
+<time datetime="2013-12-05T00:00:00+00:00" pubdate data-updated="true">Dec 5<span>th</span>, 2013</time></div>
 	<div class="tags" style="display:none;">
 
 </div>

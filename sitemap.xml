@@ -294,7 +294,7 @@
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/blog/2013/09/10/jetbrains-idea-config/</loc>
-        <lastmod>2013-09-28T09:56:07+00:00</lastmod>
+        <lastmod>2013-12-07T09:21:15+00:00</lastmod>
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/blog/2013/09/27/php-construct-sql/</loc>
@@ -306,23 +306,27 @@
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/blog/2013/10/22/pokemon-xy/</loc>
-        <lastmod>2013-10-24T06:34:52+00:00</lastmod>
+        <lastmod>2013-12-07T09:21:15+00:00</lastmod>
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/blog/2013/10/24/laravel4/</loc>
-        <lastmod>2013-10-24T06:34:52+00:00</lastmod>
+        <lastmod>2013-12-07T09:21:15+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://jiangrongyong.github.com/blog/2013/12/05/dnsmasq-install/</loc>
+        <lastmod>2013-12-07T09:21:15+00:00</lastmod>
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/blog/archives/</loc>
-        <lastmod>2013-10-24T06:34:52+00:00</lastmod>
+        <lastmod>2013-12-07T09:21:15+00:00</lastmod>
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/blog/</loc>
-        <lastmod>2013-10-24T06:34:52+00:00</lastmod>
+        <lastmod>2013-12-07T09:21:15+00:00</lastmod>
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/</loc>
-        <lastmod>2013-10-24T06:34:52+00:00</lastmod>
+        <lastmod>2013-12-07T09:21:15+00:00</lastmod>
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/robots.txt</loc>
@@ -330,6 +334,6 @@
     </url>
     <url>
         <loc>http://jiangrongyong.github.com/archives/</loc>
-        <lastmod>2013-10-24T06:34:52+00:00</lastmod>
+        <lastmod>2013-12-07T09:21:15+00:00</lastmod>
     </url>
 </urlset>

@@ -4,7 +4,7 @@
   <title><![CDATA[Hugh's Blog]]></title>
   <link href="http://jiangrongyong.github.com/atom.xml" rel="self"/>
   <link href="http://jiangrongyong.github.com/"/>
-  <updated>2013-10-24T06:34:56+00:00</updated>
+  <updated>2013-12-07T09:21:19+00:00</updated>
   <id>http://jiangrongyong.github.com/</id>
   <author>
     <name><![CDATA[Hugh]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Install dnsmasq on Centos]]></title>
+    <link href="http://jiangrongyong.github.com/blog/2013/12/05/dnsmasq-install/"/>
+    <updated>2013-12-05T00:00:00+00:00</updated>
+    <id>http://jiangrongyong.github.com/blog/2013/12/05/dnsmasq-install</id>
+    <content type="html"><![CDATA[<h2>1. 安装</h2>
+
+<p>yum install dnsmasq</p>
+
+<h2>2. 配置</h2>
+
+<p>vim /etc/dnsmasq.conf</p>
+
+<pre><code>conf-dir=/etc/dnsmasq.d
+</code></pre>
+
+<p>vim /etc/dnsmasq.d/mobile-game.conf</p>
+
+<pre><code>address=/www.baidu.com/127.0.0.1
+server=8.8.8.8
+</code></pre>
+
+<h2>3. 配置生效</h2>
+
+<p>/etc/init.d/dnsmasq restart</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Laravel 4]]></title>
@@ -25,6 +53,7 @@
 <li><code>php artisan db:seed</code> 导入种子数据</li>
 <li><code>php artisan migrate:refresh</code> 回滚所有迁移并重新运行所有迁移</li>
 <li><code>php artisan migrate:refresh --seed</code> 回滚所有迁移并重新运行所有迁移with seed</li>
+<li><code>php artisan migrate:make create_users_table</code> 创建迁移</li>
 <li></li>
 <li><code>php artisan workbench chinanetcenter/cdn</code> 新建workbench</li>
 <li></li>
@@ -48,6 +77,20 @@
 <li>选初代主角的时候，顺便从博士那里获得学习机器，练级就效率了</li>
 <li>防虫喷雾在使用完后会提示是否继续使用下一个，大赞！可以考虑买便宜的性价比高的防虫喷雾了！</li>
 <li>战斗动画，大口蝠飞在天上，技能就往天上打，细节有惊喜</li>
+<li>发电厂钥匙非常难找，在那里卡了好一会，还有很多反人类野怪从地下冒出，连防虫喷雾都免疫</li>
+<li>学习机器改版了，上场的获取100%经验，未上场的获取50%经验，厚道了</li>
+</ul>
+
+
+<h2>refer</h2>
+
+<ul>
+<li><a href="http://tieba.baidu.com/p/2648374851">口袋妖怪XY全技能机器获得方法<em>口袋妖怪吧</em>百度贴吧</a></li>
+<li><a href="http://bbs.duowan.com/thread-34654869-1-1.html">《口袋妖怪XY》属性克制关系表汉化版-3DS&amp;2DS讨论区-多玩游戏论坛 -</a></li>
+<li><a href="http://bbs.duowan.com/thread-35319523-1-1.html">口袋妖怪XYコーストカロス地区图鉴（10月21日基本完成）-[3DS] 口袋妖怪XY-热门游戏讨论区-多玩游戏论坛 -</a></li>
+<li><a href="http://bbs.duowan.com/thread-35302090-1-1.html">口袋妖怪XYセントラルカロス地区图鉴（10月17日基本完毕）-[3DS] 口袋妖怪XY-热门游戏讨论区-多玩游戏论坛 -</a></li>
+<li><a href="http://bbs.duowan.com/thread-35341214-1-1.html">《口袋妖怪XY》マウンテンカロス图鉴（10月21日基本完成）-[3DS] 口袋妖怪XY-热门游戏讨论区-多玩游戏论坛 -</a></li>
+<li><a href="http://bbs.duowan.com/forum.php?mod=forumdisplay&amp;fid=905&amp;page=1">[3DS] 口袋妖怪XY - 多玩游戏论坛 -</a></li>
 </ul>
 
 ]]></content>
@@ -211,6 +254,8 @@ echo construct_sql(construct_sql("UPDATE table SET", ", ", $updates) . " WHERE "
 
 <ul>
 <li><code>control + enter</code> generate 代码自动生成</li>
+<li><code>alt + F7</code> 查找被引用</li>
+<li></li>
 </ul>
 
 ]]></content>
@@ -593,26 +638,6 @@ Ruby</p>
 end
 puts (1...1000).to_a.collect{|t| fibonacci(t) }.join(', ')
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHP Good Parts]]></title>
-    <link href="http://jiangrongyong.github.com/blog/2013/07/24/php-good-parts/"/>
-    <updated>2013-07-24T00:00:00+00:00</updated>
-    <id>http://jiangrongyong.github.com/blog/2013/07/24/php-good-parts</id>
-    <content type="html"><![CDATA[<ol>
-<li><p>list函数</p>
-
-<pre><code> list($table, $field)=explode('.', $field);
- $query = $this-&gt;CI-&gt;db-&gt;limit(1)-&gt;get_where($table, array($field =&gt; $str));
-</code></pre></li>
-<li><p>%s</p>
-
-<pre><code> $lang['required'] = "The %s field is required.";
-</code></pre></li>
-</ol>
-
 ]]></content>
   </entry>
   
