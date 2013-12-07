@@ -11,6 +11,7 @@ tags:
 * `php artisan db:seed` 导入种子数据
 * `php artisan migrate:refresh` 回滚所有迁移并重新运行所有迁移
 * `php artisan migrate:refresh --seed` 回滚所有迁移并重新运行所有迁移with seed
+* `php artisan migrate:make create_users_table` 创建迁移
 * 
 * `php artisan workbench chinanetcenter/cdn` 新建workbench
 * 

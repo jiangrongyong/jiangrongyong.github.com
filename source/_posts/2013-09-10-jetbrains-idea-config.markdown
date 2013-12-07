@@ -27,3 +27,5 @@ tags:
 ### 快捷键
 
 * `control + enter` generate 代码自动生成
+* `alt + F7` 查找被引用
+* 
