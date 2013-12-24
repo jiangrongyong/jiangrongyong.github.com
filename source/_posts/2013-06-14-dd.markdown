@@ -6,7 +6,7 @@ tags: dd
 ---
 
 1. `df -h`
-2. `unmount /dev/disk1s1`
+2. `diskutil unmount /dev/disk1s1`
 3. `diskutil list`
 4. `dd bs=4m if=raspbmc-final.img of=/dev/rdisk1`
 
