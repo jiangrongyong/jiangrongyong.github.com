@@ -67,7 +67,7 @@
 	<h2 class="title">OSX下使用dd命令把镜像文件烧进SD卡</h2>
 	<div class="entry-content"><ol>
 <li><code>df -h</code></li>
-<li><code>unmount /dev/disk1s1</code></li>
+<li><code>diskutil unmount /dev/disk1s1</code></li>
 <li><code>diskutil list</code></li>
 <li><code>dd bs=4m if=raspbmc-final.img of=/dev/rdisk1</code></li>
 </ol>
